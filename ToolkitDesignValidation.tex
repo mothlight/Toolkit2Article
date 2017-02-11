@@ -95,8 +95,8 @@
 \newglossaryentry{sigma}{name={$\sigma$},symbol={\ensuremath{\sigma}},description={Stefan-Boltzmann constant (=5.67 $\times$ 10$^{-8}$ W m$^{-2}$K$^{-4}$)}} 
 \newglossaryentry{H}{name={$H$},symbol={\ensuremath{H}},description={sensible heat flux from LUMPS (W m$^{-2}$)}}
 \newglossaryentry{LE}{name={$LE$},symbol={\ensuremath{LE}},description={latent heat flux from LUMPS (W m$^{-2}$)}}
-\newglossaryentry{pm}{name={$pm$},symbol={\ensuremath{pm}},description={LUMPS empirical parameter (‘alpha’ parameter) – relates to surface moisture}}
-\newglossaryentry{s}{name={$s$},symbol={\ensuremath{s}},description={slope of the saturation vapour pressure–versus-temperature curve }} 
+\newglossaryentry{pm}{name={$pm$},symbol={\ensuremath{pm}},description={LUMPS empirical parameter (`alpha’ parameter) - relates to surface moisture}}
+\newglossaryentry{s}{name={$s$},symbol={\ensuremath{s}},description={slope of the saturation vapour pressure-versus-temperature curve }} 
 \newglossaryentry{gamma}{name={$\gamma$},symbol={\ensuremath{\gamma}},description={psychrometric constant}}
 \newglossaryentry{DeltaS}{name={$\Delta S$},symbol={\ensuremath{\Delta S}},description={storage heat flux from LUMPS (W m$^{-2}$)}}
 \newglossaryentry{beta}{name={$\beta$},symbol={\ensuremath{\beta}},description={LUMPS empirical parameter (beta parameter)}}
@@ -298,7 +298,7 @@ The energy balance calculations are based on the Local-scale Urban Meteorologica
 (R_{n,i}-\Delta S_{i})+ \glssymbol{beta}
 \label{eq:LE} \end{equation} 
 
-where \glssymbol{s} is the slope of the saturation vapour pressure–versus-temperature curve, \glssymbol{gamma} is the psychrometric constant and \glssymbol{pm}$_{i}$ and \glssymbol{beta} are based on a simplification of the Penman–Monteith approach, which takes into account the Priestley–Taylor coefficient; \glssymbol{pm}$_{i}$ depends on the surface moisture status, and \glssymbol{beta} is an empirical constant, set to 3 W m$^{-2}$ \citep{Grimmond2002a}. By default, the \glssymbol{pm} parameter is set using values from \cite{Hanna1992} (Table \ref{tab:surftype}). Alternatively, \glssymbol{pm} for vegetated classes can be defined as a function of stomatal resistance (sr) using $\glssymbol{pm} = 6.9\times10^{-6} sr^{2} - 0.004 sr + 1.3$ \citep{DeBruin1983}.  
+where \glssymbol{s} is the slope of the saturation vapour pressure-versus-temperature curve, \glssymbol{gamma} is the psychrometric constant and \glssymbol{pm}$_{i}$ and \glssymbol{beta} are based on a simplification of the Penman–Monteith approach, which takes into account the Priestley-Taylor coefficient; \glssymbol{pm}$_{i}$ depends on the surface moisture status, and \glssymbol{beta} is an empirical constant, set to 3 W m$^{-2}$ \citep{Grimmond2002a}. By default, the \glssymbol{pm} parameter is set using values from \cite{Hanna1992} (Table \ref{tab:surftype}). Alternatively, \glssymbol{pm} for vegetated classes can be defined as a function of stomatal resistance (sr) using $\glssymbol{pm} = 6.9\times10^{-6} sr^{2} - 0.004 sr + 1.3$ \citep{DeBruin1983}.  
 
 The objective hysteresis model (OHM) is used to calculate storage heat flux for the $i$th land cover class  \citep{Grimmond2002a} 
 
@@ -482,165 +482,55 @@ As part of the validation we conducted a range of simulations that test model pe
 
 \subsubsection{Land cover simulations}\label{sec:landcoversim} 
 
-
-
-
-
-To test model performance at simulating \glssymbol{Tsurf} of different land cover classes, and check a number of model parameters we utilised ground-based observations of \glssymbol{Tsurf} from the Melbourne metropolitan area. \cite{Coutts2016a} deployed infrared temperature sensors (SI-121 – Apogee), during February 2012, across a range of land cover types including: asphalt, concrete, grass, irrigated grass, steel roof, and water. The conditions during this period represented near-typical summertime conditions in Melbourne; including a number of days (15th, 24th, and 25th February) where air temperature exceeded 30 °C (see Figure 2.1). These hotter days were characterised by northerly winds, which bring hot and dry air from Australia's interior, and often result in heatwave conditions in Melbourne. Additionally, there was at least one cloudy day where incoming shortwave radiation (K↓) dropped significantly and negligible amount of rainfall occurred (16th February).  In addition, to assess tree \glssymbol{Tsurf} we obtained a different set of observational data from the Monash cemetery tree experiment \citep{Coutts2016b}, including \glssymbol{Tsurf} observations of the tree canopy (collected during February 2014). We also obtained a BoM meteorological forcing data for the 2014 case study period.  This period (not shown) was very similar to the February 2012 period, with typical summer days punctuated by hotter and drier northerly conditions. 
-
+To test model performance at simulating \glssymbol{Tsurf} of different land cover classes, and check a number of model parameters we utilised ground-based observations of \glssymbol{Tsurf} from the Melbourne metropolitan area. \cite{Coutts2016a} deployed infrared temperature sensors (SI-121 - Apogee), during February 2012, across a range of land cover types including: asphalt, concrete, grass, irrigated grass, steel roof, and water. The conditions during this period represented near-typical summertime conditions in Melbourne; including a number of days (15th, 24th, and 25th February) where air temperature exceeded 30\degreeC (see Figure \ref{fig:met}). These hotter days were characterised by northerly winds, which bring hot and dry air from Australia's interior, and often result in heatwave conditions in Melbourne. Additionally, there was at least one cloudy day where incoming shortwave radiation (\glssymbol{kdown}) dropped significantly and negligible amount of rainfall occurred (16th February).  In addition, to assess tree \glssymbol{Tsurf} we obtained a different set of observational data from the Monash cemetery tree experiment \citep{Coutts2016b}, including \glssymbol{Tsurf} observations of the tree canopy (collected during February 2014). We also obtained a BoM meteorological forcing data for the 2014 case study period.  This period (not shown) was very similar to the February 2012 period, with typical summer days punctuated by hotter and drier northerly conditions. 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/met1.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.65]{images/met1.png}
 ~
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/met2.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.65]{images/met2.png}
 %}
  \caption{Meteorological conditions during land cover validation period. Data source: Melbourne Airport Bureau of Meteorology (ID 086282) weather station.} \label{fig:met}
 \end{figure}
 
 
+The model was run for each of the 7 land cover types, and was forced with hourly data from Melbourne Airport Bureau of Meteorology (ID 086282) weather station data (Figure 2.1).  The following data were used as inputs: reference air temperature (\glssymbol{Ta}), incoming shortwave radiation (\glssymbol{kdown}), incoming long wave radiation (\glssymbol{ldown}), and relative humidity ($RH$). The model was spun up for 24 hours, although testing suggests minimal spin up is required. Initial conditions for average ground temperature (\glssymbol{Tm}) were obtained via Jacobs et al. (2000) TODO FIND REFERENCE and sensitivity testing. The model parameter setup is summarised in Table \ref{tab:Parameter}. As \glssymbol{Tac} was not calculated for these simulations we did not require wind speed or building height and street width information. 
 
-The model was run for each of the 7 land cover types, and was forced with hourly data from Melbourne Airport Bureau of Meteorology (ID 086282) weather station data (Figure 2.1).  The following data were used as inputs: reference air temperature (Ta), incoming shortwave radiation (K↓), incoming long wave radiation (L↓), and relative humidity (RH). The model was spun up for 24 hours, although testing suggests minimal spin up is required. Initial conditions for average ground temperature (Tm) were obtained via Jacobs et al. (2000) and sensitivity testing. The model parameter setup is summarised in Table 2.1. As \glssymbol{Tac} was not calculated for these simulations we did not require wind speed or building height and street width information. 
 
-Table 2.1: Parameter setup for all \glssymbol{Toolkit2} simulations in this report.
-%
-%Roof
-%Asphalt
-%Water 
-%Concrete
-%Tree
-%Dry grass 
-%Irrigated grass
-%
-%
-%
-%Water
-%Soil*
-%
-%
-%
-%
-%Albedo (α)
-%0.15
-%0.08
-%0.1
-%N/A
-%0.2
-%0.1
-%0.19
-%0.19
-%Emissivity (ε)
-%0.90
-%0.95
-%0.97
-%N/A
-%0.94
-%0.98
-%0.98
-%0.98
-%Heat capacity (C) (×106) 
-%0.09
-%1.94
-%4.18
-%3.03 
-%2.11
-%2.55
-%1.35
-%2.19
-%Thermal diffusivity 
-%(×10-6)
-%19.17
-%0.38
-%0.14
-%0.63
-%0.72
-%0.42
-%0.21
-%0.42
-%Ground temperature initial (Tm) (°C)**
-%25.0
-%(28.2)
-%26.0
-%(29.0)
-%25.0
-%(24.5)
-%25.0
-%(24.5)
-%26.0
-%(27.9)
-%20.0
-%(20.8)
-%20.0
-%(22.4)
-%20.0
-%(21.5)
-%OHM [a1, a2, a3]
-%[0.12, 0.24,      -4.5]
-%[0.36, 0.23,   -19.3] 
-%N/A 
-%N/A
-%[0.67, 0.31,   -31.45]
-%[0.11, 0.11,       -12.3]
-%[0.21, 0.11,         -16.10]
-%[0.32, 0.54, -27.40]
-%Alpha Penman-Monteith (pm) 
-%Hanna & Chang (1993)
-%0.0
-%0.0
-%N/A
-%N/A
-%0.0
-%1.0
-%0.2
-%1.0
-%Beta coefficient  (β) (Wm-2)
-%Grimmond & Oke (2002)
-%3
-%3
-%3
-%3
-%3
-%3
-%3
-%3
-%OHM source
-%“Suburban” - Järvi et al. (2014)
-%Asphalt -values Narita et al. (1984)
-%N/A
-%N/A
-%Asphalt -Narita et al. (1984) and Asaeda & Ca (1993). 
-%“Mixed forest” - McCaughey (1985)
-%“Unirrigated grass” - Grimond et al., (1993)
-%“Short grass” – Doll et al., (1985)
-%Thermal properties source
-%Average  of concrete (11.6 mm), air (1000 mm), wood (40 mm), and plasterboard (12.5 mm)
-%Oke (1987)
-%Oke 
-%(1987)
-%Oke 
-%(1987)
-%Oke (1987)
-%Moore and Fisch (1986)
-%Average dry sand +clay soils
-%
-%Oke (1987)
-%Average of wet + dry sand + clay
-%
-%Oke (1987)
-%** bracketed values were used in second Mawson Lakes suburb simulation – derived from 1 month spin-up
-%* soil layer beneath water
+
+\begin{table}[!htbp]
+\caption{Parameter setup for all \glssymbol{Toolkit2} simulations in this report.}  
+\label{tab:Parameter}
+  \begin{tabular}{  | p{2.5cm} | p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |} 
+	\hline  \textbf{ } & \textbf{Roof} & \textbf{Asphalt}& \textbf{Water}& \textbf{Water}& \textbf{Concrete}& \textbf{Tree}& \textbf{Dry grass}& \textbf{Irrigated grass} \\ 	
+	 \textbf{ } & \textbf{} & \textbf{}& \textbf{Water}& \textbf{Soil}\footnote{soil layer beneath water}& \textbf{}& \textbf{}& \textbf{ }& \textbf{ } \\ \hline	
+Albedo (\glssymbol{albedo}) & 0.15 & 0.08 &0.1 &N/A &0.2 &0.1 &0.19 &0.19 \\ \hline
+Emissivity (\glssymbol{epsilon})&0.90&0.95&0.97&N/A&0.94&0.98&0.98&0.98\\ \hline
+Heat capacity ($C$) ($\times10^{6}$) &0.09&1.94&4.18&3.03 &2.11&2.55&1.35&2.19\\ \hline
+Thermal diffusivity ($\times10^{-6}$)&19.17&0.38&0.14&0.63&0.72&0.42&0.21&0.42\\ \hline	
+Ground temperature initial (\glssymbol{Tm}) (\degreeC)\footnote{bracketed values were used in second Mawson Lakes suburb simulation - derived from 1 month spin-up} &25.0&26.0&25.0&25.0&26.0&20.0&20.0&20.0\\ 
+&(28.2)&(29.0)&(24.5)&(24.5)&(27.9)&(20.8)&(22.4)&(21.5) \\ \hline
+OHM [\glssymbol{a1}, \glssymbol{a2}, \glssymbol{a3}]&[0.12,0.24,-4.5]&[0.36,0.23,-19.3] &N/A &N/A&[0.67,0.31,-31.45]&[0.11,0.11,-12.3]&[0.21,0.11,-16.10]&[0.32,0.54,-27.40] \\ \hline
+Alpha Penman-Monteith (\glssymbol{pm}) \cite{Hanna1992}&0.0&0.0&N/A&N/A&0.0&1.0&0.2&1.0 \\ \hline
+Beta coefficient (\glssymbol{beta}) (W m$^{-2}$) \cite{Grimmond2002a}&3&3&3&3&3&3&3&3 \\ \hline
+OHM source &`Suburban' \cite{Jarvi2014a} &Asphalt \cite{Narita1984}&N/A&N/A&Asphalt \cite{Narita1984} and \cite{Asaeda1993} &`Mixed forest' \cite{McCaughey1985} &`Unirrigated grass' \cite{Grimmond1993}&`Short grass' \cite{Doll1985} \\ \hline
+Thermal properties source &Average  of concrete (11.6 mm), air (1000 mm), wood (40 mm), and plasterboard (12.5 mm) &\cite{Oke1987z} &\cite{Oke1987z} &\cite{Oke1987z} &\cite{Oke1987z}  &\cite{Moore1986} &Average dry sand +clay soils \cite{Oke1987z} &Average of wet + dry sand + clay \cite{Oke1987z} \\ \hline	
+  \end{tabular} 
+\end{table}
+
+
 
 \subsubsection{Suburb scale simulations (Mawson Lakes)}\label{sec:suburbsim} 
  
-In addition to the land cover category testing, we also conducted suburb scale simulations of \glssymbol{Tsurf} and \glssymbol{Tac} for Mawson Lakes, Adelaide (Figure 2.2). The suburb scale simulations utilised observational data from the Mawson Lakes field campaign, conducted 13-18th February 2011, which represented average summertime conditions in Adelaide. For these simulations the model was run on a 30 m grid over the Mawson Lakes suburb for the period 13th-18th February (Figure 2.3).  Remotely sensed land cover data from the campaign (see Figure 2.2 - right) were used to define land cover, and building height to width ratio was defined using LiDAR data \citep{Broadbent2016}. The Mawson Lakes simulations used the same parameter setup as above (summarised in Table 2.1), and were forced with meteorological data from the Kent Town Bureau of Meteorology (ID 023090) weather station. Modelled \glssymbol{Tsurf} was validated using remotely sensed ­\glssymbol{Tsurf} (night – 15th February and day – 16th February), which was resampled to 30 m resolution. T­o validate \glssymbol{Tac} we utilised data from 27 automatic weather station (AWS), which were also deployed during the Mawson Lakes field campaign (see Figure 2.2 for AWS locations). 
+In addition to the land cover category testing, we also conducted suburb scale simulations of \glssymbol{Tsurf} and \glssymbol{Tac} for Mawson Lakes, Adelaide (Figure \ref{fig:mawson}). The suburb scale simulations utilised observational data from the Mawson Lakes field campaign, conducted 13-18th February 2011, which represented average summertime conditions in Adelaide. For these simulations the model was run on a 30m grid over the Mawson Lakes suburb for the period 13th-18th February (Figure \ref{fig:met3}).  Remotely sensed land cover data from the campaign (see Figure \ref{fig:mawson} - right) were used to define land cover, and building height to width ratio was defined using LiDAR data \citep{Broadbent2016}. The Mawson Lakes simulations used the same parameter setup as above (summarised in Table \ref{tab:Parameter}), and were forced with meteorological data from the Kent Town Bureau of Meteorology (ID 023090) weather station. Modelled \glssymbol{Tsurf} was validated using remotely sensed ­\glssymbol{Tsurf} (night - 15th February and day - 16th February), which was resampled to 30 m resolution. To validate \glssymbol{Tac} we utilised data from 27 automatic weather station (AWS), which were also deployed during the Mawson Lakes field campaign (see Figure \ref{fig:mawson} for AWS locations). 
  
 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/Mawson1.jpg}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.25]{images/Mawson1.jpg}
 ~
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/Mawson2.png}
+\includegraphics[trim=30mm 194mm 142mm 28mm, clip,scale=0.78]{images/Mawson2.png}
 %}
  \caption{Mawson Lakes suburb: weather station locations (left) and land cover data (right) \citep{Broadbent2016}.} \label{fig:mawson}
 \end{figure}
@@ -648,21 +538,23 @@ In addition to the land cover category testing, we also conducted suburb scale s
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/met3.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.0]{images/met3.png}
 %}
  \caption{Meteorological condition during the Mawson Lakes field campaign \citep{Broadbent2016}.} \label{fig:met3}
 \end{figure}
 
 
-%3. Results
-%3.1 Land cover simulations
-%The \glssymbol{Tsurf} for each land cover class was simulated for a 14 day period during February 2012. The modelled \glssymbol{Tsurf} for all 3 impervious surfaces (roof, asphalt, and concrete) were reasonably well predicted with root-mean-square-errors (RMSE) of 5.16, 4.66, and 4.08 °C, respectively (Figure 3.1-3.3).  Roof and concrete \glssymbol{Tsurf} was generally slightly over-predicted at night (lower \glssymbol{Tsurf}) and under-predicted at the daily maxima (higher \glssymbol{Tsurf}); these patterns are commonly observed in other land surface models.  For asphalt, \glssymbol{Tsurf} was generally over-predicted at all temperatures. The night of the 16 February, when overnight conditions were warm, was well captured for asphalt and rooftop locations, but not well captured at the concrete site. The concrete \glssymbol{Tsurf} was anomalously high (up to 5 °C warmer than the asphalt site) on the night of 16 February, which may have been caused by a strong warm air advection effect at the concrete site. This approach probably cannot account for the effects of warm air advection on \glssymbol{Tsurf}. Nevertheless, the broad timing and magnitude of heating and cooling was well captured for all the impervious land cover types. 
-%
-%
+\subsection{Results}\label{sec:Results} 
+\subsubsection{Land cover simulations}\label{sec:landcoverresult} 
+
+
+The \glssymbol{Tsurf} for each land cover class was simulated for a 14 day period during February 2012. The modelled \glssymbol{Tsurf} for all 3 impervious surfaces (roof, asphalt, and concrete) were reasonably well predicted with root-mean-square-errors (RMSE) of 5.16, 4.66, and 4.08\degreeC, respectively (Figures \ref{fig:roofobs}, \ref{fig:concreteobs}, and \ref{fig:asphaltobs}).  Roof and concrete \glssymbol{Tsurf} was generally slightly over-predicted at night (lower \glssymbol{Tsurf}) and under-predicted at the daily maxima (higher \glssymbol{Tsurf}); these patterns are commonly observed in other land surface models.  For asphalt, \glssymbol{Tsurf} was generally over-predicted at all temperatures. The night of the 16 February, when overnight conditions were warm, was well captured for asphalt and rooftop locations, but not well captured at the concrete site. The concrete \glssymbol{Tsurf} was anomalously high (up to 5\degreeC warmer than the asphalt site) on the night of 16 February, which may have been caused by a strong warm air advection effect at the concrete site. This approach probably cannot account for the effects of warm air advection on \glssymbol{Tsurf}. Nevertheless, the broad timing and magnitude of heating and cooling was well captured for all the impervious land cover types. 
+
+
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/roofobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.68]{images/roofobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for rooftop site.} \label{fig:roofobs}
 \end{figure}
@@ -670,27 +562,27 @@ In addition to the land cover category testing, we also conducted suburb scale s
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/concreteobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.68]{images/concreteobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for concrete site.} \label{fig:concreteobs}
 \end{figure}
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/asphaltobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.88]{images/asphaltobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for asphalt site.} \label{fig:asphaltobs}
 \end{figure}
 	
 
-%
-%Irrigated grass had a lower RMSE (4.06 °C) than impervious surfaces, but this is partly because the amplitude of \glssymbol{Tsurf} variability was lower (Figure 3.4).  By contrast, dry grass had the largest RMSE of the surfaces tested (6.26 °C), as dry grass had the largest amplitude of \glssymbol{Tsurf} variability (Figure 3.5). Further, both grass surfaces exhibited the same skewing in the scatterplot as the impervious surfaces, with a general over-prediction of night-time temperatures and under-prediction of daytime maxima. 
-%
+
+Irrigated grass had a lower RMSE (4.06\degreeC) than impervious surfaces, but this is partly because the amplitude of \glssymbol{Tsurf} variability was lower (Figure \ref{fig:irrgrassobs}).  By contrast, dry grass had the largest RMSE of the surfaces tested (6.26\degreeC), as dry grass had the largest amplitude of \glssymbol{Tsurf} variability (Figure \ref{fig:drygrassobs}). Further, both grass surfaces exhibited the same skewing in the scatterplot as the impervious surfaces, with a general over-prediction of night-time temperatures and under-prediction of daytime maxima. 
+
 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/irrgrassobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.88]{images/irrgrassobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for irrigated grass site.} \label{fig:irrgrassobs}
 \end{figure}
@@ -698,23 +590,23 @@ In addition to the land cover category testing, we also conducted suburb scale s
  
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/drygrassobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.68]{images/drygrassobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for dry grass site.} \label{fig:drygrassobs}
 \end{figure}
 
 
-%
-%Model performance for water \glssymbol{Tsurf} had a low RMSE of 2.31, but the r2 value of 0.76 suggests \glssymbol{Tsurf} was predicted less accurately than other surfaces (Figure 3.6). In particular, daily maxima were under-predicted on hotter days (e.g. 14th February). \glssymbol{Toolkit2} uses a different module for water bodies (see technical notes), as the force-restore method does not work for water. This module treats water as a single layer (with depth z) overlying soil. It may be that a multi-layer water body model is needed to more accurately capture water \glssymbol{Tsurf} on hot days.  Despite the under-prediction on 14 February, the simple water body model can reproduce water \glssymbol{Tsurf} to an acceptable standard. 
-%
-%The \glssymbol{Tsurf}­ of trees had the lowest r2 suggesting that the force-restore method, which was originally designed for soil, does not work for trees (Figure 3.7). Nevertheless, the data from \cite{Coutts2016b}, suggests that reference air temperature can be used as a surrogated for tree \glssymbol{Tsurf} (Figure 3.8). Accordingly, tree \glssymbol{Tsurf} will be directly approximated using Ta in the model. 
-%
+
+Model performance for water \glssymbol{Tsurf} had a low RMSE of 2.31\degreeC, but the $r^{2}$ value of 0.76 suggests \glssymbol{Tsurf} was predicted less accurately than other surfaces (Figure \ref{fig:waterobs}). In particular, daily maxima were under-predicted on hotter days (e.g. 14th February). \glssymbol{Toolkit2} uses a different module for water bodies (see technical notes), as the force-restore method does not work for water. This module treats water as a single layer (with depth z) overlying soil. It may be that a multi-layer water body model is needed to more accurately capture water \glssymbol{Tsurf} on hot days.  Despite the under-prediction on 14 February, the simple water body model can reproduce water \glssymbol{Tsurf} to an acceptable standard. 
+
+The \glssymbol{Tsurf}­ of trees had the lowest $r^{2}$ suggesting that the force-restore method, which was originally designed for soil, does not work for trees (Figure \ref{fig:treeobs}). Nevertheless, the data from \cite{Coutts2016b}, suggests that reference air temperature can be used as a surrogated for tree \glssymbol{Tsurf} (Figure \ref{fig:airtreeobs}). Accordingly, tree \glssymbol{Tsurf} will be directly approximated using $T_{a}$ in the model. 
+
 
 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/waterobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.88]{images/waterobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for water site.} \label{fig:waterobs}
 \end{figure}
@@ -723,119 +615,108 @@ In addition to the land cover category testing, we also conducted suburb scale s
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/treeobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.68]{images/treeobs.png}
 %}
  \caption{Observed vs Modelled \glssymbol{Tsurf} for tree canopy site.} \label{fig:treeobs}
 \end{figure}
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/airtreeobs.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.88]{images/airtreeobs.png}
 %}
  \caption{Observed air temperature vs. observed tree \glssymbol{Tsurf}. It was found that air temperature is an accurate predictor of tree \glssymbol{Tsurf}.} \label{fig:airtreeobs}
 \end{figure}
 
 
+\subsubsection{Suburb scale simulations (Mawson Lakes)}\label{sec:suburbresult} 
+\paragraph{Surface temperature}\label{sec:surftempresult} 
 
-%
-%3.2 Suburb scale simulations (Mawson Lakes)
-%3.2.1 Surface temperature 
-%In addition to the land cover simulations (discussed above) we conducted suburb scale modelling of the Mawson Lakes suburb. These simulations reveal how the \glssymbol{Toolkit2} model could operationalised by practitioners who want to assess the cooling benefits of WSUD or greening initiatives. Suburb scale simulations were conducted using the same parameters as above (Table 2.1). Figure 3.9 shows the predicted \glssymbol{Tsurf} (30 m) for the Mawson Lakes domain plotted against observed \glssymbol{Tsurf} (30 m). Firstly, the model output shows that some land cover is wrongly categorised, resulting in population of grid points where modelled \glssymbol{Tsurf} is over-predicted. Additionally, large model “errors” are caused by heterogeneity of roof emissivity may have contributed to large inaccuracies in observed roof \glssymbol{Tsurf}. 
-%The results suggests that, with the default setup, both day and night \glssymbol{Tsurf} were under-predicted by model. The range of modelled nocturnal \glssymbol{Tsurf} variability (c. 8 °C) was much smaller than observed variability (c. 18 °C). This under-prediction of variability could reflect the fact that some processes that dictate the rate of nocturnal cooling, including sky-view-factor and reduced longwave heat loss, are not accounted for in this approach
-%Model testing revealed that the initial Tm parameter is important for determining nocturnal \glssymbol{Tsurf}. Accordingly, the model was run a second time for the Mawson Lakes domain, with the initial Tm defined using a 1 month spin up (see Figure 3.10). The original initial Tm values were based on assumed values for Melbourne simulations (section 3.1) and were too low for Adelaide. The increased Tm significantly improves night \glssymbol{Tsurf} performance with RMSE dropping from 3.8 to 2.6 °C and model performance for daytime \glssymbol{Tsurf} is also improved (Figure 3.10).
-%Overall, the model performance with increased Tm is improved, with the spatial variability and magnitude of \glssymbol{Tsurf} well captured. However, with higher Tm, the range of nocturnal \glssymbol{Tsurf} variability is still under-predicted.  There are at least two implications that arise for these simulations. Firstly, the initial conditions of the Tm parameter (which represents the average temperature in the surface layer) are very important for good model performance. It is recommended that users define Tm using a spin-up period – this function could be built into the model, but it does mean more data is required.  Secondly, the nocturnal \glssymbol{Tsurf} of impervious surfaces was also under-predicted in the land cover simulations (i.e. Section 3.1) under warm advection conditions. Although warm advection conditions were not observed during the Mawson Lakes campaign, it could be worthwhile further investigating this phenomenon to negate its effect and improve nocturnal \glssymbol{Tsurf} accuracy. 
-%
-%
-% 
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
+
+
+In addition to the land cover simulations (discussed above) we conducted suburb scale modelling of the Mawson Lakes suburb. These simulations reveal how the \glssymbol{Toolkit2} model could operationalised by practitioners who want to assess the cooling benefits of WSUD or greening initiatives. Suburb scale simulations were conducted using the same parameters as above (Table \ref{tab:Parameter}). Figure \ref{fig:MawsonBase} shows the predicted \glssymbol{Tsurf} (30m) for the Mawson Lakes domain plotted against observed \glssymbol{Tsurf} (30m). Firstly, the model output shows that some land cover is wrongly categorised, resulting in population of grid points where modelled \glssymbol{Tsurf} is over-predicted. Additionally, large model “errors” are caused by heterogeneity of roof emissivity may have contributed to large inaccuracies in observed roof \glssymbol{Tsurf}. 
+
+The results suggests that, with the default setup, both day and night \glssymbol{Tsurf} were under-predicted by model. The range of modelled nocturnal \glssymbol{Tsurf} variability (c. 8\degreeC) was much smaller than observed variability (c. 18\degreeC). This under-prediction of variability could reflect the fact that some processes that dictate the rate of nocturnal cooling, including sky-view-factor and reduced longwave heat loss, are not accounted for in this approach
+
+Model testing revealed that the initial \glssymbol{Tm} parameter is important for determining nocturnal \glssymbol{Tsurf}. Accordingly, the model was run a second time for the Mawson Lakes domain, with the initial \glssymbol{Tm} defined using a 1 month spin up (see Figure \ref{fig:MawsonSpin}). The original initial \glssymbol{Tm} values were based on assumed values for Melbourne simulations (Section \ref{sec:landcoverresult}) and were too low for Adelaide. The increased \glssymbol{Tm} significantly improves night \glssymbol{Tsurf} performance with RMSE dropping from 3.8 to 2.6\degreeC and model performance for daytime \glssymbol{Tsurf} is also improved (Figure \ref{fig:MawsonSpin}).
+
+Overall, the model performance with increased \glssymbol{Tm} is improved, with the spatial variability and magnitude of \glssymbol{Tsurf} well captured. However, with higher \glssymbol{Tm}, the range of nocturnal \glssymbol{Tsurf} variability is still under-predicted.  There are at least two implications that arise for these simulations. Firstly, the initial conditions of the \glssymbol{Tm} parameter (which represents the average temperature in the surface layer) are very important for good model performance. It is recommended that users define \glssymbol{Tm} using a spin-up period - this function could be built into the model, but it does mean more data is required.  Secondly, the nocturnal \glssymbol{Tsurf} of impervious surfaces was also under-predicted in the land cover simulations (i.e. Section \ref{sec:landcoverresult}) under warm advection conditions. Although warm advection conditions were not observed during the Mawson Lakes campaign, it could be worthwhile further investigating this phenomenon to negate its effect and improve nocturnal \glssymbol{Tsurf} accuracy. 
+
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonBase.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.05]{images/MawsonBase.png}
 %}
  \caption{Mawson Lakes (base run) - observed \glssymbol{Tsurf} and modelled \glssymbol{Tsurf} for day (TOP) and night (BOTTOM).} \label{fig:MawsonBase}
 \end{figure}
 
-%
-%
-
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-
-\begin{figure}[!htbp]
-%\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonSpin.png}
-%}
- \caption{Mawson Lakes (spin-up Tm run) - observed \glssymbol{Tsurf} and modelled \glssymbol{Tsurf} for day (TOP) and night (BOTTOM).} \label{fig:MawsonSpin}
-\end{figure}
-%
-%
-%
-%
-
-%3.2.2 Air temperature 
-%Spatial plots of modelled 3 am and 3 pm \glssymbol{Tac} are shown in Figure 3.11. We also extracted modelled \glssymbol{Tac} from the grid points where the 27 AWS were located (grid points were centred at the AWS) for a 2 day period (15-16th February 2011) (Figure 3.12). For the spin-up Tm, which had the best \glssymbol{Tsurf} performance (Figure 3.10), the \glssymbol{Tac} was generally well predicted (Figure 3.12).  The model tends to over-predict daily maximum \glssymbol{Tac} at all sites (Figure 3.13).  The model performed poorly at open sites with a lot of adjacent impervious surfaces (e.g. a carpark – station 1), where \glssymbol{Tac} was significantly over-predicted (this can also be seen in the Figure 3.11).  This over-prediction could occur because daytime \glssymbol{Tsurf} was slightly over-predicted (Figure 3.10), or because canyon wind speed (Ucan) was over-predicted (Figure 3.14). However, simulations with observed Ucan (not shown) produced very similar \glssymbol{Tac} results, suggesting the problem relates to \glssymbol{Tsurf} and the sensible heat flux (H).  
-%
-%
+ 
 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonModelledTas.jpg}
+\begin{center}
+\textbf{{\Large DAY (3pm 16 Feb)}}
+\end{center}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.05]{images/MawsonSpin.png}
 %}
- \caption{Modelled Tax for night (3 am) and day (3 pm) in Mawson Lakes domain (increased Tm run).} \label{fig:MawsonModelledTas}
-\end{figure}
-
-
-%The model also under-predicts nocturnal Tax at natural sites (e.g. station 23, golf course), and this may occur because grass \glssymbol{Tsurf} was under predicted at night. The model does not account for changes in atmospheric stability, which can significantly influence exchanges of heat between the atmosphere and the UCL, especially at night.  
-%Overall, the general trends in spatial and temporal variability are well captured given the simplicity of the approach used. The toolkit out-performed a more complicated and computationally demanding land surface model (SURFEX) for \glssymbol{Tac} simulations at Mawson Lakes. 
-%
-
-
-
-\begin{figure}[!htbp]
-%\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonModObs.png}
-%}
- \caption{Mawson Lakes (spin-up Tm run) - Modelled \glssymbol{Tac} vs observed \glssymbol{Tac} for 15-16th February 2011 (30 minute data).} \label{fig:MawsonModObs}
-\end{figure}
-
-\begin{figure}[!htbp]
-%\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonBox.png}
-%}
- \caption{Mawson Lakes (spin-up Tm run) – boxplot of modelled \glssymbol{Tac} (blue) vs observed \glssymbol{Tac} (red) with average, min, and max Tax shown. Boxplots were generated from 30 minute data from period 15-16th February 2011.} \label{fig:MawsonBox}
+\begin{center}
+\textbf{{\Large NIGHT (3pm 16 Feb)}}
+\end{center}
+ \caption{Mawson Lakes (spin-up \glssymbol{Tm} run) - observed \glssymbol{Tsurf} and modelled \glssymbol{Tsurf} for day (TOP) and night (BOTTOM).} \label{fig:MawsonSpin}
 \end{figure}
 
 
 
+\paragraph{Air temperature}\label{sec:airtempresult} 
+
+
+Spatial plots of modelled 3am and 3pm \glssymbol{Tac} are shown in Figure \ref{fig:MawsonModelledTas}. We also extracted modelled \glssymbol{Tac} from the grid points where the 27 AWS were located (grid points were centred at the AWS) for a 2 day period (15-16th February 2011) (Figure \ref{fig:MawsonModObs}). For the spin-up \glssymbol{Tm}, which had the best \glssymbol{Tsurf} performance (Figure \ref{fig:MawsonSpin}), the \glssymbol{Tac} was generally well predicted (Figure \ref{fig:MawsonModObs}).  The model tends to over-predict daily maximum \glssymbol{Tac} at all sites (Figure \ref{fig:MawsonBox}).  The model performed poorly at open sites with a lot of adjacent impervious surfaces (e.g. a carpark - station 1), where \glssymbol{Tac} was significantly over-predicted (this can also be seen in the Figure \ref{fig:MawsonModelledTas}).  This over-prediction could occur because daytime \glssymbol{Tsurf} was slightly over-predicted (Figure \ref{fig:MawsonSpin}), or because canyon wind speed (\glssymbol{Ucan}) was over-predicted (Figure \ref{fig:MawsonUcan}). However, simulations with observed \glssymbol{Ucan} (not shown) produced very similar \glssymbol{Tac} results, suggesting the problem relates to \glssymbol{Tsurf} and the sensible heat flux ($H$).  
+
+
+
+
+\begin{figure}[!htbp]
+
+\begin{center}
+\textbf{{\Large NIGHT (3am 15 Feb)}} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \textbf{{\Large DAY (3pm 16 Feb)}}
+\end{center}
+%\fbox{
+\includegraphics[trim=0mm 92mm 0mm 0mm, clip,scale=1.05]{images/MawsonModelledTas.jpg}
+%}
+ \caption{Modelled $T_{ax}$ for night (3 am) and day (3 pm) in Mawson Lakes domain (increased \glssymbol{Tm} run).} \label{fig:MawsonModelledTas}
+\end{figure}
+
+
+The model also under-predicts nocturnal $T_{ax}$ at natural sites (e.g. station 23, golf course), and this may occur because grass \glssymbol{Tsurf} was under predicted at night. The model does not account for changes in atmospheric stability, which can significantly influence exchanges of heat between the atmosphere and the UCL, especially at night.  
+
+Overall, the general trends in spatial and temporal variability are well captured given the simplicity of the approach used. The toolkit out-performed a more complicated and computationally demanding land surface model, SURFEX \citep{Masson2013}, for \glssymbol{Tac} simulations at Mawson Lakes. 
+
+
 
 
 \begin{figure}[!htbp]
 %\fbox{
-\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.5]{images/MawsonUcan.png}
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.0]{images/MawsonModObs.png}
 %}
- \caption{Mawson Lakes (increased Tm run) - Modelled Ucan vs observed Ucan.} \label{fig:MawsonUcan}
+ \caption{Mawson Lakes (spin-up \glssymbol{Tm} run) - Modelled \glssymbol{Tac} vs observed \glssymbol{Tac} for 15-16th February 2011 (30 minute data).} \label{fig:MawsonModObs}
+\end{figure}
+
+\begin{figure}[!htbp]
+%\fbox{
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.8]{images/MawsonBox.png}
+%}
+ \caption{Mawson Lakes (spin-up \glssymbol{Tm} run) - boxplot of modelled \glssymbol{Tac} (blue) vs observed \glssymbol{Tac} (red) with average, min, and max $T_{ax}$ shown. Boxplots were generated from 30 minute data from period 15-16th February 2011.} \label{fig:MawsonBox}
+\end{figure}
+
+
+
+
+
+\begin{figure}[!htbp]
+%\fbox{
+\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=1.0]{images/MawsonUcan.png}
+%}
+ \caption{Mawson Lakes (increased \glssymbol{Tm} run) - Modelled \glssymbol{Ucan} vs observed \glssymbol{Ucan}.} \label{fig:MawsonUcan}
 \end{figure}
 
 
