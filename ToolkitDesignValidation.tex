@@ -256,7 +256,7 @@ The model uses simple data inputs, which are designed to be easily accessible. T
 
 \subsubsection{Meteorological data}\label{sec:metdata}
 
-\glssymbol{Toolkit2} requires reference meteorological data to force the model. The model requires the following inputs: incoming shortwave radiation (\glssymbol{kdown}), incoming long wave radiation (\glssymbol{ldown}) (can be modelled if not available, see appendix), relative humidity (\glssymbol{RH}), reference level wind speed (\glssymbol{Uz}), and reference level air temperature (\glssymbol{Ta}).  Reference meteorological should be representative of background meteorological conditions (i.e. not significantly affected by microclimate effects).  We recommend using the nearest BoM airport weather station for reference meteorological data. BoM radiation data from a small selection of sites is freely available online\footnote{There are options available for modelling K↓, such as the Net All-wave Radiation Parameterization (NARP) of \cite{Offerle2003}, which could be integrated if needed.}.  However, other meteorological variables (\glssymbol{Ta}, \glssymbol{RH}, and \glssymbol{Uz}) are not always freely available and may need to be purchased from the BoM for a small fee. Alternatively, the CRCWSC could generate and make available reference meteorology datasets for each of Australian capital city. 
+\glssymbol{Toolkit2} requires reference meteorological data to force the model. The model requires the following inputs: incoming shortwave radiation (\glssymbol{kdown}), incoming long wave radiation (\glssymbol{ldown}) (can be modelled if not available, see \ref{sec:app}), relative humidity (\glssymbol{RH}), reference level wind speed (\glssymbol{Uz}), and reference level air temperature (\glssymbol{Ta}).  Reference meteorological should be representative of background meteorological conditions (i.e. not significantly affected by microclimate effects).  We recommend using the nearest BoM airport weather station for reference meteorological data. BoM radiation data from a small selection of sites is freely available online\footnote{There are options available for modelling K↓, such as the Net All-wave Radiation Parameterization (NARP) of \cite{Offerle2003}, which could be integrated if needed.}.  However, other meteorological variables (\glssymbol{Ta}, \glssymbol{RH}, and \glssymbol{Uz}) are not always freely available and may need to be purchased from the BoM for a small fee. Alternatively, the CRCWSC could generate and make available reference meteorology datasets for each of Australian capital city. 
 
 \section{Model description}\label{sec:ModelDescription}
 \subsection{Net energy}\label{sec:net}
@@ -271,7 +271,7 @@ During daylight hours (\glssymbol{kdown} $\geq$ 10) net radiation (\glssymbol{Rn
 \label{eq:rn} \end{equation} 
 
 
-where \glssymbol{albedo}$_{i}$ is \glsdesc{albedo}, \glssymbol{epsilon}$_{i}$ is \glsdesc{epsilon}, \glssymbol{Ta} is forcing air temperature (K), and \glssymbol{sigma} is the \glsdesc{sigma}. The \glssymbol{albedo}$_{i}$ and \glssymbol{epsilon}$_{i}$ values are predefined for each surface (see  Table 2.1 (TODO LABEL), validation report).  The right hand side of the equation accounts for net longwave radiation, and \glssymbol{lup} is approximated using \glssymbol{Ta}. \cite{Loridan2011}. include the term 0.08\glssymbol{kdown}$(1-\glssymbol{albedo}_{i})$ to account for the difference between near surface \glssymbol{Ta} and \glssymbol{Tsurf}. However, currently there is no correction for this difference at night. As such, we substitute Ta for. The modelled \glssymbol{Tsurf} (from 2 time steps (t) previous) is used to calculate L↑ at night. It is necessary to use  due to the method used to calculate the storage heat flux (eq. \ref{eq:ohm}), which requires \glssymbol{Rn} from the previous time step.  Testing suggests this lag does not significantly affect calculations when a 30 minute time step is used. Thus, at night (\glssymbol{kdown} $<$ 10) net radiation for i surface type is
+where \glssymbol{albedo}$_{i}$ is \glsdesc{albedo}, \glssymbol{epsilon}$_{i}$ is \glsdesc{epsilon}, \glssymbol{Ta} is forcing air temperature (K), and \glssymbol{sigma} is the \glsdesc{sigma}. The \glssymbol{albedo}$_{i}$ and \glssymbol{epsilon}$_{i}$ values are predefined for each surface (see Table \ref{tab:Parameter}), validation report).  The right hand side of the equation accounts for net longwave radiation, and \glssymbol{lup} is approximated using \glssymbol{Ta}. \cite{Loridan2011}. include the term 0.08\glssymbol{kdown}$(1-\glssymbol{albedo}_{i})$ to account for the difference between near surface \glssymbol{Ta} and \glssymbol{Tsurf}. However, currently there is no correction for this difference at night. As such, we substitute Ta for. The modelled \glssymbol{Tsurf} (from 2 time steps (t) previous) is used to calculate L↑ at night. It is necessary to use  due to the method used to calculate the storage heat flux (eq. \ref{eq:ohm}), which requires \glssymbol{Rn} from the previous time step.  Testing suggests this lag does not significantly affect calculations when a 30 minute time step is used. Thus, at night (\glssymbol{kdown} $<$ 10) net radiation for i surface type is
 
 \begin{equation} 
 \glssymbol{Rn}  
@@ -307,7 +307,7 @@ The objective hysteresis model (OHM) is used to calculate storage heat flux for 
 \label{eq:ohm} \end{equation} 
 
 
-where the three coefficients \glssymbol{a1}, \glssymbol{a2}, and \glssymbol{a3}, are defined for each surface (see examples in Table 2.1 TODO REFERENCE - validation report), and $\frac{\partial R_{n,i}}{\partial t} =0.5(R_{n,it-1} - R_{n,it+1})$  .  The $\Delta S_{i}$ is then used to calculate the surface temperature using the `force-restore' method.
+where the three coefficients \glssymbol{a1}, \glssymbol{a2}, and \glssymbol{a3}, are defined for each surface (see examples in Table \ref{tab:Parameter}), and $\frac{\partial R_{n,i}}{\partial t} =0.5(R_{n,it-1} - R_{n,it+1})$  .  The $\Delta S_{i}$ is then used to calculate the surface temperature using the `force-restore' method.
 
 
 \subsection{Surface temperature calculation (`force-restore')}\label{sec:tsurf}
@@ -499,7 +499,7 @@ The model was run for each of the 7 land cover types, and was forced with hourly
 
 
 \begin{table}[!htbp]
-\caption{Parameter setup for all \glssymbol{Toolkit2} simulations in this report.}  
+\caption{Parameter setup for all \glssymbol{Toolkit2} simulations in this article.}  
 \label{tab:Parameter}
   \begin{tabular}{  | p{2.5cm} | p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |p{1.5cm} |} 
 	\hline  \textbf{ } & \textbf{Roof} & \textbf{Asphalt}& \textbf{Water}& \textbf{Water}& \textbf{Concrete}& \textbf{Tree}& \textbf{Dry grass}& \textbf{Irrigated grass} \\ 	
