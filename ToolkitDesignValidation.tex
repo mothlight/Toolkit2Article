@@ -231,9 +231,11 @@ micro-climate modelling, urban vegetation, human thermal comfort
 
 \section{Introduction}\label{sec:introduction}
 
-
+% % Perhaps I overlook, but I didn't see any formulation regarding vegetation in the model. 
 
 This document provides a technical description of the Water Sensitive Cities Toolkit microclimate module (hereafter \glssymbol{Toolkit2}). The module is a simple modelling tool that is intended to be used to calculate surface temperature and street level (urban canopy layer [UCL]) air temperature in urban areas. The model is a tool that can be used to make quick and accurate assessments of urban microclimate with minimal input data required. \glssymbol{Toolkit2} is applicable at the micro-to-local-scales (street-to-precinct scales), meaning it can be used assess the cooling benefits of small scale interventions (e.g. a small urban park) to precinct scale greening projects. \glssymbol{Toolkit2} is primarily intended to model urban microclimate characteristics during hot and sunny summertime conditions. The model does not simulate rainfall and therefore should not be used for periods containing significant precipitation. The model can be used to simulate urban microclimate for days to weeks (i.e. a heatwave), but has not been tested or validated for longer scale simulations (i.e. months to years). 
+
+% % What does 'force-restore' mean?
 
 As outlined in Figure \ref{fig:overview}, \glssymbol{Toolkit2} calculates the net radiation (`radiation balance'), surface energy balance (`LUMPS'), and surface temperature (`force-restore') for 7 different classes including: roofs, concrete, asphalt, grass, irrigated grass, trees, and water.  For each grid point the fractional contribution of surface characteristics is used to calculate an aggregated surface temperature (\glssymbol{Tsurf}). \glssymbol{Tsurf} is converted to an average canopy layer air temperature (\glssymbol{Tac}) using a reference (Bureau of Meteorology [BoM]) wind speed (\glssymbol{Uz}) and building geometry characteristics. The air temperature above the canopy (\glssymbol{Tb}) is also calculated, allowing a simple representation of heat exchange between the above canopy atmosphere and the UCL to occur. Water bodies are treated separately to all other surfaces using simple waterbody model, which is also outlined in this report. 
 
@@ -252,7 +254,7 @@ As outlined in Figure \ref{fig:overview}, \glssymbol{Toolkit2} calculates the ne
 \subsection{Data inputs}\label{sec:datainputs}
 \subsubsection{Land cover}\label{sec:landcover}
 
-The model uses simple data inputs, which are designed to be easily accessible. The model requires the user to define the land cover fractions of building (\glssymbol{Fbldg}), concrete (\glssymbol{Fconc}), asphalt (\glssymbol{Fasph}), grass (\glssymbol{Fgras}), irrigated grass (\glssymbol{Figrs}), tree (\glssymbol{Ftree}), and water (\glssymbol{Fwatr}). These land cover categories are self-explanatory and describe most of the surfaces in urban areas. Low vegetation (shrubs and bushes) can be included in \glssymbol{Ftree} and \glssymbol{Fbldg} collectively refers to all buildings in urban areas.  In addition to the land cover fractions, the model requires average building height (\glssymbol{BH}) and street width (\glssymbol{W}) information. These data are only needed if the user intends to calculate \glssymbol{Tac}­. In future, look up tables for these land cover variables, based on land-use or local-climate zones (LCZ) \citep{Stewart2012a} could be developed. 
+The model uses simple data inputs, which are designed to be easily accessible. The model requires the user to define the land cover fractions of buildings (\glssymbol{Fbldg}), concrete surfaces (\glssymbol{Fconc}), asphalt surfaces (\glssymbol{Fasph}), grass (\glssymbol{Fgras}), irrigated grass (\glssymbol{Figrs}), tree (\glssymbol{Ftree}), and water (\glssymbol{Fwatr}). These land cover categories are self-explanatory and describe most of the surfaces in urban areas. Low vegetation (shrubs and bushes) can be included in \glssymbol{Ftree} and \glssymbol{Fbldg} collectively refers to all buildings in urban areas.  In addition to the land cover fractions, the model requires average building height (\glssymbol{BH}) and street width (\glssymbol{W}) information. These data are only needed if the user intends to calculate \glssymbol{Tac}­. In future, look up tables for these land cover variables, based on land-use or local-climate zones (LCZ) \citep{Stewart2012a} could be developed. 
 
 \subsubsection{Meteorological data}\label{sec:metdata}
 
@@ -270,6 +272,11 @@ During daylight hours (\glssymbol{kdown} $\geq$ 10) net radiation (\glssymbol{Rn
  (1-\glssymbol{albedo}_{i}) +  \glssymbol{epsilon}_{i}(\glssymbol{ldown}-\glssymbol{sigma} \glssymbol{Ta}^{4}) - 0.08\glssymbol{kdown} (1- \glssymbol{albedo}_{i})) 
 \label{eq:rn} \end{equation} 
 
+
+%Why is T_surf not directly taken from the model instead of T_a (also for the day)? Then you don't need a correction factor.
+%How is this correction factor determined? Is this correction factor site- and meteo- independent?
+
+% It is not clear to me why does calculation Rn involves  T_surf(t-2) and not T_surf(t-1). T_surf(t-1) is output from 'force-restore', so a subsequent call of the 'radiation balance' in the current timestep (t) would be able to use T_surf(t-1).
 
 where \glssymbol{albedo}$_{i}$ is \glsdesc{albedo}, \glssymbol{epsilon}$_{i}$ is \glsdesc{epsilon}, \glssymbol{Ta} is forcing air temperature (K), and \glssymbol{sigma} is the \glsdesc{sigma}. The \glssymbol{albedo}$_{i}$ and \glssymbol{epsilon}$_{i}$ values are predefined for each surface (see Table \ref{tab:Parameter}), validation report).  The right hand side of the equation accounts for net longwave radiation, and \glssymbol{lup} is approximated using \glssymbol{Ta}. \cite{Loridan2011}. include the term 0.08\glssymbol{kdown}$(1-\glssymbol{albedo}_{i})$ to account for the difference between near surface \glssymbol{Ta} and \glssymbol{Tsurf}. However, currently there is no correction for this difference at night. As such, we substitute Ta for. The modelled \glssymbol{Tsurf} (from 2 time steps (t) previous) is used to calculate L↑ at night. It is necessary to use  due to the method used to calculate the storage heat flux (eq. \ref{eq:ohm}), which requires \glssymbol{Rn} from the previous time step.  Testing suggests this lag does not significantly affect calculations when a 30 minute time step is used. Thus, at night (\glssymbol{kdown} $<$ 10) net radiation for i surface type is
 
@@ -306,6 +313,11 @@ The objective hysteresis model (OHM) is used to calculate storage heat flux for 
 \Delta S_{i} = R_{n,i} a_{1,i} + \Big( \frac{\partial R_{n,i}}{\partial t}   \Big)a_{2,i} + a_{3,i}
 \label{eq:ohm} \end{equation} 
 
+%So this means that the heat storage (hence the heat transfer between the urban canopy  atmosphere, as the residual) is parametrized according to downward radiation and the building parameters. This means that the dependency on the other atmospheric conditions, such as air temperature, wind speed (ventilation), and humidity, is neglected.
+
+%It is not clear to me how the presented a-parameters actually relate to the physical characteristics of the urban canopy (urban envelope, building/street heat capacity and conductivity, vegetation etc.). 
+
+% I think these things need to be better described/sustained in the technical description.  
 
 where the three coefficients \glssymbol{a1}, \glssymbol{a2}, and \glssymbol{a3}, are defined for each surface (see examples in Table \ref{tab:Parameter}), and $\frac{\partial R_{n,i}}{\partial t} =0.5(R_{n,it-1} - R_{n,it+1})$  .  The $\Delta S_{i}$ is then used to calculate the surface temperature using the `force-restore' method.
 
@@ -314,11 +326,19 @@ where the three coefficients \glssymbol{a1}, \glssymbol{a2}, and \glssymbol{a3},
 
 The change in surface temperature \glssymbol{Tsurf} for surface $i$ with respect to time (t) is calculated as
 
+%How do you get this kind of force-restore method? Could you provide a short explanation what it (physically) represents and a reference?
+
 \begin{equation} 
 \frac{\partial T_{surf,i}}{\partial t}= \frac{\Delta S_{i}}{C_{i} D} - \frac{2 \pi}{\tau} (T_{surf,i -1} - T_{m,it-1})
 \label{eq:force} \end{equation} 
 
+% period = day ??
+
 Where $C_{i}$ is the \glsdesc{C}, $\tau$ is the period (86400 seconds), $D = 2 \glssymbol{kappa} _{i}  / \omega 0.5$, $\glssymbol{kappa} _{i}$ is the \glsdesc{kappa}, and $\glssymbol{kappa} = 2\pi / \tau$.  The first term on the right-hand side is the forcing term that affects \glssymbol{Tsurf}, while the second term is the restore term which dampens the forcing term. The \glsdesc{Tm} ($T_{m,i}$) is calculated using
+
+%what are the units of the different variables? It would make it more easy to physically understand the different terms
+
+%It's not clear to me what this 'damping'-term means. Is this the heat transfer between the buildings and the ground below? Or is it to avoid numerical instability?
 
 \begin{equation} 
 \frac{\partial T_{m,i}}{\partial t} = \frac{\Delta S_{i}}{C_{i} D_{y}}
@@ -340,6 +360,8 @@ As the force-restore method cannot be applied to water, we use a simple a simple
 
 
 \subsection{Simple water body model}\label{sec:simplewater}
+
+% what do you mean by water?
 
 The water model in the toolkit is based on a single water layer, overlaying a soil layer. Essentially, the force-restore surface temperature model is implemented, and is overlain by a homogeneous mixed water layer (i.e. neglecting thermal stratification) representing a water body of depth z(m). The model is designed to apply to water bodies of 0.1-1.0m depths. The water model is based on the pan evaporation model of \cite{MolinaMartinez2006} which closely follows that of the lake model of \cite{Jacobs1998}. The water body model also determines the surface energy balance of the water surface. The energy balance model for the water layer is given by \citep{MolinaMartinez2006}
 
@@ -385,6 +407,8 @@ where \glssymbol{rhov} is the \glsdesc{rhov}, \glssymbol{Lv} is the \glsdesc{Lv}
 H_{wtr} = \glssymbol{rhoa} \glssymbol{cp} \glssymbol{hc} \glssymbol{Uz} (\glssymbol{Ta}-\glssymbol{Ts})
 \label{eq:hwtr} \end{equation} 
 
+%Here, a resistence formulation is used to calculated the sensible heat flux (hence depending on wind temperature etc.), whereas for the energy balance regarding the (non-water covered) buildings, QH is calculated as the residual (and not temperature and wind-speed dependent). Such different model formulation might perhaps lead to artificial non-physical discrepancies.
+
 where \glssymbol{rhoa} is the \glsdesc{rhoa}, \glssymbol{cp} the \glsdesc{cp}, and \glssymbol{hc} the \glsdesc{hc}. Returning to Eq. \ref{eq:sab2}, net long wave radiation \glssymbol{l*} = \glssymbol{Rn} - \glssymbol{k*} leaving $\Delta S_{wrt}$ from the energy balance equation, which is defined as \citep{MolinaMartinez2006}
 
 \begin{equation} 
@@ -398,6 +422,7 @@ where $\Delta t$ is change in time (seconds) and \glssymbol{Cwtr} is the \glsdes
 
 Below the water layer, the Force-Restore model (Eq. \ref{eq:force}) determines the soil surface temperature where \glssymbol{Gwtr} is equivalent to $\Delta S_{i}$  for other surfaces. The soil layer parameters are set to saturated soil where the volumetric heat capacity is set to \glssymbol{C} $= 3.03 \times 10^{6}$ (J m$^{-2}$ K$^{-1}$) and the thermal diffusivity is set to \glssymbol{kappa} $= 0.625 \times 10^{-6}$ (m$^{2}$ s$^{-1}$). 
 
+%what about the the radiation that is not absorbed by the water body but hits the soil at the bottom (cfr. beer lambert law)? Perhaps this radiation-residual needs to be added to this Delta Si? 
 
 \subsection{Calculation of urban canopy layer air temperature (\glssymbol{Tac}) }\label{sec:calcTac}
 
@@ -415,6 +440,10 @@ The \glssymbol{Tac} term is calculated following the approach outlined in Figure
 
 First we, solve the following equation for \glssymbol{Tb} (Yang et al 2011 TODO FIND THIS REFERENCE). This assumes a generic local scale \glssymbol{Ta} for the site (all grid cells). 
 
+%What is meant by 'generic local scale'. I thought Ta is a temperature that is representative for the background environment (cfr. BoF) and not for the site itself.
+
+%What are the 'grid cells'?
+
 \begin{equation} 
 H = \glssymbol{rhoa} \glssymbol{cp} \frac{\glssymbol{Ta}-\glssymbol{Tb}}{\glssymbol{ra}}
 \label{eq:H_air} \end{equation}
@@ -426,6 +455,8 @@ The canopy to atmosphere resistance (\glssymbol{ra}) is given by (Yang et al 201
 \begin{equation} 
 \glssymbol{ra} = \frac{ln^{2} \Bigg( \frac{\glssymbol{zu}-\glssymbol{d}}{\glssymbol{z0}}   \Bigg)   } {k^{2} \glssymbol{Uz}}
 \label{eq:ra} \end{equation}
+
+%It seems that a momentum-transfer resistance is calculated. Is it correct to used it in the above equation as a heat-transfer resistence? 
 
 Where \glssymbol{zu} is the \glsdesc{zu}, \glssymbol{d} is the \glsdesc{d}, and \glssymbol{z0} is the \glsdesc{z0}. 
 
