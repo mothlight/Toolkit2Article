@@ -1,278 +1,107 @@
-    %% 
-%% Copyright 2007, 2008, 2009 Elsevier Ltd
-%% 
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%% 
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%% 
-%% The list of all files belonging to the 'Elsarticle Bundle' is
-%% given in the file `manifest.txt'.
-%% 
-%% Template article for Elsevier's document class `elsarticle'
-%% with harvard style bibliographic references
-%% SP 2008/03/01
-
-%\documentclass[preprint,12pt,authoryear]{elsarticle}  %default in the template
-%\documentclass[preprint,10pt,authoryear]{elsarticle}
-
-%% Use the option review to obtain double line spacing
-%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
-
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%% \documentclass[final,1p,times,authoryear]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
-\documentclass[final,3p,times,authoryear]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
-%% \documentclass[final,5p,times,authoryear]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
-
-%% For including figures, graphicx.sty has been loaded in
-%% elsarticle.cls. If you prefer to use the old commands
-%% please give \usepackage{epsfig}
-
-%\documentclass[review]{elsarticle}
-%\usepackage[hidelinks]{hyperref}
-
-%\usepackage[inner=2.25cm, outer=2.25cm, bottom=2.25cm, top=2.25cm]{geometry}
-
-%% The amssymb package provides various useful mathematical symbols
-\usepackage{amssymb}
-%% The amsthm package provides extended theorem environments
- \usepackage{amsthm}
- \usepackage{amsmath}
- \usepackage{color}
- \usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{adjustbox}
-\usepackage[counterclockwise, figuresleft]{rotating}
-
-\usepackage{lineno}
-
-\usepackage{framed} % Framing content
-\usepackage{multicol} % Multiple columns environment
-\usepackage{nomencl} % Nomenclature package
-\makenomenclature
-%\setlength{\nomitemsep}{-\parskip} % Baseline skip between items
-\setlength{\nomitemsep}{0.01cm}
-\renewcommand*\nompreamble{\begin{multicols}{2}}
-\renewcommand*\nompostamble{\end{multicols}}
-\newcommand{\degreeC}{\ensuremath{^\circ}C }
+%% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
+%% ---------------------------------
+%% This template should be used for copernicus.cls
+%% The class file and some style files are bundled in the Copernicus Latex Package which can be downloaded from the different journal webpages.
+%% For further assistance please contact the Copernicus Publications at: publications@copernicus.org
+%% http://publications.copernicus.org
 
 
-\newcommand{\sups}{\textsuperscript}
-\newcommand{\subs}{\textsubscript}
-
-\newcommand{\TAone}{TA-1\subs{[Urb+Wtr]}}
-\newcommand{\TAtwo}{TA-2\subs{[Mxd+Wtr]}} 
-\newcommand{\TAthree}{TA-3\subs{[Urb+Mid]}}
-\newcommand{\TAfour}{TA-4\subs{[Urb+Res]}}
-\newcommand{\TAfive}{TA-5\subs{[Nat+Grs]}}
-\newcommand{\TAsix}{TA-6\subs{[outlier]}}
-
-\newcommand{\TAoneS}{TA-1\subs{[Urb+Wtr]} }
-\newcommand{\TAtwoS}{TA-2\subs{[Mxd+Wtr]} } 
-\newcommand{\TAthreeS}{TA-3\subs{[Urb+Mid]} }
-\newcommand{\TAfourS}{TA-4\subs{[Urb+Res]} }
-\newcommand{\TAfiveS}{TA-5\subs{[Nat+Grs]} }
-\newcommand{\TAsixS}{TA-6\subs{[outlier]} } 
-
-\usepackage[nonumberlist]{glossaries}
-\makeglossaries 
+%% Please use the following documentclass and Journal Abbreviations for Discussion Papers and Final Revised Papers.
 
 
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers.
-%% \usepackage{lineno}
-
-\journal{Landscape and Urban Planning}
+%% 2-Column Papers and Discussion Papers
+\documentclass[journal abbreviation, manuscript]{copernicus}
 
 
 
-\newglossaryentry{lambdaC}{name={$\lambda_{C}$},symbol={\ensuremath{\lambda_{C}}},description={ the plan area ground level surfaces (m\textsuperscript{2})}}
-
-\newglossaryentry{Ri}{name={$Ri$},symbol={\ensuremath{Ri}},description={Richardson number}}
-
-\newglossaryentry{Thigh}{name={$T_{high}$},symbol={\ensuremath{T_{high}}},description={upper level temperature for Richardson number calcuation (\degreeC)}}
-
-\newglossaryentry{Tlow}{name={$T_{low}$},symbol={\ensuremath{T_{low}}},description={lower level temperature for Richardson number calcuation (\degreeC)}}
-
-\newglossaryentry{Uhigh}{name={$U_{high}$},symbol={\ensuremath{U_{high}}},description={upper level wind speed for Richardson number calcuation (m s$^{-1}$)}}
-
-
-\newglossaryentry{Tsf}{name={$T_{surf}$},symbol={\ensuremath{T_{surf}}},description={surface temperature from the force-restore model (\degreeC)}}
-
-%\newglossaryentry{Tsfit2}{name={$T_{surf,i[t-2]}$},symbol={\ensuremath{T_{surf,i [t-2]}}},description={surface temperature from the $ith$ surface type from 2 timesteps previous (\degreeC)}}
-
-\newglossaryentry{Toolkit2}{name={TARGET},symbol={TARGET},description={CRC for Water Sensitive Cities microclimate toolkit model}}
-\newglossaryentry{SVF}{name={$SVF$},symbol={\ensuremath{SVF}},description={sky view factor}}
-\newglossaryentry{Tac}{name={$T_{ac}$},symbol={\ensuremath{T_{ac}}},description={street level (urban canopy layer) air temperature (\degreeC)}}
-\newglossaryentry{Uz}{name={$U_{z}$},symbol={\ensuremath{U_{z}}},description={reference wind speed (m s$^{-1}$)}}
-\newglossaryentry{Tb}{name={$T_{b}$},symbol={\ensuremath{T_{b}}},description={the air temperature above the urban canopy layer (\degreeC)}}
-
-\newglossaryentry{Fi}{name={$F_{i}$},symbol={$F_{i}$},description={fraction of land cover type $i$ (\%)}} 
-\newglossaryentry{Fbldg}{name={$F_{roof}$},symbol={$F_{roof}$},description={land cover building fraction (\%)}} 
-\newglossaryentry{Fwall}{name={$F_{wall}$},symbol={$F_{wall}$},description={land cover wall fraction (\%)}} 
-\newglossaryentry{Fconc}{name={$F_{conc}$},symbol={$F_{conc}$},description={land cover concrete fraction (\%)}} 
-\newglossaryentry{Fasph}{name={$F_{asph}$},symbol={$F_{asph}$},description={land cover asphalt fraction (\%)}} 
-\newglossaryentry{Fgras}{name={$F_{gras}$},symbol={$F_{gras}$},description={land cover grass fraction (\%)}} 
-\newglossaryentry{Figrs}{name={$F_{igrs}$},symbol={$F_{igrs}$},description={land cover irrigated grass fraction (\%)}} 
-\newglossaryentry{Ftree}{name={$F_{tree}$},symbol={$F_{tree}$},description={land cover tree fraction (\%)}} 
-\newglossaryentry{Fwatr}{name={$F_{watr}$},symbol={$F_{watr}$},description={land cover water fraction (\%)}} 
-
-%\newglossaryentry{Ai}{name={$A_{i}$},symbol={\ensuremath{A_{i}}},description={total area of surface type $i$ (m)}} 
-
-\newglossaryentry{Abldg}{name={$A_{roof}$},symbol={\ensuremath{A_{roof}}},description={land cover building plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Awall}{name={$A_{wall}$},symbol={\ensuremath{A_{wall}}},description={land cover wall plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Aconc}{name={$A_{conc}$},symbol={\ensuremath{A_{conc}}},description={land cover concrete plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Aasph}{name={$A_{asph}$},symbol={\ensuremath{A_{asph}}},description={land cover asphalt plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Agras}{name={$A_{gras}$},symbol={\ensuremath{A_{gras}}},description={land cover grass plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Aigrs}{name={$A_{igrs}$},symbol={\ensuremath{A_{igrs}}},description={land cover irrigated grass plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Atree}{name={$A_{tree}$},symbol={\ensuremath{A_{tree}}},description={land cover tree plan area (m\textsuperscript{2})}} 
-\newglossaryentry{Awatr}{name={$A_{watr}$},symbol={\ensuremath{A_{watr}}},description={land cover water plan area (m\textsuperscript{2})}} 
-
-\newglossaryentry{Acan} {name={$A_{can}$} ,symbol={\ensuremath{A_{can}}},description={2-D surface area of the canyon (m)}} 
-\newglossaryentry{Ahorz}{name={$A_{horz}$},symbol={\ensuremath{A_{horz}}},description={2-D horizontal area of the canyon (excluding walls)}} 
+%% Journal Abbreviations (Please use the same for Discussion Papers and Final Revised Papers)
+% Archives Animal Breeding (aab)
+% Atmospheric Chemistry and Physics (acp)
+% Advances in Geosciences (adgeo)
+% Advances in Statistical Climatology, Meteorology and Oceanography (ascmo)
+% Annales Geophysicae (angeo)
+% ASTRA Proceedings (ap)
+% Atmospheric Measurement Techniques (amt)
+% Advances in Radio Science (ars)
+% Advances in Science and Research (asr)
+% Biogeosciences (bg)
+% Climate of the Past (cp)
+% Drinking Water Engineering and Science (dwes)
+% Earth System Dynamics (esd)
+% Earth Surface Dynamics (esurf)
+% Earth System Science Data (essd)
+% Fossil Record (fr)
+% Geographica Helvetica (gh)
+% Geoscientific Instrumentation, Methods and Data Systems (gi)
+% Geoscientific Model Development (gmd)
+% Geothermal Energy Science (gtes)
+% Hydrology and Earth System Sciences (hess)
+% History of Geo- and Space Sciences (hgss)
+% Journal of Sensors and Sensor Systems (jsss)
+% Mechanical Sciences (ms)
+% Natural Hazards and Earth System Sciences (nhess)
+% Nonlinear Processes in Geophysics (npg)
+% Ocean Science (os)
+% Proceedings of the International Association of Hydrological Sciences (piahs)
+% Primate Biology (pb)
+% Scientific Drilling (sd)
+% SOIL (soil)
+% Solid Earth (se)
+% The Cryosphere (tc)
+% Web Ecology (we)
+% Wind Energy Science (wes)
 
 
-
-\newglossaryentry{W}{name={$W$},symbol={\ensuremath{W}},description={average street width (m)}}
-\newglossaryentry{W*}{name={$W*$},symbol={\ensuremath{W*}},description={average street width minus tree width (m)}}
-\newglossaryentry{Wtree}{name={$W_{tree}$},symbol={\ensuremath{W_{tree}}},description={tree width (m)}}
-\newglossaryentry{Wroof}{name={$W_{roof}$},symbol={\ensuremath{W_{roof}}},description={roof width (m)}}
-
-
-\newglossaryentry{BH}{name={$H$},symbol={\ensuremath{H}},description={average building height (m)}}
-\newglossaryentry{kdown}{name={$K\downarrow$},symbol={\ensuremath{K\downarrow}},description={incoming shortwave radiation (W m$^{-2}$)}}
-\newglossaryentry{lup}{name={$L\uparrow$},symbol={\ensuremath{L\uparrow}},description={outgoing longwave radiation (W m$^{-2}$)}}
-\newglossaryentry{ldown}{name={$L\downarrow$},symbol={\ensuremath{L\downarrow}},description={incoming longwave radiation (W m$^{-2}$)}}
-\newglossaryentry{l*}{name={$L_{n}$},symbol={\ensuremath{L_{n}}},description={net longwave radiation (W m$^{-2}$)}}
-\newglossaryentry{k*}{name={$K_{n}$},symbol={\ensuremath{K_{n}}},description={net shortwave radiation (W m$^{-2}$)}}
-\newglossaryentry{RH}{name={$RH$},symbol={\ensuremath{RH}},description={relative humidity (\%)}}
-\newglossaryentry{Ta}{name={$T_{a}$},symbol={\ensuremath{T_{a}}},description={reference air temperature (\degreeC)}}
-\newglossaryentry{Rn}{name={$R_{n}$},symbol={\ensuremath{R_{n}}},description={net radiation (W m$^{-2}$)}}
-
-%\newglossaryentry{Rni}{name={$R_{n,i}$},symbol={\ensuremath{R_{n,i}}},description={net radiation of the $ith$ surface (W m$^{-2}$)}}
-
-
-
-
-
-\newglossaryentry{albedo}{name={$\alpha$},symbol={\ensuremath{\alpha}},description={surface albedo}}
-\newglossaryentry{epsilon}{name={$\epsilon$},symbol={\ensuremath{\epsilon}},description={surface emissivity}}
-\newglossaryentry{sigma}{name={$\sigma$},symbol={\ensuremath{\sigma}},description={Stefan-Boltzmann constant (5.67 $\times$ 10$^{-8}$ W m$^{-2}$K$^{-4}$)}} 
-
-\newglossaryentry{H}{name={$Q_{H,i}$},symbol={\ensuremath{Q_{H,i}}},description={sensible heat flux for surface $i$ from LUMPS (W m$^{-2}$)}}
-\newglossaryentry{LE}{name={$Q_{E,i}$},symbol={\ensuremath{Q_{E,i}}},description={latent heat flux for surface $i$ from LUMPS (W m$^{-2}$)}}
-\newglossaryentry{DeltaS}{name={$Q_{G,i}$},symbol={\ensuremath{Q_{G,i}}},description={storage heat flux for surface type $i$ from LUMPS (W m$^{-2}$)}}
-
-\newglossaryentry{pm}{name={$\alpha_{pm}$},symbol={\ensuremath{\alpha_{pm}}},description={LUMPS empirical parameter (alpha parameter) - relates to surface moisture}}
-\newglossaryentry{s}{name={$s$},symbol={\ensuremath{s}},description={slope of the saturation vapour pressure-versus-temperature curve }} 
-\newglossaryentry{gamma}{name={$\gamma$},symbol={\ensuremath{\gamma}},description={psychrometric constant}}
-
-
-
-
-\newglossaryentry{beta}{name={$\beta$},symbol={\ensuremath{\beta}},description={LUMPS empirical parameter (beta parameter)}}
-\newglossaryentry{betak}{name={$\beta_{k}$},symbol={\ensuremath{\beta_{k}}},description={amount of shortwave radiation immediately absorbed by the water layer (set to 0.45)}}
-\newglossaryentry{a1}{name={$a_{1}$},symbol={\ensuremath{a_{1}}},description={Objective hysteresis model (OHM) parameter}}
-\newglossaryentry{a2}{name={$a_{2}$},symbol={\ensuremath{a_{2}}},description={Objective hysteresis model (OHM) parameter}}
-\newglossaryentry{a3}{name={$a_{3}$},symbol={\ensuremath{a_{3}}},description={Objective hysteresis model (OHM) parameter}}
-\newglossaryentry{C}{name={$C$},symbol={\ensuremath{C}},description={volumetric heat capacity (J m$^{-3}$ K$^{-1}$)}}
-\newglossaryentry{kappa}{name={$\kappa$},symbol={\ensuremath{\kappa}},description={thermal diffusivity (m$^{2}$ s$^{-1}$)}}
-\newglossaryentry{Tm}{name={$T_{m}$},symbol={\ensuremath{T_{m}}},description={average soil (ground) temperature (\degreeC)}}
-\newglossaryentry{Dy}{name={$D_{y}$},symbol={\ensuremath{D_{y}}},description={damping depth for the annual temperature cycle (m)}}
-\newglossaryentry{Sab}{name={$S_{ab}$},symbol={\ensuremath{S_{ab}}},description={absorbed shortwave radiation (W m$^{-2}$)}}
-
-\newglossaryentry{Gwatr}{name={$Q_{G,watr}$},symbol={\ensuremath{Q_{G,watr}}},description={convective heat flux at the bottom of the water layer (and into the soil below) (W m$^{-2}$)}}
-\newglossaryentry{deltaSwatr}{name={$\Delta Q_{S,watr}$},symbol={\ensuremath{\Delta Q_{S,watr}}},description={change in heat storage of the water layer (W m$^{-2}$)}}
-\newglossaryentry{Hwatr}{name={$Q_{H,watr}$},symbol={\ensuremath{Q_{H,watr}}},description={sensible heat flux for water surface (W m$^{-2}$)}}
-\newglossaryentry{LEwatr}{name={$Q_{E,watr}$},symbol={\ensuremath{Q_{E,watr}}},description={latent heat flux for water surface  (W m$^{-2}$)}}
-
-
-\newglossaryentry{eta}{name={$\eta$},symbol={\ensuremath{\eta}},description={extinction coefficient}}
-\newglossaryentry{Cwatr}{name={$C_{watr}$},symbol={\ensuremath{C_{watr}}},description={volumetric heat capacity of water (4.18$\times$10$^{6}$ J m$^{-3}$ K$^{-1}$)}}
-\newglossaryentry{kwatr}{name={$\kappa_{watr}$},symbol={\ensuremath{\kappa_{watr}}},description={eddy diffusivity of water (m$^{2}$ s$^{-1}$)}}
-\newglossaryentry{Twatr}{name={$T_{surf,watr}$},symbol={\ensuremath{T_{surf,watr}}},description={water surface temperature from simple water-body model (\degreeC)}}
-\newglossaryentry{Tsoilw}{name={$T_{soil}$},symbol={\ensuremath{T_{soil}}},description={soil temperature (\degreeC)}}
-\newglossaryentry{rhov}{name={$\rho v$},symbol={\ensuremath{\rho v}},description={density of moist air (kg m$^{-3}$)}}
-\newglossaryentry{Lv}{name={$L_{v}$},symbol={\ensuremath{L_{v}}},description={latent heat of vaporisation (=2.43 MJ kg$^{-1}$)}}
-\newglossaryentry{hv}{name={$h_{v}$},symbol={\ensuremath{h_{v}}},description={bulk transfer coefficient for moisture (=1.4 $\times$ 10$^{-3}$)}}  
-\newglossaryentry{qa}{name={$q_{a}$},symbol={\ensuremath{q_{a}}},description={specific humidity (kg kg$^{-1}$)}}
-\newglossaryentry{qs}{name={$q_{s}$},symbol={\ensuremath{q_{s}}},description={saturated specific humidity (kg kg$^{-1}$) }}  
-\newglossaryentry{rhoa}{name={$\rho_{a}$},symbol={\ensuremath{\rho_{a}}},description={density of dry air (=1.2 kg m$^{-3}$)}} 
-\newglossaryentry{cp}{name={$C_{p}$},symbol={\ensuremath{C_{p}}},description={specific heat of air (1013 J kg$^{-1}$ K$^{-1}$)}}
-\newglossaryentry{hc}{name={$h_{c}$},symbol={\ensuremath{h_{c}}},description={bulk transfer coefficient for heat ($h_{c} = h_{v}$)}}
-%\newglossaryentry{Cwatr}{name={$C_{watr}$},symbol={\ensuremath{C_{watr}}},description={volumetric heat capacity of water (J m$^{-2}$ K$^{-1}$)}}
-\newglossaryentry{ra}{name={$r_{a}$},symbol={\ensuremath{r_{a}}},description={resistance from urban canopy to the atmosphere (s m$^{-1}$)}}
-\newglossaryentry{zu}{name={$z_{u}$},symbol={\ensuremath{z_{u}}},description={reference wind speed measurement height (typically 10 m)}}
-\newglossaryentry{d}{name={$d$},symbol={\ensuremath{d}},description={zero plane displacement height (2/3 height of roughness elements, m)}}  
-\newglossaryentry{z0}{name={$z_{0}$},symbol={\ensuremath{z_{0}}},description={roughness length (0.1 $\times$ height of roughness elements)}} 
-
-\newglossaryentry{zwatr}{name={$d_{watr}$},symbol={\ensuremath{d_{watr}}},description={depth of water body (m)}}
-
-
-\newglossaryentry{Hca}{name={$c_{a}$},symbol={\ensuremath{c_{a}}},description={conductance from urban canopy to the above canopy surface layer (m s$^{-1}$)}}
-\newglossaryentry{Hcs}{name={$c_{s}$},symbol={\ensuremath{c_{s}}},description={conductance from surface to urban canopy layer (m s$^{-1}$)}}
-\newglossaryentry{rs}{name={$r_{s}$},symbol={\ensuremath{r_{s}}},description={resistance from surface to canopy (s m$^{-1}$)}}
-\newglossaryentry{Ucan}{name={$U_{can}$},symbol={\ensuremath{U_{can}}},description={wind speed in canyon (m s$^{-1}$)}}
-\newglossaryentry{Utop}{name={$U_{top}$},symbol={\ensuremath{U_{top}}},description={wind speed at the top of the canyon (m s$^{-1}$)}}
-  
-\newglossaryentry{aa}{name={$a$},symbol={\ensuremath{a}},description={a}}
-
- 
-%hv = bulk transfer coefficient for moisture (1.4×10$^{-3}$) 
-
-%ra = resistance from urban canopy to the atmosphere (s m$^{-1}$)	
-
-
-%βK = amount of shortwave radiation immediately absorbed by the water layer (set to 0.45)
-%η = extinction coefficient
-%κwatr = eddy diffusivity of water (m$^{2}$ s$^{-1}$)
-
+%% \usepackage commands included in the copernicus.cls:
+%\usepackage[german, english]{babel}
+%\usepackage{tabularx}
+%\usepackage{cancel}
+%\usepackage{multirow}
+%\usepackage{supertabular}
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{amsthm}
+%\usepackage{float}
+%\usepackage{subfig}
+%\usepackage{rotating}
 
 
 
 \begin{document}
 
-\linenumbers
-
-
-
-\begin{frontmatter}
-
-%% Title, authors and addresses
-
-
-
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for theassociated footnote;
-%% use the fnref command within \author or \address for footnotes;
-%% use the fntext command for theassociated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for theassociated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \address{Address\fnref{label3}}
-%% \fntext[label3]{}
-
 \title{The Air-temperature Response to Green/blue-infrastructure Evaluation Tool (TARGET): an efficient and user-friendly model of city cooling.} 
+% \Author[affil]{given_name}{surname}
+\Author[1,2,3,4]{Ashley~M.}{Broadbent}
+\Author[3,4]{Andrew M.}{Coutts}
+\Author[3,4,5]{Kerry A.}{Nice}
+\Author[6,7]{Matthias}{Demuzere} 
+\Author[8,1,2]{E. Scott}{Krayenhoff} 
+\Author[3,4]{Nigel J.}{Tapper}
+\Author[7,6]{Hendrik}{Wouters} 
 
+\affil[1]{School of Geographical Sciences and Urban Planning, Arizona State University, Tempe, Arizona, USA}
+\affil[2]{Urban Climate Research Center, Arizona State University, Tempe, Arizona, USA}
+\affil[3]{School of Earth, Atmosphere and Environment, Monash University, Clayton, Australia}
+\affil[4]{Cooperative Research Centre for Water Sensitive Cities, Melbourne, Australia}
+\affil[5]{Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria, Australia}
+\affil[6]{Ghent University, Laboratory of Hydrology and Water Management, Ghent, Belgium}
+\affil[7]{KU Leuven, Department of Earth and Environmental Sciences, Celestijnenlaan,  Leuven, Belgium}
+\affil[8]{School of Environmental Sciences, University of Guelph, Guelph, Ontario, Canada.}
+%\affil[]{ADDRESS}
+%% The [] brackets identify the author with the corresponding affiliation. 1, 2, 3, etc. should be inserted.
+\runningtitle{The Air-temperature Response to Green/blue-infrastructure Evaluation Tool (TARGET)}
+
+\runningauthor{Ashley~M.~Broadbent}
+\correspondence{Ashley~M.~Broadbent (ashley.broadbent@asu.edu)}
+\received{}
+\pubdiscuss{} %% only important for two-stage journals
+\revised{}
+\accepted{}
+\published{}
+%% These dates will be inserted by Copernicus Publications during the typesetting process.
+\firstpage{1}
+\maketitle
+%%%%%%%%%%%%%%%%
 
 
 
@@ -280,27 +109,23 @@
 
 \begin{abstract}
 
-%Interest in urban climate has grown rapidly in the last decade.  
-The adverse impacts of urban heat islands and global climate change are leading policy-makers to consider green and blue infrastructure (GBI)  for heat mitigation benefits.  Though many models exist to evaluate the cooling impacts of GBI, their complexity and computational demand leave them largely inaccessible to those  without specialist expertise and computing facilities. Here a new model called \textbf{T}he \textbf{A}ir-temperature \textbf{R}esponse to \textbf{G}reen/blue-infrastructure \textbf{E}valuation \textbf{T}ool (\glssymbol{Toolkit2}) is presented. TARGET is designed to be efficient and easy to use, with fewer user-defined parameters and less model input data required than other urban climate models.  TARGET can be used to model street level air temperature at fine spatial scales (e.g. 30 m), meaning it can be used at the street, precinct, or city scales. The model aims to balance realistic representation of physical processes and computation efficiency.  An evaluation  against two different datasets shows that TARGET can reproduce the magnitude and patterns of both air temperature and surface temperature within suburban environments.  To demonstrate the utility of the model for planners and policy-makers,  the results from two precinct-scale heat mitigation scenarios are presented. TARGET will be made available to the public and ongoing development, including a graphical user interface, is planned for future work.  
+The adverse impacts of urban heat islands and global climate change are leading policy-makers to consider green and blue infrastructure (GBI)  for heat mitigation benefits.  Though many models exist to evaluate the cooling impacts of GBI, their complexity and computational demand leave them largely inaccessible to those  without specialist expertise and computing facilities. Here a new model called \textbf{T}he \textbf{A}ir-temperature \textbf{R}esponse to \textbf{G}reen/blue-infrastructure \textbf{E}valuation \textbf{T}ool (TARGET) is presented. TARGET is designed to be efficient and easy to use, with fewer user-defined parameters and less model input data required than other urban climate models.  TARGET can be used to model street level air temperature at fine spatial scales (e.g. 30 m), meaning it can be used at the street, precinct, or city scales. The model aims to balance realistic representation of physical processes and computation efficiency.  An evaluation  against two different datasets shows that TARGET can reproduce the magnitude and patterns of both air temperature and surface temperature within suburban environments.  To demonstrate the utility of the model for planners and policy-makers,  the results from two precinct-scale heat mitigation scenarios are presented. TARGET will be made available to the public and ongoing development, including a graphical user interface, is planned for future work.    
 
-
-%\nomenclature{$T_{mrt}$}{mean radiant temperature (\SI{}{\degreeCelsius})}  
-%\nomenclature{$UTCI$}{universal thermal climate index}
 \end{abstract}
 
 
-\begin{keyword}
-microclimate modelling, urban vegetation, human thermal comfort, air temperature cooling, urban heat, green infrastructure
-%% keywords here, in the form: keyword \sep keyword
-
-%% PACS codes here, in the form: \PACS code \sep code
-
-%% MSC codes here, in the form: \MSC code \sep code
-%% or \MSC[2008] code \sep code (2000 is the default)
-
-\end{keyword}
-
-\end{frontmatter}
+%\begin{keyword}
+%microclimate modelling, urban vegetation, human thermal comfort, air temperature cooling, urban heat, green infrastructure
+%%% keywords here, in the form: keyword \sep keyword
+%
+%%% PACS codes here, in the form: \PACS code \sep code
+%
+%%% MSC codes here, in the form: \MSC code \sep code
+%%% or \MSC[2008] code \sep code (2000 is the default)
+%
+%\end{keyword}
+%
+%\end{frontmatter}
 
 %\begin{table*}[!t]   
 %\begin{framed}
@@ -320,7 +145,6 @@ microclimate modelling, urban vegetation, human thermal comfort, air temperature
 \section{Introduction}\label{sec:introduction}
 
 
-%Policy and decision makers  are  increasingly aware of the cooling potential of  green and blue infrastructure. Recent examples of this include the Australian Federal Government's 20 Millon Trees Program and Singapore Green Plan.  Governments and urban planners wish to evaluate the cooling effects of design/planning options. Concurrently, urban climate models are becoming more  complex, allowing more complete representation of  urban physics; however, the complexity of urban climate models renders them inaccessible to consultants, who typically work for designers and planners. Commonly used urban climate models, such as the Weather Research and Forecasting (WRF) model (REF) and Envi-MET (REF) require trained research scientists and significant computational resources to run. As a result, consultants who often work with planners and policy makers usually provide  generic and unsubstantiated estimates of cooling magnitudes. Consequently, there is a need for simple, computationally efficient, and  scientifically-defensible urban climate models that can be used by consultants to provide reliable estimates of cooling to governmental planners and policy-makers.
 
 Policy and decision-makers  are  increasingly aware of the cooling potential of  green and blue infrastructure (GBI). Recent examples of this include the Australian Federal Government's 20 Millon Trees Program \citep{CommonwealthofAustralia2017} and Singapore Green Plan \citep{SMEWR2012}.  Governments and urban planners wish to evaluate the cooling effects of design/planning options. Concurrently, urban climate models are becoming more  complex, allowing more complete representation of  urban physics; however, the complexity of urban climate models renders them inaccessible to consultants \citep{Elasson2000}, who typically work for designers and planners. Commonly used urban climate models, such as the Weather Research and Forecasting (WRF) model 
 \citep{Skamarock2008} and ENVI-met \citep{Bruse1999} require trained research scientists and significant computational resources to run. As a result, consultants usually provide generic and unsubstantiated estimates of cooling magnitudes. Consequently, there is a need for simple, computationally efficient, and  scientifically-defensible urban climate models that can be used by consultants to provide reliable estimates of cooling to governmental planners and policy-makers. 
@@ -333,9 +157,7 @@ The canyon air temperature (CAT) model \citep{Erell2006} shows potential as a co
 
 While not an air temperature model, the Local-Scale Urban Meteorological Parameterization Scheme (LUMPS) \citep{Grimmond2002a} has been widely used  to assess the impacts of GBI on surface energy balance (SEB). The Surface Urban Energy and Water Balance Scheme (SUEWS) \citep{Jarvi2011}, a superset of LUMPS adding urban water balance functionality, provides a means to assess vegetation (and associated soil) transpiration impacts at local scales and. SUEWS shows good performance in SEB evaluations for Vancouver and Los Angeles \citep{Jarvi2011}, Helsinki \citep{Jarvi2014a}, and Singapore \citep{demuzere2017impact}. Due to the success and simplicity of the LUMPS model we use it as a key component of this project.  
 
-The lack of an efficient yet accessible tool for assessing GBI has been identified as a research gap. Here we introduce and evaluate a new model called \textbf{T}he \textbf{A}ir-temperature \textbf{R}esponse to \textbf{G}reen/blue-infrastructure \textbf{E}valuation \textbf{T}ool (\glssymbol{Toolkit2}). \glssymbol{Toolkit2} a simple modelling tool that calculates surface temperature and street level (below roof height) air temperature in urban areas. \glssymbol{Toolkit2} is designed to make quick and accurate assessments of urban microclimate and blue/green infrastructure cooling with minimal input data. \glssymbol{Toolkit2} is formulated to be applied at the micro-to-local-scales (street-to-precinct scales); meaning it can be used to assess the cooling benefits of small scale interventions (e.g. a single street or small urban park) to suburb scale greening projects. The computational efficiency of the model is such that a user (with 1--2 hours of training) could calculate in minutes the 30 m horizontal resolution  cooling effects, on a normal desktop computer, across an entire suburb/local-government area or neighbourhood. 
-
-%An efficient, rigorous and easy to use model is required and does not yet exist. This article introduces and evaluates a new model called \textbf{T}he \textbf{A}ir-temperature \textbf{R}esponse to \textbf{G}reen/blue-infrastructure \textbf{E}valuation \textbf{T}ool (\glssymbol{Toolkit2}). \glssymbol{Toolkit2}, a simple modelling tool that calculates surface temperature and street level (below roof height) air temperature in urban areas. \glssymbol{Toolkit2} is designed to make quick and accurate assessments of urban microclimate and blue/green infrastructure cooling with minimal input data. \glssymbol{Toolkit2} is formulated to be applied at the micro-to-local-scales (street-to-precinct scales); meaning it can be used to assess the cooling benefits of small scale interventions (e.g. a single street or small urban park) to suburb scale greening projects. The computational efficiency of the model is such that a user (with 1--2 hours of training) could calculate 30 m horizontal resolution  cooling effects, on normal desktop computer, across an entire suburb/local-government area or neighbourhood in minutes. 
+The lack of an efficient yet accessible tool for assessing GBI has been identified as a research gap. Here we introduce and evaluate a new model called \textbf{T}he \textbf{A}ir-temperature \textbf{R}esponse to \textbf{G}reen/blue-infrastructure \textbf{E}valuation \textbf{T}ool (TARGET). TARGET a simple modelling tool that calculates surface temperature and street level (below roof height) air temperature in urban areas. TARGET is designed to make quick and accurate assessments of urban microclimate and blue/green infrastructure cooling with minimal input data. TARGET is formulated to be applied at the micro-to-local-scales (street-to-precinct scales); meaning it can be used to assess the cooling benefits of small scale interventions (e.g. a single street or small urban park) to suburb scale greening projects. The computational efficiency of the model is such that a user (with 1--2 hours of training) could calculate in minutes the 30 m horizontal resolution  cooling effects, on a normal desktop computer, across an entire suburb/local-government area or neighbourhood. 
 
 The main aims of this paper are the following: (1) to provide a technical description of TARGET; (2) to provide detailed evaluation of model performances; and (3) to provide proof of concept, and illustrate how the model could be operationalized  by a consultants and practitioners.
 
@@ -344,9 +166,9 @@ The main aims of this paper are the following: (1) to provide a technical descri
 \section{Model description}\label{sec:ModelOverview}
 \subsection{Model overview}
 
-As outlined in Figure \ref{fig:canyon}, \glssymbol{Toolkit2} treats each model grid point as an idealized urban canyon with roofs, walls, and  ground-level facets.   Roof width (\glssymbol{Wroof}), building  height (\glssymbol{BH}), tree width (\glssymbol{Wtree}),  street width (\glssymbol{W})  are used to define the geometry of the canyon. The thermal and radiative characteristics of roofs and walls are considered to be uniform. At street level, the surfaces  can be defined as: concrete, asphalt, grass, irrigated grass, and water. Trees are represented at roof height and the surfaces beneath trees are considered to be representative of the ground level surfaces. 
-%Trees are represented at ground level in \glssymbol{Toolkit2} and  surfaces directly beneath trees are currently not represented in the model, but are approximated as thermally inactive due to the tree shading. 
-Additionally, water bodies are treated separately to all other surfaces using an independent  module. More details about the model process is shown in Figure \ref{fig:overview}. For each grid point, the average surface characteristics are used to calculate an aggregated surface temperature (\glssymbol{Tsf}). \glssymbol{Tsf} is converted to an average canopy layer air temperature (\glssymbol{Tac}), using a estimated canopy wind speed (\glssymbol{Ucan}), and above canopy air temperature (\glssymbol{Tb}).  A uniform \glssymbol{Tb} for all grid points is diagnosed for each timestep using reference meteorological variables. 
+As outlined in Figure \ref{fig:canyon}, TARGET treats each model grid point as an idealized urban canyon with roofs, walls, and  ground-level facets.   Roof width ($W_{roof}$), building  height ($H$), tree width ($W_{tree}$),  street width ($W$)  are used to define the geometry of the canyon. The thermal and radiative characteristics of roofs and walls are considered to be uniform. At street level, the surfaces  can be defined as: concrete, asphalt, grass, irrigated grass, and water. Trees are represented at roof height and the surfaces beneath trees are considered to be representative of the ground level surfaces. 
+ 
+Additionally, water bodies are treated separately to all other surfaces using an independent  module. More details about the model process is shown in Figure \ref{fig:overview}. For each grid point, the average surface characteristics are used to calculate an aggregated surface temperature ($T_{surf}$). $T_{surf}$ is converted to an average canopy layer air temperature ($T_{ac}$), using a estimated canopy wind speed ($U_{can}$), and above canopy air temperature (\ensuremath{T_{b}}).  A uniform \ensuremath{T_{b}} for all grid points is diagnosed for each timestep using reference meteorological variables. 
 
 
 \begin{figure}[!htbp]
@@ -354,17 +176,19 @@ Additionally, water bodies are treated separately to all other surfaces using an
 
 \includegraphics[width=0.8\textwidth,keepaspectratio]{figure2.png}
 
- \caption{Schematic of \glssymbol{Toolkit2} urban canyon setup. \glssymbol{Tac} = canopy layer air temperature and \glssymbol{Tb} = above canopy air temperature, which is a uniform value across the whole domain. \glssymbol{Wroof} is the roof width, \glssymbol{Wtree} is the tree width, \glssymbol{W} is canyon width, and \glssymbol{W*} = $\glssymbol{W} - \glssymbol{Wtree}$. The surface beneath trees is assumed to be representative of  canyon ground-level surfaces. } \label{fig:canyon}
+\caption{Schematic of TARGET urban canyon setup. $T_{ac}$ = canopy layer air temperature and \ensuremath{T_{b}} = above canopy air temperature, which is a uniform value across the whole domain. $W_{roof}$ is the roof width, $W_{tree}$ is the tree width, $W$ is canyon width, and $W* = W - W_{tree}$. The surface beneath trees is assumed to be representative of  canyon ground-level surfaces. } \label{fig:canyon}
  \end{center}
 
 \end{figure}
+
+
 
 \begin{figure}[!htbp]
 \begin{center}
 
 \includegraphics[width=0.8\textwidth,keepaspectratio]{figure1.png}
 
- \caption{Overview of approach used in \glssymbol{Toolkit2} microclimate module. \glssymbol{Tac} is \glsdesc{Tac}, \glssymbol{Tb} is \glsdesc{Tb}, $T_{surf,i}$ is the surface temperature for surface type $i$, \glssymbol{kdown} is \glsdesc{kdown}, \glssymbol{ldown} is \glsdesc{ldown}, \glssymbol{Ta} is \glsdesc{Ta}, \glssymbol{Rn} is \glsdesc{Rn}, \glssymbol{RH} is \glsdesc{RH}, \glssymbol{Fi} is \glsdesc{Fi}, \glssymbol{H} is \glsdesc{H}, \glssymbol{DeltaS} is \glsdesc{DeltaS}, \glssymbol{Uz} is \glsdesc{Uz}, \glssymbol{BH} is \glsdesc{BH}  \glssymbol{W} is \glsdesc{W}, \glssymbol{rs} is \glsdesc{rs}, and \glssymbol{ra} is \glsdesc{ra}. *\glssymbol{Tb} is a homogeneous value for the whole domain, which is diagnosed by the processes laid out in Section \ref{sec:calcTac}.} \label{fig:overview}
+\caption{Overview of approach used in TARGET microclimate module. $T_{ac}$ is street level (urban canopy layer) air temperature (\degree C), \ensuremath{T_{b}} is the air temperature above the urban canopy layer (\degree C), $T_{surf,i}$ is the surface temperature for surface type $i$, \ensuremath{K\downarrow} is incoming shortwave radiation (W m$^{-2}$), \ensuremath{L\downarrow} is incoming longwave radiation (W m$^{-2}$), \ensuremath{T_{a}} is reference air temperature (\degree C), \ensuremath{R_{n}} is net radiation (W m$^{-2}$), \ensuremath{RH} is relative humidity (\%), $F_{i}$ is fraction of land cover type $i$ (\%), \ensuremath{Q_{H,i}} is sensible heat flux for surface $i$ from LUMPS (W m$^{-2}$), \ensuremath{Q_{G,i}} is storage heat flux for surface type $i$ from LUMPS (W m$^{-2}$), \ensuremath{U_{z}} is reference wind speed (m s$^{-1}$), $H$ is average building height (m), $W$ is average street width (m), \ensuremath{r_{s}} is resistance from surface to canopy (s m$^{-1}$), and \ensuremath{r_{a}} is resistance from urban canopy to the atmosphere (s m$^{-1}$). *\ensuremath{T_{b}} is a homogeneous value for the whole domain, which is diagnosed by the processes laid out in Section \ref{sec:calcTac}.} \label{fig:overview}
  \end{center}
 
 \end{figure}
@@ -373,69 +197,54 @@ Additionally, water bodies are treated separately to all other surfaces using an
 \subsection{Input data requirements}\label{sec:datainputs}
 \subsubsection{Land cover}\label{sec:landcover}
 
-\glssymbol{Toolkit2} uses simple data inputs that are intended to be easily accessible.  The model requires the user to define the plan area of buildings (\glssymbol{Abldg}), concrete (\glssymbol{Aconc}), asphalt (\glssymbol{Aasph}), grass (\glssymbol{Agras}), irrigated grass (\glssymbol{Aigrs}), tree (\glssymbol{Atree}), and water (\glssymbol{Awatr}). These land cover categories are self-explanatory and describe most of the surfaces present in urban areas. Local governments often have geographical information system (GIS) datasets of land cover and/or land-use that can be used for land cover input data. Further, we intend to develop a graphical user interface (GUI) that allows users to easily inout land cover datasets and define the model domain. This  feature will allow users to convert and upload GIS data (e.g. shape and raster files) directly into the model. The \glssymbol{Wroof}, \glssymbol{Wtree}, \glssymbol{W}, \glssymbol{W*}, and wall area (\glssymbol{Awall}) are calculated from plan area land cover inputs. However, \glsdesc{BH} must be user defined or set to a domain average value. If detailed land cover data are not available, input data can be defined from existing land-use look-up tables or from databases such as the World Urban Database and Portal Tool (WUDAPT) \citep{mills2015,Ching2018}. See \cite{wouters2016efficient} for an example of how the WUDAPT data could be integrated. 
-
-%The model also requires average building height (\glssymbol{BH}) and street width (\glssymbol{W}) information. The building geometry data are  used to calculate the vertical wall area (\glssymbol{Awall}), see eq. \ref{eq:Awall}.
-
+TARGET uses simple data inputs that are intended to be easily accessible.  The model requires the user to define the plan area of buildings (\ensuremath{A_{roof}}), concrete (\ensuremath{A_{conc}}), asphalt (\ensuremath{A_{asph}}), grass (\ensuremath{A_{gras}}), irrigated grass (\ensuremath{A_{igrs}}), tree (\ensuremath{A_{tree}}), and water (\ensuremath{A_{watr}}). These land cover categories are self-explanatory and describe most of the surfaces present in urban areas. Local governments often have geographical information system (GIS) datasets of land cover and/or land-use that can be used for land cover input data. Further, we intend to develop a graphical user interface (GUI) that allows users to easily inout land cover datasets and define the model domain. This  feature will allow users to convert and upload GIS data (e.g. shape and raster files) directly into the model. The $W_{roof}$, $W_{tree}$, $W$, $W*$, and wall area (\ensuremath{A_{wall}}) are calculated from plan area land cover inputs. However, average building height (m) must be user defined or set to a domain average value. If detailed land cover data are not available, input data can be defined from existing land-use look-up tables or from databases such as the World Urban Database and Portal Tool (WUDAPT) \citep{mills2015,Ching2018}. See \cite{wouters2016efficient} for an example of how the WUDAPT data could be integrated. 
 
 
 \subsubsection{Meteorological data}\label{sec:metdata}
 
-\glssymbol{Toolkit2} requires reference meteorological data to drive the model and calculate microscale urban air temperature. The following meteorological variables are required: incoming shortwave (solar) radiation (\glssymbol{kdown}), incoming longwave (terrestrial) radiation (\glssymbol{ldown}), relative humidity (\glssymbol{RH}), reference wind speed (typically at 10 m) (\glssymbol{Uz}), and air temperature (\glssymbol{Ta}). The user must define the height above ground of reference \glssymbol{Uz} and \glssymbol{Ta}. Ideally, meteorological data should be representative of a nearby urban site. However, the nearest airport weather station will suffice. %Australian users should use the nearest Bureau of Meteorology (BoM) airport weather station for reference meteorological data. 
+TARGET requires reference meteorological data to drive the model and calculate microscale urban air temperature. The following meteorological variables are required: incoming shortwave (solar) radiation (\ensuremath{K\downarrow}), incoming longwave (terrestrial) radiation (\ensuremath{L\downarrow}), relative humidity (\ensuremath{RH}), reference wind speed (typically at 10 m) (\ensuremath{U_{z}}), and air temperature (\ensuremath{T_{a}}). The user must define the height above ground of reference \ensuremath{U_{z}} and \ensuremath{T_{a}}. Ideally, meteorological data should be representative of a nearby urban site. However, the nearest airport weather station will suffice. %Australian users should use the nearest Bureau of Meteorology (BoM) airport weather station for reference meteorological data. 
 At a minimum, reference meteorological data should conform to World Meteorological Organization guidelines \citep{oke2007siting}.
 
-%To assist model users, it is our intention to generate reference meteorology datasets for each of Australian capital city. These location-specific datasets will include: average summer, average winter, and heatwave conditions
-
-
-%\subsection{Above canyon conditions}
-
-%The first step in the model process is to calculate the \glssymbol{Tb}, which a uniform value across the whole domain. Reference meteorological data is used.  
-
-
 \subsection{Radiation calculation}\label{sec:net}
-
-
-
 
 The net radiation of the $ith$ surface type ($R_{n,i}$) is calculated using the following:
 
 \begin{equation} 
-R_{n_,i}  = \bigg(\glssymbol{kdown} (1-\glssymbol{albedo}_{i}) + \glssymbol{epsilon}_{i} \big(\glssymbol{ldown} - \glssymbol{sigma} T_{surf,i,[t-2]}^{4}\big) \bigg)\glssymbol{SVF}_{i}
-\label{eq:rn2} \end{equation} where \glssymbol{albedo}$_{i}$ is \glsdesc{albedo}, \glssymbol{epsilon}$_{i}$ is \glsdesc{epsilon}, \glssymbol{Ta} is forcing air temperature (K), and \glssymbol{sigma} is the \glsdesc{sigma}. The \glssymbol{albedo}$_{i}$ and \glssymbol{epsilon}$_{i}$ values are predefined for each surface (see Table \ref{tab:Parameter}).  The right hand side of the equation accounts for net longwave radiation. The modelled $T_{surf,i,[t-2]}$ from 2 time steps $(t)$ previously is used to calculate \glssymbol{lup}. This is necessary to avoid circular logic in model calculations; modelled $T_{surf,i,[t-2]}$ is calculated using  the storage heat flux (\glssymbol{DeltaS}), which takes \glssymbol{Rn} from the previous time step.  The time lag does not significantly affect calculations when a 30 minute time step is used. The average sky view factor ($\glssymbol{SVF}_{i}$) is included to broadly represent the  interception of incoming and outgoing short and longwave radiation by buildings and trees on the radiation balance. Addition of \glssymbol{SVF} restricts the net radiation exchange of each facet to its total view factor occupied by sky. It assumes that walls and ground surfaces have similar longwave emission relative to the sky, and that solar radiation receipt can be approximated by \glssymbol{SVF}, on average. This simplification means that the model makes no distinction  between lit and unlit buildings walls.   $\glssymbol{SVF}_{i}$ for ground-level, wall, and roof facets is defined as \citep{Sparrow1978}:
+R_{n_,i}  = \bigg(\ensuremath{K\downarrow} (1-\ensuremath{\alpha}_{i}) + \ensuremath{\epsilon}_{i} \big(\ensuremath{L\downarrow} - \ensuremath{\sigma} T_{surf,i,[t-2]}^{4}\big) \bigg)\ensuremath{SVF}_{i}
+\label{eq:rn2} \end{equation} where \ensuremath{\alpha}$_{i}$ is surface albedo, \ensuremath{\epsilon}$_{i}$ is surface emissivity, \ensuremath{T_{a}} is forcing air temperature (K), and \ensuremath{\sigma} is the Stefan-Boltzmann constant (5.67 $\times$ 10$^{-8}$ W m$^{-2}$K$^{-4}$). The \ensuremath{\alpha}$_{i}$ and \ensuremath{\epsilon}$_{i}$ values are predefined for each surface (see Table \ref{tab:Parameter}).  The right hand side of the equation accounts for net longwave radiation. The modelled $T_{surf,i,[t-2]}$ from 2 time steps $(t)$ previously is used to calculate \ensuremath{L\uparrow}. This is necessary to avoid circular logic in model calculations; modelled $T_{surf,i,[t-2]}$ is calculated using  the storage heat flux (\ensuremath{Q_{G,i}}), which takes \ensuremath{R_{n}} from the previous time step.  The time lag does not significantly affect calculations when a 30 minute time step is used. The average sky view factor ($\ensuremath{SVF}_{i}$) is included to broadly represent the  interception of incoming and outgoing short and longwave radiation by buildings and trees on the radiation balance. Addition of \ensuremath{SVF} restricts the net radiation exchange of each facet to its total view factor occupied by sky. It assumes that walls and ground surfaces have similar longwave emission relative to the sky, and that solar radiation receipt can be approximated by \ensuremath{SVF}, on average. This simplification means that the model makes no distinction  between lit and unlit buildings walls.   $\ensuremath{SVF}_{i}$ for ground-level, wall, and roof facets is defined as \citep{Sparrow1978}:
 
 \begin{equation}
-SVF_{ground} = \Bigg[1+\bigg(\frac{\glssymbol{BH}}{\glssymbol{W*}}\bigg)^2\Bigg]^\frac{1}{2} - \frac{\glssymbol{BH}}{\glssymbol{W*}} ;
+SVF_{ground} = \Bigg[1+\bigg(\frac{H}{W*}\bigg)^2\Bigg]^\frac{1}{2} - \frac{H}{W*} ;
 \end{equation} 
 
 \begin{equation}
-SVF_{wall} = \frac{1}{2} \Bigg( 1 + \frac{\glssymbol{W*}}{\glssymbol{BH}} - \bigg[ 1 + \bigg(\frac{\glssymbol{W*}}{\glssymbol{BH}}\bigg)^2\bigg]^\frac{1}{2} \Bigg) ;
+SVF_{wall} = \frac{1}{2} \Bigg( 1 + \frac{W*}{H} - \bigg[ 1 + \bigg(\frac{W*}{H}\bigg)^2\bigg]^\frac{1}{2} \Bigg) ;
 \end{equation}
 
 \begin{equation}
 SVF_{roof} = 1
-\end{equation} The $R_{n,i}$ is then used to calculate a \glssymbol{DeltaS} for each surface type.
+\end{equation} The $R_{n,i}$ is then used to calculate a \ensuremath{Q_{G,i}} for each surface type.
 
 \begin{table}
 \begin{center}
 
-\caption{Parameter setup for all \glssymbol{Toolkit2} simulations in this article.}  
+\caption{Parameter setup for all TARGET simulations in this article.}  
 \label{tab:Parameter}
   \begin{tabular}{  p{2.5cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm} p{1.3cm}} 
   %\begin{tabularx}{\textwidth}{X X X X X X X X X}
 	\hline  \textbf{ } & \textbf{Roof \& wall$\ddagger$} & \textbf{Asphalt}& \textbf{Water}& \textbf{Soil 
 	(water)*}& \textbf{Concrete}& \textbf{Dry grass}& \textbf{Irrigated grass} & \textbf{Tree} \\ 	
 \hline	
-\glssymbol{albedo}                             & 0.15\textsuperscript{1}         & 0.08\textsuperscript{1}  & 0.10\textsuperscript{1}  & N/A   & 0.20\textsuperscript{1} & 0.19\textsuperscript{3} & 0.19\textsuperscript{3} & 0.10\textsuperscript{1} \\
-\glssymbol{epsilon}                        & 0.90\textsuperscript{1}        & 0.95\textsuperscript{1}  & 0.97\textsuperscript{1}  & N/A   & 0.94\textsuperscript{1} & 0.98\textsuperscript{2} & 0.98\textsuperscript{2} & 0.98\textsuperscript{1} \\ 
+\ensuremath{\alpha}                             & 0.15\textsuperscript{1}         & 0.08\textsuperscript{1}  & 0.10\textsuperscript{1}  & N/A   & 0.20\textsuperscript{1} & 0.19\textsuperscript{3} & 0.19\textsuperscript{3} & 0.10\textsuperscript{1} \\
+\ensuremath{\epsilon}                        & 0.90\textsuperscript{1}        & 0.95\textsuperscript{1}  & 0.97\textsuperscript{1}  & N/A   & 0.94\textsuperscript{1} & 0.98\textsuperscript{2} & 0.98\textsuperscript{2} & 0.98\textsuperscript{1} \\ 
 $C$  ($\times10^{6}$)                    & 1.25\textsuperscript{2}         & 1.94\textsuperscript{1}  & 4.18\textsuperscript{1}  & 3.03\textsuperscript{1}  & 2.11\textsuperscript{1} & 1.35\textsuperscript{3} & 2.19\textsuperscript{3} & N/A  \\ 
-\glssymbol{kappa}   ($\times10^{-6}$)                & 0.05$\dagger$& 0.38\textsuperscript{1}  &0.14\textsuperscript{1}   & 0.63\textsuperscript{1}  & 0.72\textsuperscript{1} & 0.21\textsuperscript{3} & 0.42\textsuperscript{3} & N/A  \\ 	
-\glssymbol{Tm} &25.0  (28.2) & 26.0  (29.0)&25.0 (24.5)&25.0  (24.5)&26.0 (27.9)&20.0  (22.4)&20.0 (21.5) & N/A  \\ 
-OHM [\glssymbol{a1}, \glssymbol{a2}, \glssymbol{a3}]&[0.12,0.24,-4.5]\textsuperscript{3}&[0.36,0.23,-19.3]\textsuperscript{4,5}&N/A &N/A&[0.67,0.31,-31.45]\textsuperscript{4,5}&[0.21,0.11,-16.10]\textsuperscript{6}&[0.27,0.33,-21.75]\textsuperscript{6,7} & N/A \\ 
-\glssymbol{pm} &0.0&0.0&N/A&N/A&0.0&0.2&1.0&N/A \\ 
-\glssymbol{beta}&3&3&3&3&3&3&3&N/A \\ 
-%OHM source & \cite{Jarvi2014a} & \cite{Narita1984} \n \citep{Asaeda1993} &  N/A & N/A & \cite{Narita1984} \n \cite{Asaeda1993} & \cite{Grimmond1993} & \cite{Doll1985} \n \cite{Grimmond1993} &N/A \\ 
-%Thermal properties source & \cite{stewart2014eval} &\cite{Oke1987z} &\cite{Oke1987z} &\cite{Oke1987z} &\cite{Oke1987z} & \cite{Oke1987z} & \cite{Oke1987z} & N/A \\ 
-%Radiative parameters source & \cite{Oke1987z} & \cite{Oke1987z} & \cite{Oke1987z} & N/A &  &  \cite{Jarvi2014a} &  \cite{Jarvi2014a} & \cite{Oke1987z} \\ 
+\ensuremath{\kappa}   ($\times10^{-6}$)                & 0.05$\dagger$& 0.38\textsuperscript{1}  &0.14\textsuperscript{1}   & 0.63\textsuperscript{1}  & 0.72\textsuperscript{1} & 0.21\textsuperscript{3} & 0.42\textsuperscript{3} & N/A  \\ 	
+\ensuremath{T_{m}} &25.0  (28.2) & 26.0  (29.0)&25.0 (24.5)&25.0  (24.5)&26.0 (27.9)&20.0  (22.4)&20.0 (21.5) & N/A  \\ 
+OHM [\ensuremath{a_{1}}, \ensuremath{a_{2}}, \ensuremath{a_{3}}]&[0.12,0.24,-4.5]\textsuperscript{3}&[0.36,0.23,-19.3]\textsuperscript{4,5}&N/A &N/A&[0.67,0.31,-31.45]\textsuperscript{4,5}&[0.21,0.11,-16.10]\textsuperscript{6}&[0.27,0.33,-21.75]\textsuperscript{6,7} & N/A \\ 
+s &0.0&0.0&N/A&N/A&0.0&0.2&1.0&N/A \\ 
+\ensuremath{\beta}&3&3&3&3&3&3&3&N/A \\ 
+
+
 \hline
   \end{tabular}
   \end{center}
@@ -446,16 +255,14 @@ OHM [\glssymbol{a1}, \glssymbol{a2}, \glssymbol{a3}]&[0.12,0.24,-4.5]\textsupers
 \footnotesize{\textsuperscript{5} \cite{Asaeda1993}  \\}
 \footnotesize{\textsuperscript{6} \cite{Grimmond1993}\\}
 \footnotesize{\textsuperscript{7} \cite{Doll1985}\\}
-\footnotesize{\glssymbol{albedo} = \glsdesc{albedo}} \\
-\footnotesize{\glssymbol{epsilon} = \glsdesc{epsilon}} \\
-\footnotesize{\glssymbol{C} = \glsdesc{C} ($\times10^{6}$) \\ }
-\footnotesize{\glssymbol{kappa} = \glsdesc{kappa}  ($\times10^{-6}$)} \\
-\footnotesize{\glssymbol{Tm} = \glsdesc{Tm}}\\
-\footnotesize{\glssymbol{pm} = \glsdesc{pm}} \\
-\footnotesize{\glssymbol{beta} = \glsdesc{beta}}
-
-
-\footnotesize{\glssymbol{Tm} bracketed values were used in Mawson Lakes suburb simulations --- derived from 1 month spin-up.}\\
+\footnotesize{\ensuremath{\alpha} = surface albedo \\}
+\footnotesize{\ensuremath{\epsilon} = surface emissivity \\}
+\footnotesize{\ensuremath{C} = volumetric heat capacity (J m$^{-3}$ K$^{-1}$) ($\times10^{6}$) \\ }
+\footnotesize{\ensuremath{\kappa} = thermal diffusivity (m$^{2}$ s$^{-1}$) ($\times10^{-6}$) \\}
+\footnotesize{\ensuremath{T_{m}}= average soil (ground) temperature (\degree C)\\}
+\footnotesize{\ensuremath{\alpha_{pm}} = LUMPS empirical parameter (alpha parameter) - relates to surface moisture \\}
+\footnotesize{\ensuremath{\beta} = LUMPS empirical parameter (beta parameter)}
+\footnotesize{\ensuremath{T_{m}} bracketed values were used in Mawson Lakes suburb simulations --- derived from 1 month spin-up.}\\
 \footnotesize{*soil layer beneath water layer.} \\
 \footnotesize{$\dagger$ the traditional force-restore method is not well suited to urban surfaces (e.g. roof and walls)  --- we use an artificially low thermal diffusivity to represent a thin layer. This is discussed further in Section \ref{sec:tsurf}.} \\
 $\ddagger$ roof and wall layers are represented with the same model parameters. 
@@ -463,210 +270,140 @@ $\ddagger$ roof and wall layers are represented with the same model parameters.
 
 \subsection{Storage heat flux ($Q_{G}$) calculation}\label{sec:lumps}
 
-% Scott's comment: The assumption here, and you state it in the introduction, is that this partitioning can be applied to each surface as opposed to a local-scale area. I think it's a good assumption to start with, and I would think it would underestimate the effects of cooling strategies at the local-scale on  Tair micro-advection. Which is nice.. because then you can speak to minimum impacts.  
 
-%The storage heat flux (\glssymbol{DeltaS}) calculations are based on the Local-scale Urban Meteorological Parameterisation Scheme (LUMPS) \citep{Grimmond2002a}.  
-
-The \glssymbol{DeltaS} for the $ith$ land cover class is calculated using an adapted version of the objective hysteresis model (OHM) \citep{Grimmond2002a}: 
-%The OHM model is adapted to calculate the \glssymbol{DeltaS} for each surface type using: 
+The \ensuremath{Q_{G,i}} for the $ith$ land cover class is calculated using an adapted version of the objective hysteresis model (OHM) \citep{Grimmond2002a}: 
 
 
-%For non-water surfaces, the sensible (\glssymbol{H}) and latent (\glssymbol{LE}) heat fluxes for the $ith$ surface type are calculated using:
-
-
-%\begin{equation} 
-%\glssymbol{H} = 
-%\frac{(1-\glssymbol{pm}_{i})+(\frac{\glssymbol{gamma}}{\glssymbol{s}})}{1+\frac{\glssymbol{gamma}}{\glssymbol{s}}}
-%(R_{n,i} -\glssymbol{DeltaS})- \glssymbol{beta}
-%\label{eq:Hi} \end{equation} 
-
-%\begin{equation} 
-%\glssymbol{LE} = 
-%\frac{\glssymbol{pm}_{i}}{1+\frac{\glssymbol{gamma}}{\glssymbol{s}}}
-%(R_{n,i}-\glssymbol{DeltaS})+ \glssymbol{beta}
-%\label{eq:LE} \end{equation} where \glssymbol{s} is the slope of the saturation vapour pressure-versus-temperature curve, \glssymbol{gamma} is the psychrometric constant and \glssymbol{pm}$_{i}$ and \glssymbol{beta} are based on a simplification of the Penman-Monteith approach, which takes into account the Priestley-Taylor coefficient; \glssymbol{pm}$_{i}$ depends on the surface moisture status, and \glssymbol{beta} is an empirical constant set at 3 W m$^{-2}$ \citep{Grimmond2002a}. By default, the \glssymbol{pm} parameter is set using values from \cite{Hanna1992} (Table \ref{tab:surftype}). 
-%Alternatively, \glssymbol{pm} for vegetated classes can be defined as a function of stomatal resistance $(r_{st})$ using $\glssymbol{pm} = 6.9\times10^{-6} r_{st}^{2} - 0.004 sr + 1.3$ \citep{DeBruin1983}.  
 
 
 \begin{equation} 
-\glssymbol{DeltaS} = R_{n,i} a_{1,i} + \Big( \frac{\partial R_{n,i}}{\partial t}   \Big) a_{2,i} + a_{3,i}
-\label{eq:ohm} \end{equation} where  $\frac{\partial R_{n,i}}{\partial t} =0.5(R_{n,i,(t-1)} - R_{n,i,(t+1)})$ and the three $a$ coefficients  are defined using cited values for each surface (see Table \ref{tab:Parameter}). The $a$ coefficients capture the hysteresis pattern commonly observed between the \glssymbol{Rn} and \glssymbol{DeltaS} in urban areas. See \cite{Grimmond1999b} for a full description of the OHM and the role of the $a$ parameters in \glssymbol{DeltaS} calculations. The \glssymbol{DeltaS}  is then used to calculate the \glssymbol{Tsf} for each land cover type using the force-restore method.
+\ensuremath{Q_{G,i}} = R_{n,i} a_{1,i} + \Big( \frac{\partial R_{n,i}}{\partial t}   \Big) a_{2,i} + a_{3,i}
+\label{eq:ohm} \end{equation} where  $\frac{\partial R_{n,i}}{\partial t} =0.5(R_{n,i,(t-1)} - R_{n,i,(t+1)})$ and the three $a$ coefficients  are defined using cited values for each surface (see Table \ref{tab:Parameter}). The $a$ coefficients capture the hysteresis pattern commonly observed between the \ensuremath{R_{n}} and \ensuremath{Q_{G,i}} in urban areas. See \cite{Grimmond1999b} for a full description of the OHM and the role of the $a$ parameters in \ensuremath{Q_{G,i}} calculations. The \ensuremath{Q_{G,i}}  is then used to calculate the $T_{surf}$ for each land cover type using the force-restore method.
 
-
-
-%The parameter a1 indicates the overall strength of the dependence of the storage heat flux on net radiation. The parameter a2 describes the degree and direction of the phase relations between QS and Q*. When a2 is positive, QS precedes the peak in Q*; when it is zero, the two curves are exactly in phase, that is, there is no hysteresis. The parameter a3 is an intercept term that indicates the relative timing when QS and Q* turn negative. A large a3 coefficient indicates QS becomes negative much earlier than Q*; it is the size of QS when Q* becomes negative. 
 
 
 
 
 \subsection{Surface temperature calculation (`force-restore')}\label{sec:tsurf}
 
-%% not used for trees - mention this. 
-The force-restore method is an efficient method for calculating surface temperature \citep{bhumralkar1975,deardorff1978}, and is an alternative to multilayer conduction approaches used in other climate models. The force-restore method is used to ensure that the model remains computationally efficient.  The ground layer is conceptually divided into two layers with uniform vertical temperature: a thin surface layer and deep soil layer. The forcing term, which is driven by \glssymbol{DeltaS} , heats the surface layer. The restore term, driven by deep soil temperature, dampens the forcing term. The change in surface temperature \glssymbol{Tsf} for surface $i$, with respect to time $(t)$, is calculated as \citep{jacobs2000}:
+ 
+The force-restore method is an efficient method for calculating surface temperature \citep{bhumralkar1975,deardorff1978}, and is an alternative to multilayer conduction approaches used in other climate models. The force-restore method is used to ensure that the model remains computationally efficient.  The ground layer is conceptually divided into two layers with uniform vertical temperature: a thin surface layer and deep soil layer. The forcing term, which is driven by \ensuremath{Q_{G,i}} , heats the surface layer. The restore term, driven by deep soil temperature, dampens the forcing term. The change in surface temperature $T_{surf}$ for surface $i$, with respect to time $(t)$, is calculated as \citep{jacobs2000}:
 
 
 \begin{equation} 
-\frac{\partial T_{surf,i}} {\partial t}= \frac{\glssymbol{DeltaS}}{C_{i} D} - \frac{2 \pi}{\tau} (T_{surf,i,[t-1]} - T_{m,i,[t-1]})
-\label{eq:force} \end{equation} where $C_{i}$ is the \glsdesc{C}, $\tau$ is the period (86400 seconds), $D$ is the damping depth of the diurnal temperature wave $D = 2 \glssymbol{kappa}  / \omega 0.5$, $\omega = 2\pi / \tau$, and \glssymbol{kappa} represents thermal diffusivity.  The \glsdesc{Tm} (\glssymbol{Tm}) is calculated using:
+\frac{\partial T_{surf,i}} {\partial t}= \frac{\ensuremath{Q_{G,i}}}{C_{i} D} - \frac{2 \pi}{\tau} (T_{surf,i,[t-1]} - T_{m,i,[t-1]})
+\label{eq:force} \end{equation} where $C_{i}$ is the volumetric heat capacity (J m$^{-3}$ K$^{-1}$), $\tau$ is the period (86400 seconds), $D$ is the damping depth of the diurnal temperature wave $D = 2 \ensuremath{\kappa}  / \omega 0.5$, $\omega = 2\pi / \tau$, and \ensuremath{\kappa} represents thermal diffusivity.  The average soil (ground) temperature (\degree C) (\ensuremath{T_{m}}) is calculated using:
 
 
 \begin{equation} 
-\frac{\partial T_{m,i}}{\partial t} = \frac{\Delta \glssymbol{DeltaS}}{C_{i} D_{y}}
-\label{eq:tm} \end{equation} where \glssymbol{Dy} = $D \sqrt{365}$, the \glsdesc{Dy}. 
+\frac{\partial T_{m,i}}{\partial t} = \frac{\Delta \ensuremath{Q_{G,i}}}{C_{i} D_{y}}
+\label{eq:tm} \end{equation} where \ensuremath{D_{y}} = $D \sqrt{365}$, the damping depth for the annual temperature cycle (m). 
 
-The force-restore method, which assumes two layers each of uniform temperature, cannot be applied to more complex surfaces such as water, trees, walls, or roofs. For  roofs  we set \glssymbol{C} at realistic value and use \glssymbol{kappa} as a tuning parameter to represent layers of thermally active mass characteristic of most building roofs, which are often thinner than ground level surfaces.  This approach produces accurate \glssymbol{Tsf}$_{,roof}$ results (see Section \ref{sec:landcoversim}), but ongoing work is needed to represent roofs in a physically realistic  and  efficient manner. For simplicity, the wall surfaces are assumed to have to same thermal properties as roofs. For trees, we assume that \glssymbol{Tsf}$_{,tree}$ is equal to \glssymbol{Ta} (see Figure \ref{fig:TreeTsurfvsTair} for justification), and a simple water body model is used to calculate \glssymbol{Tsf}$_{,watr}$.
+The force-restore method, which assumes two layers each of uniform temperature, cannot be applied to more complex surfaces such as water, trees, walls, or roofs. For  roofs  we set \ensuremath{C} at realistic value and use \ensuremath{\kappa} as a tuning parameter to represent layers of thermally active mass characteristic of most building roofs, which are often thinner than ground level surfaces.  This approach produces accurate $T_{surf}$$_{,roof}$ results (see Section \ref{sec:landcoversim}), but ongoing work is needed to represent roofs in a physically realistic  and  efficient manner. For simplicity, the wall surfaces are assumed to have to same thermal properties as roofs. For trees, we assume that $T_{surf}$$_{,tree}$ is equal to \ensuremath{T_{a}} (see Figure \ref{fig:TreeTsurfvsTair} for justification), and a simple water body model is used to calculate $T_{surf}$$_{,watr}$.
 
 
 \subsection{Simple water body model}\label{sec:simplewater}
 
-The water model is used for modelling small inland water bodies, such as lakes and wetlands. The water model in  \glssymbol{Toolkit2} is based on a single water layer, overlaying a soil layer. Essentially, the force-restore surface temperature model is implemented, and is overlain by a homogeneous mixed water layer (i.e. neglecting thermal stratification) representing a water body of depth \glssymbol{zwatr} (m). The model is designed to apply to water bodies of 0.1--1.0 m depths. The water model is based on the pan evaporation model of \cite{MolinaMartinez2006}, which closely follows that of the lake model of \cite{Jacobs1998}. The water body model also determines the surface energy balance of the water surface. The energy balance model for the water layer is given by \cite{MolinaMartinez2006}:
+The water model is used for modelling small inland water bodies, such as lakes and wetlands. The water model in  TARGET is based on a single water layer, overlaying a soil layer. Essentially, the force-restore surface temperature model is implemented, and is overlain by a homogeneous mixed water layer (i.e. neglecting thermal stratification) representing a water body of depth \ensuremath{d_{watr}} (m). The model is designed to apply to water bodies of 0.1--1.0 m depths. The water model is based on the pan evaporation model of \cite{MolinaMartinez2006}, which closely follows that of the lake model of \cite{Jacobs1998}. The water body model also determines the surface energy balance of the water surface. The energy balance model for the water layer is given by \cite{MolinaMartinez2006}:
 
 \begin{equation} 
-\glssymbol{Sab} + \glssymbol{l*} + \glssymbol{Hwatr} - \glssymbol{LEwatr} - \glssymbol{Gwatr} -\glssymbol{deltaSwatr} = 0
-\label{eq:sab} \end{equation} where \glssymbol{Sab} is \glsdesc{Sab}, \glssymbol{l*}, the \glsdesc{l*}, \glssymbol{Gwatr} is the \glsdesc{Gwatr}, and \glssymbol{deltaSwatr} is the \glsdesc{deltaSwatr}. Solar radiation penetrates the water surface and is absorbed as described by Beer's Law \citep{MolinaMartinez2006}:
+\ensuremath{S_{ab}} + \ensuremath{L_{n}} + \ensuremath{Q_{H,watr}} - \ensuremath{Q_{E,watr}} - \ensuremath{Q_{G,watr}} -\ensuremath{\Delta Q_{S,watr}} = 0
+\label{eq:sab} \end{equation} where \ensuremath{S_{ab}} is absorbed shortwave radiation (W m$^{-2}$), \ensuremath{L_{n}}, the net longwave radiation (W m$^{-2}$), \ensuremath{Q_{G,watr}} is the convective heat flux at the bottom of the water layer (and into the soil below) (W m$^{-2}$), and \ensuremath{\Delta Q_{S,watr}} is the change in heat storage of the water layer (W m$^{-2}$). Solar radiation penetrates the water surface and is absorbed as described by Beer's Law \citep{MolinaMartinez2006}:
 
 \begin{equation} 
-\glssymbol{Sab} = \glssymbol{k*} \big[ \glssymbol{betak} + (1 - \glssymbol{betak}) )(1-e^{-\glssymbol{eta}})  \big]
-\label{eq:sab2} \end{equation} where \glssymbol{k*} is the \glsdesc{k*}, \glssymbol{betak} is the \glsdesc{betak} \citep{MolinaMartinez2006}, and \glssymbol{eta} the \glsdesc{eta}. Here, \glssymbol{eta} is given the following from \cite{Subin2012a}, for the water layer with depth \glssymbol{zwatr} $(m)$:
+\ensuremath{S_{ab}} = \ensuremath{K_{n}} \big[ \ensuremath{\beta_{k}} + (1 - \ensuremath{\beta_{k}}) )(1-e^{-\ensuremath{\eta}})  \big]
+\label{eq:sab2} \end{equation} where \ensuremath{K_{n}} is the net shortwave radiation (W m$^{-2}$), \ensuremath{\beta_{k}} is the amount of shortwave radiation immediately absorbed by the water layer (set to 0.45) \citep{MolinaMartinez2006}, and \ensuremath{\eta} the extinction coefficient. Here, \ensuremath{\eta} is given the following from \cite{Subin2012a}, for the water layer with depth \ensuremath{d_{watr}} $(m)$:
 
 \begin{equation} 
-\glssymbol{eta} = 1.1925 \glssymbol{zwatr}^{-0.424}
+\ensuremath{\eta} = 1.1925 \ensuremath{d_{watr}}^{-0.424}
 \label{eq:eta} \end{equation} A correction factor for the solar path length zenith angle is often applied to eq. \ref{eq:sab2} \citep{MolinaMartinez2006} but this has been omitted from TARGET to reduce complexity. 
 
-The conductive heat transport \glssymbol{Gwatr} into the soil at the base of the water layer is given by \cite{MolinaMartinez2006}:
+The conductive heat transport \ensuremath{Q_{G,watr}} into the soil at the base of the water layer is given by \cite{MolinaMartinez2006}:
 
 \begin{equation} 
-\glssymbol{Gwatr} = - \glssymbol{Cwatr} \glssymbol{kwatr} \frac{\Delta T}{\Delta \glssymbol{zwatr}}
-\label{eq:gwatr} \end{equation} where \glssymbol{Cwatr} is the \glsdesc{Cwatr}, \glssymbol{kwatr} is the \glsdesc{kwatr}, 
-and the change in depth $\Delta \glssymbol{zwatr} = \glssymbol{zwatr}$ (the depth of the water layer). \glssymbol{kwatr} is a complex function accounting for thermal stratification of water and surface friction velocity. To reduce complexity and assuming a mixed homogeneous water layer, a constant \glssymbol{kwatr} has been selected based on shallow lakes reported in \cite{SalasDeLeon2016}. The change in temperature $\Delta T$ (\degreeC) is the difference between the water temperature \glssymbol{Tsf}$_{watr}$ (\degreeC) and the soil temperature beneath the water layer \glssymbol{Tsoilw} (\degreeC). \glssymbol{Tsoilw} is calculated using the force-restore model where \glssymbol{Gwatr} is equivalent to \glssymbol{DeltaS} in eq. \ref{eq:force}:
+\ensuremath{Q_{G,watr}} = - \ensuremath{C_{watr}} \ensuremath{\kappa_{watr}} \frac{\Delta T}{\Delta \ensuremath{d_{watr}}}
+\label{eq:gwatr} \end{equation} where \ensuremath{C_{watr}} is the volumetric heat capacity of water (4.18$\times$10$^{6}$ J m$^{-3}$ K$^{-1}$), \ensuremath{\kappa_{watr}} is the eddy diffusivity of water (m$^{2}$ s$^{-1}$), 
+and the change in depth $\Delta \ensuremath{d_{watr}} = \ensuremath{d_{watr}}$ (the depth of the water layer). \ensuremath{\kappa_{watr}} is a complex function accounting for thermal stratification of water and surface friction velocity. To reduce complexity and assuming a mixed homogeneous water layer, a constant \ensuremath{\kappa_{watr}} has been selected based on shallow lakes reported in \cite{SalasDeLeon2016}. The change in temperature $\Delta T$ (\degree C) is the difference between the water temperature $T_{surf}$$_{watr}$ (\degree C) and the soil temperature beneath the water layer \ensuremath{T_{soil}} (\degree C). \ensuremath{T_{soil}} is calculated using the force-restore model where \ensuremath{Q_{G,watr}} is equivalent to \ensuremath{Q_{G,i}} in eq. \ref{eq:force}:
 
 \begin{equation}
-\frac{d \glssymbol{Tsoilw}}{d t}= \frac{(\glssymbol{Gwatr} + (\glssymbol{k*} - \glssymbol{Sab}))}{C_{watr} D} - \frac{2 \pi}{\tau} (T_{soil,[t-1]} - T_{m,[t-1]})
-\end{equation} To represent the radiation that is not absorbed by the water, but is absorbed by the underlying soil layer, $\glssymbol{k*} - \glssymbol{Sab}$ is added to \glssymbol{Gwatr}.
+\frac{d \ensuremath{T_{soil}}}{d t}= \frac{(\ensuremath{Q_{G,watr}} + (\ensuremath{K_{n}} - \ensuremath{S_{ab}}))}{C_{watr} D} - \frac{2 \pi}{\tau} (T_{soil,[t-1]} - T_{m,[t-1]})
+\end{equation} To represent the radiation that is not absorbed by the water, but is absorbed by the underlying soil layer, $\ensuremath{K_{n}} - \ensuremath{S_{ab}}$ is added to \ensuremath{Q_{G,watr}}.
 
-The latent heat flux (\glssymbol{LEwatr}) (W m$^{-2}$) is given by \cite{Arya2001}:
+The latent heat flux (\ensuremath{Q_{E,watr}}) (W m$^{-2}$) is given by \cite{Arya2001}:
 
 \begin{equation} 
-\glssymbol{LEwatr} = \glssymbol{rhov} \glssymbol{Lv} \glssymbol{hv} \glssymbol{Uz} (\glssymbol{qs} - \glssymbol{qa})
-\label{eq:lewtr} \end{equation} where \glssymbol{rhov} is the \glsdesc{rhov}, \glssymbol{Lv} is the \glsdesc{Lv}, \glssymbol{hv} is bulk transfer coefficient for moisture $(1.4\times10^{-3})$ \citep{Hicks1972,Jones2005}, \glssymbol{Uz} is the reference wind speed, \glssymbol{qs} the saturated specific humidity at \glssymbol{Tsf}$_{watr}$, and \glssymbol{qa} is the specific humidity of the air for the given \glssymbol{Ta}. 
+\ensuremath{Q_{E,watr}} = \ensuremath{\rho v} \ensuremath{L_{v}} \ensuremath{h_{v}} \ensuremath{U_{z}} (\ensuremath{q_{s}} - \ensuremath{q_{a}})
+\label{eq:lewtr} \end{equation} where \ensuremath{\rho v} is the density of moist air (kg m$^{-3}$), \ensuremath{L_{v}} is the latent heat of vaporisation (=2.43 MJ kg$^{-1}$), \ensuremath{h_{v}} is bulk transfer coefficient for moisture $(1.4\times10^{-3})$ \citep{Hicks1972,Jones2005}, \ensuremath{U_{z}} is the reference wind speed, \ensuremath{q_{s}} the saturated specific humidity at $T_{surf}$$_{watr}$, and \ensuremath{q_{a}} is the specific humidity of the air for the given \ensuremath{T_{a}}. 
 
 The sensible heat flux above the water surface is given by \cite{MolinaMartinez2006}:
-%\footnote{The temperature gradient (\glssymbol{Ta}-\glssymbol{Tsoilw}) in Eq. 6 from \cite{MolinaMartinez2006} pg. 254 is reversed here from the usual (\glssymbol{Tsoilw}-\glssymbol{Ta}). It accounts for the addition of sensible heat to the water layer from the energy balance equation (Eq. \ref{eq:rn2}.}
+
 
 \begin{equation} 
-Q_{H,watr} = \glssymbol{rhoa} \glssymbol{cp} \glssymbol{hc} \glssymbol{Uz} (\glssymbol{Ta}-\glssymbol{Tsoilw})
-\label{eq:hwtr} \end{equation} where \glssymbol{rhoa} is the \glsdesc{rhoa}, \glssymbol{cp} the \glsdesc{cp}, and \glssymbol{hc} the \glsdesc{hc}. 
+Q_{H,watr} = \ensuremath{\rho_{a}} \ensuremath{C_{p}} \ensuremath{h_{c}} \ensuremath{U_{z}} (\ensuremath{T_{a}}-\ensuremath{T_{soil}})
+\label{eq:hwtr} \end{equation} where \ensuremath{\rho_{a}} is the density of dry air (=1.2 kg m$^{-3}$), \ensuremath{C_{p}} the specific heat of air (1013 J kg$^{-1}$ K$^{-1}$), and \ensuremath{h_{c}} the bulk transfer coefficient for heat ($h_{c} = h_{v}$). 
 
-Returning to eq. \ref{eq:sab2}, net long wave radiation \glssymbol{l*} = \glssymbol{Rn} - \glssymbol{k*}, leaving $\glssymbol{deltaSwatr}$ from the energy balance equation, which is defined as \citep{MolinaMartinez2006}:
+Returning to eq. \ref{eq:sab2}, net long wave radiation \ensuremath{L_{n}} = \ensuremath{R_{n}} - \ensuremath{K_{n}}, leaving $\ensuremath{\Delta Q_{S,watr}}$ from the energy balance equation, which is defined as \citep{MolinaMartinez2006}:
 
 \begin{equation} 
-\glssymbol{deltaSwatr} = \glssymbol{Cwatr} \glssymbol{zwatr} \frac{\Delta T_{surf,watr}}{\Delta t}
-\label{eq:swrt} \end{equation} where $\Delta t$ is change in time (seconds) and \glssymbol{Cwatr} is the \glsdesc{Cwatr}. Solving for $\Delta$ $T_{surf,watr}$ and adding the change in temperature to the previous time step ($T_{surf,watr} = T_{surf,watr,[t-1]}  + \Delta T_{surf,watr}$) gives the new water layer temperature. 
-
-%\subsection{Calculation of above canyon air temperature (\glssymbol{Tb})}
-%\label{sec:tb}
-
-
-%The domain \glssymbol{Tb} is calculated for each timestep  using reference meteorological data (Section \ref{sec:datainputs}). A bulk Richardson number (\glssymbol{Ri}) between the land surface (`low' level) and the \glssymbol{Ta} measurement  height ('high' level) is calculated as:
-%\begin{equation}
-%Ri = \cfrac{(g/T_{v}) \Delta z  \Delta \Theta_{v}}{\glssymbol{Uhigh}} \label{eq:Ri} \end{equation} where $g$ is acceleration due to gravity, $\Delta z$ is height difference between the two levels, $\Delta \Theta_{v}$ was the change in potential temperature over z, $T_{v}$ =  $0.5(\glssymbol{Thigh} + \glssymbol{Tlow})$ where \glssymbol{Thigh} = \glssymbol{Ta} and \glssymbol{Tlow} = \glssymbol{Tsf}, and \glssymbol{Uhigh} is the wind speed at the \glssymbol{Ta} measurement height.  Assuming \glssymbol{Ri} is constant in the surface layer, we calculate \glssymbol{Tb} by solving equation 9 for \glssymbol{Thigh}, with $z = 3 \times max(\glssymbol{BH})$, \glssymbol{Tlow} = \glssymbol{Ta}, and \glssymbol{Uhigh} = wind speed at $3 \times  max(\glssymbol{BH})$ (calculated assuming logarithmic relationship).
+\ensuremath{\Delta Q_{S,watr}} = \ensuremath{C_{watr}} \ensuremath{d_{watr}} \frac{\Delta T_{surf,watr}}{\Delta t}
+\label{eq:swrt} \end{equation} where $\Delta t$ is change in time (seconds) and \ensuremath{C_{watr}} is the volumetric heat capacity of water (J m$^{-2}$ K$^{-1}$). Solving for $\Delta$ $T_{surf,watr}$ and adding the change in temperature to the previous time step ($T_{surf,watr} = T_{surf,watr,[t-1]}  + \Delta T_{surf,watr}$) gives the new water layer temperature. 
 
 
 
-\subsection{Calculation of urban canopy layer air temperature (\glssymbol{Tac}) }\label{sec:calcTac}
 
-To calculate \glssymbol{Tac} we first calculate a domain \glssymbol{Tb} for each timestep. Assuming air temperature at 3 times building height (3H) is consistent between the neighbourhood of interest and the reference weather station location, we extrapolate reference air temperature at measurement height to 3H assuming a constant flux layer and using a bulk Richardson number-based approximation \citep{Mascart1995}. Through this simple calculation we define a domain constant \glssymbol{Tb} with basic representation of atmospheric stability in \glssymbol{Toolkit2}.  
+\subsection{Calculation of urban canopy layer air temperature ($T_{ac}$) }\label{sec:calcTac}
+
+To calculate $T_{ac}$ we first calculate a domain \ensuremath{T_{b}} for each timestep. Assuming air temperature at 3 times building height (3H) is consistent between the neighbourhood of interest and the reference weather station location, we extrapolate reference air temperature at measurement height to 3H assuming a constant flux layer and using a bulk Richardson number-based approximation \citep{Mascart1995}. Through this simple calculation we define a domain constant \ensuremath{T_{b}} with basic representation of atmospheric stability in TARGET.  
 
 The canyon air temperature is then calculated using a modified version of the canopy air temperature equation from the Community Land Model Urban (CLMU) \citep{Oleson2010}:
 
 \begin{equation}
  \label{eq:tac}
-  \glssymbol{Tac} = 
-  \frac{\begin{gathered} (T_{surf,asph} \glssymbol{Hcs} F_{asph}) +  (T_{surf,conc} \glssymbol{Hcs} F_{conc}) +  (T_{surf,gras} \glssymbol{Hcs} F_{gras}) + (T_{surf,irgs} \glssymbol{Hcs} F_{irgs}) + (T_{surf,tree} \glssymbol{Hcs} F_{tree})  + \\ T_{surf,wall} \glssymbol{Hcs} F_{wall}) +   (T_{surf,watr} \glssymbol{Hcs} F_{asph}) +  \Bigg[\frac{T_{surf,roof}}  {(\frac{1}{\glssymbol{Hcs}}+\frac{1}{\glssymbol{Hca}})} F_{roof}\Bigg] + (\glssymbol{Tb} \glssymbol{Hca} \glssymbol{W})\end{gathered}}{\begin{gathered} 
-      (\glssymbol{Hcs} F_{asph}) +   (\glssymbol{Hcs} F_{conc}) +  ( \glssymbol{Hcs} F_{gras}) + ( \glssymbol{Hcs} F_{irgs}) + ( \glssymbol{Hcs} F_{tree})  +  (\glssymbol{Hcs} F_{wall}) +   (\glssymbol{Hcs} F_{asph}) + \\ \Bigg[\frac{F_{roof}}{(\frac{1}{\glssymbol{Hcs}}+\frac{1}{\glssymbol{Hca}})}\Bigg] +(\glssymbol{Hca} \glssymbol{W}) \end{gathered}}
-\end{equation} where $F_{i} $ is the 2-D fractional coverage of surface $i$ in the canyon,  \glssymbol{Hcs} is the \glsdesc{Hcs}, and \glssymbol{Hca} is the \glsdesc{Hca}.
-In equation \ref{eq:tac} we assume roofs are connected to the canyon via two resistances in series, thus representing the  additional impediment to transfer of heat from a rooftop into the canyon.  The \glssymbol{Hca} is calculated following \cite{Masson2000} and using the stability coefficients from \cite{Mascart1995}. %In order to calculate \glssymbol{Hca} a grid point specific \glssymbol{Ri} is calculated using equation \ref{eq:Ri}  with  \glssymbol{Thigh} = \glssymbol{Tb} and $\glssymbol{Tlow} = (F_{roof} \glssymbol{Tsf}_{,roof}) + (\glssymbol{lambdaC} \glssymbol{Tac}_{[t-1]})$. 
-The \glssymbol{Hcs} term is from \cite{Masson2000}:
+  T_{ac} = 
+  \frac{\begin{gathered} (T_{surf,asph} \ensuremath{c_{s}} F_{asph}) +  (T_{surf,conc} \ensuremath{c_{s}} F_{conc}) +  (T_{surf,gras} \ensuremath{c_{s}} F_{gras}) + (T_{surf,irgs} \ensuremath{c_{s}} F_{irgs}) + (T_{surf,tree} \ensuremath{c_{s}} F_{tree})  + \\ T_{surf,wall} \ensuremath{c_{s}} F_{wall}) +   (T_{surf,watr} \ensuremath{c_{s}} F_{asph}) +  \Bigg[\frac{T_{surf,roof}}  {(\frac{1}{\ensuremath{c_{s}}}+\frac{1}{\ensuremath{c_{a}}})} F_{roof}\Bigg] + (\ensuremath{T_{b}} \ensuremath{c_{a}} $W$)\end{gathered}}{\begin{gathered} 
+      (\ensuremath{c_{s}} F_{asph}) +   (\ensuremath{c_{s}} F_{conc}) +  ( \ensuremath{c_{s}} F_{gras}) + ( \ensuremath{c_{s}} F_{irgs}) + ( \ensuremath{c_{s}} F_{tree})  +  (\ensuremath{c_{s}} F_{wall}) +   (\ensuremath{c_{s}} F_{asph}) + \\ \Bigg[\frac{F_{roof}}{(\frac{1}{\ensuremath{c_{s}}}+\frac{1}{\ensuremath{c_{a}}})}\Bigg] +(\ensuremath{c_{a}} $W$) \end{gathered}}
+\end{equation} where $F_{i} $ is the 2-D fractional coverage of surface $i$ in the canyon,  \ensuremath{c_{s}} is the conductance from surface to urban canopy layer (m s$^{-1}$), and \ensuremath{c_{a}} is the conductance from urban canopy to the above canopy surface layer (m s$^{-1}$).
+In equation \ref{eq:tac} we assume roofs are connected to the canyon via two resistances in series, thus representing the  additional impediment to transfer of heat from a rooftop into the canyon.  The \ensuremath{c_{a}} is calculated following \cite{Masson2000} and using the stability coefficients from \cite{Mascart1995}. %In order to calculate \ensuremath{c_{a}} a grid point specific \ensuremath{Ri} is calculated using equation \ref{eq:Ri}  with  \ensuremath{T_{high}} = \ensuremath{T_{b}} and \ensuremath{T_{low}} = (F_{roof} $T_{surf}$_{,roof}) + (\ensuremath{\lambda_{C}} $T_{ac}$_{[t-1]})$. 
+The \ensuremath{c_{s}} term is from \cite{Masson2000}:
 
 \begin{equation} 
-\glssymbol{rs} = \frac{\glssymbol{rhoa}\glssymbol{cp}}{11.8+4.2\glssymbol{Ucan}}
-\label{eq:rs} \end{equation} where $\glssymbol{Hcs} = \frac{1}{\glssymbol{rs}}$ and \glssymbol{Ucan} is the \glsdesc{Ucan} \citep{Kusaka2001}: 
+\ensuremath{r_{s}} = 
+\frac{\ensuremath{\rho_{a}}\ensuremath{C_{p}}}{11.8+4.2U_{can}}
+\label{eq:rs} 
+\end{equation} 
+where $\ensuremath{c_{s}} = \frac{1}{\ensuremath{r_{s}}}$ and $U_{can}$ is the wind speed in canyon (m s$^{-1}$) \citep{Kusaka2001}: 
 
 \begin{equation} 
-\glssymbol{Ucan} = \glssymbol{Utop} exp{ \Bigg( -0.386 \frac{\glssymbol{BH}}{\glssymbol{W}} \Bigg)}
-\label{eq:ucan} \end{equation} where \glssymbol{Utop} is the \glsdesc{Utop}. \glssymbol{Utop} is estimated at the top of the UCL based on \glssymbol{Uz} using a logarithmic relationship.
+U_{can} = \ensuremath{U_{top}} exp{ \Bigg( -0.386 \frac{H}{W} \Bigg)}
+\label{eq:ucan} \end{equation} where \ensuremath{U_{top}} is the wind speed at the top of the canyon (m s$^{-1}$). \ensuremath{U_{top}} is estimated at the top of the UCL based on \ensuremath{U_{z}} using a logarithmic relationship.
 
 
-
-%To obtain \glssymbol{Tac} we first calculate the canyon average  \glssymbol{Tsf} and $Q_{H}$ for the current  model grid point using land cover fractions. The canyon average \glssymbol{Tsf} is simply calculated as:
-%\begin{equation} 
-%\glssymbol{Tsf} = \sum \limits_{i=1}^8 \frac{A_i}{\glssymbol{Acan}} \glssymbol{Tsf}_{,i}
-%\label{eq:tsurf} \end{equation} where $A_{i}$ is the area of land cover type and \glssymbol{Acan} is the \glsdesc{Acan}. 
-
-%Next the canyon average $Q_{H}$ is calculated. To account for the additional heat flux (Wm$^{-2}$) from vertical wall surfaces, the canyon average $Q_{H}$ is defined  as:
-%\begin{equation} \label{eq:Hcan}
-%Q_{H} = \sum \limits_{i=1}^8 \frac{A_i}{\glssymbol{Ahorz}} \glssymbol{H}
-%\end{equation} where $i$ includes each surface and \glssymbol{Ahorz} is the \glsdesc{Ahorz}. Eq. \ref{eq:Hcan} determines the plan area average of the sensible heat fluxes over the total 3-D surface. 
-
-%ensures the \glssymbol{H} is proportional to the total area of vertical and horizontal surfaces. 
-%that sites with greater vertical wall area have a greater \glssymbol{H}. 
-
-%The \glssymbol{Tac} term is then calculated following the approach outlined in Figure \ref{fig:Tac}. Toolkit-2 has  simple representation of the vertical exchange of heat from the urban surface to the UCL, but does not represent any horizontal heat transfer (advection) between model grid points.  The \glssymbol{Tac} term is calculated as a function of \glssymbol{Tsf} and the air temperature above the canyon \glssymbol{Tb}. \glssymbol{Tb} is calculated using $Q_{H}$, as this term represents the canyon average sensible heat flux. Hence, we rearrange the following equation to calculate \glssymbol{Tb} \citep{Yang2013}: 
-%\begin{equation} 
-%Q_{H} = \glssymbol{rhoa} \glssymbol{cp} \frac{\glssymbol{Ta}-\glssymbol{Tb}}{\glssymbol{ra}}
-%\label{eq:H_air} \end{equation} where \glssymbol{cp} is the \glsdesc{cp}, \glssymbol{Ta} is the \glsdesc{Ta}, and \glssymbol{rhoa} is the \glsdesc{rhoa}. 
-
-% \begin{figure}[!htbp]
-%\fbox{
-%\includegraphics[width=1\textwidth,keepaspectratio]{images/Tair_schematic.png}
-%}
-% \caption{Schematic of the air temperature module.} \label{fig:Tac}
-%\end{figure}
-
-%To account for the exchange of heat between the  \glssymbol{Tac} and \glssymbol{Tb}, we characterize  resistance of  sensible heat above the urban canopy (\glssymbol{ra}) as \citep{lindroth1993,Yang2013}:
-
-%\begin{equation} 
-%\glssymbol{ra} = \frac{ln^{2} \Bigg( \frac{\glssymbol{zu}-\glssymbol{d}}{\glssymbol{z0}}   \Bigg)   } {k^{2} \glssymbol{Uz}}
-%\label{eq:ra} \end{equation} where \glssymbol{zu} is the observed reference wind speed measurement height (typically 10 m), %\glssymbol{d} is the \glsdesc{d}, and \glssymbol{z0} is the \glsdesc{z0}. 
-
-
-%The temperature of the canopy layer (\glssymbol{Tac}) is then given by \cite{Oleson2010}:
-
-%\begin{equation} 
-%\glssymbol{Tac} = \frac{\glssymbol{Hca} + \glssymbol{Tb} + \glssymbol{Hcs} + \glssymbol{Tsf} }  { \glssymbol{Hca}  + \glssymbol{Hcs} }
-%\label{eq:tac} \end{equation} which is a simplification of Equation 3.75 (eq. \ref{eq:clmu375}) in the Community Land Model Urban technical notes \citep{Oleson2010}; because we do not consider sensible heat conductance for individual surface types. Sensible heat conductance are given for the urban canopy layer to atmosphere (\glssymbol{Hca}) and surface to urban canopy layer (\glssymbol{Hcs}) by \citep{Oleson2010}:
-
-%\begin{equation} 
-%\glssymbol{Utop} = \glssymbol{Uz} \frac{ ln \big( \frac{\glssymbol{BH}}{\glssymbol{z0}}  \big)}{ ln \big( %\frac{\glssymbol{zu}}{\glssymbol{z0}}  \big) }
-%\label{eq:xx4} \end{equation}
-
-%If \glssymbol{BH} is below the domain average building height, it should be set to the domain average. 
 
 \section{Methods and data}\label{sec:validation}
 \subsection{Overview}\label{sec:validationover}
 
 
-As part of the model evaluation, we conducted a range of simulations that test model performance for both \glssymbol{Tsf} and \glssymbol{Tac}. These validation experiments are focused on clear sky summertime conditions. Clear sky conditions were chosen because the local-cooling effects of GBI are most notable during warm, clear-sky, summer conditions. We tested the model's ability to simulate \glssymbol{Tsf} for each land cover type that can be prescribed in \glssymbol{Toolkit2} (i.e. dry grass, asphalt etc.), using ground-based observations of \glssymbol{Tsf} (Section \ref{sec:landcoversim}). These simulations by land cover type, provide a detailed assessment of model parameters, and the underlying energy balance dynamics and resulting \glssymbol{Tsf} for each land cover class. Secondly we conducted suburb scale simulations of Mawson Lakes, Adelaide, for which we have high resolution remotely sensed \glssymbol{Tsf} observations and in situ \glssymbol{Tac} data (Section \ref{sec:suburbsim}).  The suburb scale simulations reflect the way the model is intended to be used by practitioners.
+As part of the model evaluation, we conducted a range of simulations that test model performance for both $T_{surf}$ and $T_{ac}$. These validation experiments are focused on clear sky summertime conditions. Clear sky conditions were chosen because the local-cooling effects of GBI are most notable during warm, clear-sky, summer conditions. We tested the model's ability to simulate $T_{surf}$ for each land cover type that can be prescribed in TARGET (i.e. dry grass, asphalt etc.), using ground-based observations of $T_{surf}$ (Section \ref{sec:landcoversim}). These simulations by land cover type, provide a detailed assessment of model parameters, and the underlying energy balance dynamics and resulting $T_{surf}$ for each land cover class. Secondly we conducted suburb scale simulations of Mawson Lakes, Adelaide, for which we have high resolution remotely sensed $T_{surf}$ observations and in situ $T_{ac}$ data (Section \ref{sec:suburbsim}).  The suburb scale simulations reflect the way the model is intended to be used by practitioners.
 
 
 
 \subsection{Land cover simulations}\label{sec:landcoversim} 
 
-To test model performance at simulating \glssymbol{Tsf} of different land cover classes and perform sensitivity analysis on a number of model parameters, we used ground-based observations of \glssymbol{Tsf} from the Melbourne metropolitan area. \cite{Coutts2016a} deployed infrared temperature sensors (SI-121 - Apogee), during February 2012, across a range of land cover types including: asphalt, concrete, grass, irrigated grass, steel roof, and water. The conditions during this period represented near-typical summertime conditions in Melbourne; including a number of days (15th, 24th, and 25th February) where air temperature exceeded 30 \degreeC (see Figure \ref{fig:met}). These hotter days were characterised by northerly winds, which bring hot and dry air from Australia's interior, and often result in heatwave conditions in Melbourne. Additionally, there was at least one cloudy day where incoming shortwave radiation (\glssymbol{kdown}) dropped significantly and negligible amount of rainfall occurred (17th February). 
+To test model performance at simulating $T_{surf}$ of different land cover classes and perform sensitivity analysis on a number of model parameters, we used ground-based observations of $T_{surf}$ from the Melbourne metropolitan area. \cite{Coutts2016a} deployed infrared temperature sensors (SI-121 - Apogee), during February 2012, across a range of land cover types including: asphalt, concrete, grass, irrigated grass, steel roof, and water. The conditions during this period represented near-typical summertime conditions in Melbourne; including a number of days (15th, 24th, and 25th February) where air temperature exceeded 30 \degree C (see Figure \ref{fig:met}). These hotter days were characterised by northerly winds, which bring hot and dry air from Australia's interior, and often result in heatwave conditions in Melbourne. Additionally, there was at least one cloudy day where incoming shortwave radiation (\ensuremath{K\downarrow}) dropped significantly and negligible amount of rainfall occurred (17th February). 
 
 
 
 
 \subsection{Suburb scale simulations (Mawson Lakes)}\label{sec:suburbsim} 
  
-In addition to the land cover category testing, we also conducted suburb scale simulations of \glssymbol{Tsf} and \glssymbol{Tac} for Mawson Lakes, Adelaide (Figure \ref{fig:mawson}). The suburb scale simulations used observational data from the Mawson Lakes field campaign, conducted 13-18th February 2011, which represented average summertime conditions in Adelaide \citep{Broadbent2017}. For these simulations, the model was run on a 30 m grid over the Mawson Lakes suburb for the period 13th--18th February (Figure \ref{fig:met3}).  Remotely sensed land cover data from the campaign were used to define land cover, and building morphology was defined using LiDAR data (see \cite{Broadbent2017}). The Mawson Lakes simulations used the same parameter setup as above (summarised in Table \ref{tab:Parameter}), and were forced with meteorological data from the Kent Town Bureau of Meteorology (ID 023090) weather station. Modelled \glssymbol{Tsf} was validated using observed remotely sensed \glssymbol{Tsf} (night - 15th February and day - 16th February), which was resampled to 30 m resolution \citep{Broadbent2017}. To validate \glssymbol{Tac}, we use data from 27 automatic weather station (AWS) that were also deployed during the Mawson Lakes field campaign (see Figure \ref{fig:mawson} for AWS locations). 
+In addition to the land cover category testing, we also conducted suburb scale simulations of $T_{surf}$ and $T_{ac}$ for Mawson Lakes, Adelaide (Figure \ref{fig:mawson}). The suburb scale simulations used observational data from the Mawson Lakes field campaign, conducted 13-18th February 2011, which represented average summertime conditions in Adelaide \citep{Broadbent2017}. For these simulations, the model was run on a 30 m grid over the Mawson Lakes suburb for the period 13th--18th February (Figure \ref{fig:met3}).  Remotely sensed land cover data from the campaign were used to define land cover, and building morphology was defined using LiDAR data (see \cite{Broadbent2017}). The Mawson Lakes simulations used the same parameter setup as above (summarised in Table \ref{tab:Parameter}), and were forced with meteorological data from the Kent Town Bureau of Meteorology (ID 023090) weather station. Modelled $T_{surf}$ was validated using observed remotely sensed $T_{surf}$ (night - 15th February and day - 16th February), which was resampled to 30 m resolution \citep{Broadbent2017}. To validate $T_{ac}$, we use data from 27 automatic weather station (AWS) that were also deployed during the Mawson Lakes field campaign (see Figure \ref{fig:mawson} for AWS locations). 
  
 
 
 \begin{figure}[!htbp]
 \begin{center}
 \includegraphics[width=\textwidth]{figure3.jpg}
- \caption{Mawson Lakes suburb with weather station locations. The numbers indicate individual weather stations while the color coding specifies groups of sites with statistically similar thermal characteristics.  The  names of each cluster indicate the average land surface characteristics: urban sites with nearby water (\TAone), mixed land-use with nearby water (\TAtwo), urban mid-rise type sites (\TAthree), urban residential sites (\TAfour), natural grass dominated sites (\TAfive), and a single outlier site (\TAsix)  \citep{Broadbent2017}.} \label{fig:mawson}
+ \caption{Mawson Lakes suburb with weather station locations. The numbers indicate individual weather stations while the color coding specifies groups of sites with statistically similar thermal characteristics.  The  names of each cluster indicate the average land surface characteristics: urban sites with nearby water ({TA-1\textsubscript{[Urb+Wtr]}}), mixed land-use with nearby water ({TA-2\textsubscript{[Mxd+Wtr]}}), urban mid-rise type sites ({TA-3\textsubscript{[Urb+Mid]}}), urban residential sites ({TA-4\textsubscript{[Urb+Res]}}), natural grass dominated sites ({TA-5\textsubscript{[Nat+Grs]}}), and a single outlier site (TA-6\textsubscript{[outlier]})  \citep{Broadbent2017}.} \label{fig:mawson}
 \end{center} 
 \end{figure}
 
@@ -677,12 +414,11 @@ In addition to the land cover category testing, we also conducted suburb scale s
 \subsection{Land cover simulations}\label{sec:landcoverresult} 
 
 
-The surface temperature for each land cover class was simulated for a 14 day period during February 2012. The results show that modelled surface temperature for all 3 impervious surfaces (concrete, asphalt, and roof) were reasonably well predicted with mean bias errors (MBE) of 0.88, -0.22, and -1.16 \degreeC, respectively (Figure \ref{fig:Tsurf_panel}a--f). The root mean square error (RMSE) values for impervious surfaces were around 3.5--4 \degreeC. These RMSE values represent about 15\% of diurnal \glssymbol{Tsf} variation, which implies good model skill given the simplicity of the approach.  
+The surface temperature for each land cover class was simulated for a 14 day period during February 2012. The results show that modelled surface temperature for all 3 impervious surfaces (concrete, asphalt, and roof) were reasonably well predicted with mean bias errors (MBE) of 0.88, -0.22, and -1.16 \degree C, respectively (Figure \ref{fig:Tsurf_panel}a--f). The root mean square error (RMSE) values for impervious surfaces were around 3.5--4 \degree C. These RMSE values represent about 15\% of diurnal $T_{surf}$ variation, which implies good model skill given the simplicity of the approach.  
 
 
-%Roof and concrete \glssymbol{Tsf} was generally slightly over-predicted at night (lower \glssymbol{Tsf}) and under-predicted at the daily maximanigh (higher \glssymbol{Tsf}); these patterns are commonly observed in other land surface models.  For asphalt, \glssymbol{Tsf} was generally over-predicted at all temperatures.
 
-The night of the 16 February was not well captured at the concrete and asphalt sites. The $T_{surf,conc}$ and $T_{surf,asph}$ were under-predicted (up to 5\degreeC cooler than observations) on the night of 16 February, which may have been caused by warm air advection. The \glssymbol{Toolkit2} approach  cannot account for the effects of warm air advection on surface temperature, as there is not feedback between \glssymbol{Tac} and \glssymbol{Tsf}.  Despite this limitation, the broad timing and magnitude of heating and cooling was well captured for all three impervious land cover types. 
+The night of the 16 February was not well captured at the concrete and asphalt sites. The $T_{surf,conc}$ and $T_{surf,asph}$ were under-predicted (up to 5\degree C cooler than observations) on the night of 16 February, which may have been caused by warm air advection. The TARGET approach  cannot account for the effects of warm air advection on surface temperature, as there is not feedback between $T_{ac}$ and $T_{surf}$.  Despite this limitation, the broad timing and magnitude of heating and cooling was well captured for all three impervious land cover types. 
 
 
 \begin{sidewaysfigure}
@@ -692,56 +428,16 @@ The night of the 16 February was not well captured at the concrete and asphalt s
 \end{sidewaysfigure}
 
 
-%\begin{figure}[!htbp]
-%%\fbox{
-%\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.80]{images/roof_Tsurf_new.png}
-%}
-% \caption{Observed vs Modelled \glssymbol{Tsf} for rooftop site.} \label{fig:roofobs}
-%\end{figure}
 
 
-%\begin{figure}[!htbp]
-%\fbox{
-%\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.80]{images/asphalt_conc_Tsurf.png}
-%}
-% \caption{Observed vs Modelled \glssymbol{Tsf} for concrete and asphalt sites.} \label{fig:concreteobs}
-%\end{figure}
-
-Model performance for  $T_{surf,watr}$ had a low MBE of 0.91\degreeC but the $r^{2}$ value of 0.76 suggests the model captured diurnal $T_{surf,watr}$  variation less accurately than other surfaces (Figure \ref{fig:Tsurf_panel}g--h). In particular, daily maximum $T_{surf,watr}$ were under-predicted on hotter days (e.g. 14th February). \glssymbol{Toolkit2} uses a different module for water bodies (see Section \ref{sec:simplewater}). This simple module treats water as a single layer overlying soil. 
-%It may be that a multi-layer water body model is needed to more accurately capture water \glssymbol{Tsf} on hot days.  
+Model performance for  $T_{surf,watr}$ had a low MBE of 0.91\degree C but the $r^{2}$ value of 0.76 suggests the model captured diurnal $T_{surf,watr}$  variation less accurately than other surfaces (Figure \ref{fig:Tsurf_panel}g--h). In particular, daily maximum $T_{surf,watr}$ were under-predicted on hotter days (e.g. 14th February). TARGET uses a different module for water bodies (see Section \ref{sec:simplewater}). This simple module treats water as a single layer overlying soil. 
+  
 Despite the under-prediction on 14 February, the simple water body model can reproduce  $T_{surf,watr}$ to an acceptable standard. 
 
-Modelled $T_{surf,irgs}$ had a MBE (-1.56\degreeC) comparable to that of impervious surfaces (Figure \ref{fig:Tsurf_panel}i--j). However, the RMSE for irrigated grass (3.69\degreeC) represents approximately 20\% of diurnal $T_{surf,igrs}$ variation, suggesting model error is slightly higher than for the impervious surfaces. Generally  $T_{surf,igrs}$ was slightly over-predicted at night  and under-predicted at the daily maxima. This skewing of the scatter plot suggests that thermal interia is too high in the model. Overall, the model was skillful enough to capture the timing and amplitude of  $T_{surf,igrs}$. 
+Modelled $T_{surf,irgs}$ had a MBE (-1.56\degree C) comparable to that of impervious surfaces (Figure \ref{fig:Tsurf_panel}i--j). However, the RMSE for irrigated grass (3.69\degree C) represents approximately 20\% of diurnal $T_{surf,igrs}$ variation, suggesting model error is slightly higher than for the impervious surfaces. Generally  $T_{surf,igrs}$ was slightly over-predicted at night  and under-predicted at the daily maxima. This skewing of the scatter plot suggests that thermal interia is too high in the model. Overall, the model was skillful enough to capture the timing and amplitude of  $T_{surf,igrs}$. 
 
-Dry grass had a small MBE error (0.06 \degreeC), but the largest RMSE of the surfaces tested (4.38 \degreeC). However, this RMSE only equated to approximately 10--15\% of diurnal $T_{surf,gras}$ variability (Figure \ref{fig:Tsurf_panel}k--l) as dry grass had the largest amplitude of surface temperature variability. Dry grass exhibited the same skewing in the scatterplot as irrigated grass, with a general over-prediction of night-time temperatures and under-prediction of daytime maxima. 
+Dry grass had a small MBE error (0.06 \degree C), but the largest RMSE of the surfaces tested (4.38 \degree C). However, this RMSE only equated to approximately 10--15\% of diurnal $T_{surf,gras}$ variability (Figure \ref{fig:Tsurf_panel}k--l) as dry grass had the largest amplitude of surface temperature variability. Dry grass exhibited the same skewing in the scatterplot as irrigated grass, with a general over-prediction of night-time temperatures and under-prediction of daytime maxima. 
 
-
-
-%\begin{figure}[!htbp]
-%\fbox{
-%\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.80]{images/irr_dry_grass_Tsurf.png}
-%}
-% \caption{Observed vs Modelled \glssymbol{Tsf} for irrigated and dry grass sites.} %\label{fig:irrgrassobs}
-%\end{figure}
-
- 
-
-
-
-%Model performance for water \glssymbol{Tsf} had a low RMSE of 2.31\degreeC, but the $r^{2}$ value of 0.76 suggests \glssymbol{Tsf} was predicted less accurately than other surfaces (Figure \ref{fig:Tsurf_panel}g--h). In particular, daily maxima were under-predicted on hotter days (e.g. 14th February). \glssymbol{Toolkit2} uses a different module for water bodies (see section \ref{sec:simplewater}). This simple module treats water as a single layer (with depth z) overlying soil. 
-%It may be that a multi-layer water body model is needed to more accurately capture water \glssymbol{Tsf} on hot days.  
-%Despite the under-prediction on 14 February, the simple water body model can reproduce water \glssymbol{Tsf} to an acceptable standard. 
-
-
-
-
-
-%\begin{figure}[!htbp]
-%\fbox{
-%\includegraphics[trim=0mm 0mm 0mm 0mm, clip,scale=0.80]{images/water_Tsurf_new.png}
-%}
-% \caption{Observed vs Modelled \glssymbol{Tsf} for water site.} \label{fig:waterobs}
-%\end{figure}
 
 
 
@@ -751,14 +447,14 @@ Dry grass had a small MBE error (0.06 \degreeC), but the largest RMSE of the sur
 
 
 
-In addition to the land cover simulations we conducted suburb scale modelling of the Mawson Lakes suburb. These simulations reveal how the \glssymbol{Toolkit2} model can be operationalised by practitioners who want to assess the cooling benefits of blue infrastructure or greening initiatives. Suburb scale simulations were conducted using the same parameters as above (Table \ref{tab:Parameter}). Figure \ref{fig:MawsonBase} shows the predicted \glssymbol{Tsf} (30 m average) for the Mawson Lakes domain plotted against observed \glssymbol{Tsf} (30m). The Mawson Lakes simulations revealed the initial conditions of the \glssymbol{Tm} parameter (which represents the average temperature in the ground layer) are  important for good model performance. A spin-up period (1 month) had to be used to obtain initial \glssymbol{Tm} values for each surface type. This can be quickly and easily achieved by running the force-restore module for a single point for each surface type. A future version of the model will automatically spin-up intial \glssymbol{Tm} values. The model output also shows that some of input land cover is poorly categorised, resulting in population of grid points where modelled \glssymbol{Tsf} is  over-predicted. Additionally, errors in the observed \glssymbol{Tsf} caused by heterogeneity of roof emissivity,  also contribute to apparent inaccuracies of modelled \glssymbol{Tsf}. In general, the daytime \glssymbol{Tsf} was slightly over-predicted and the complexity of spatial variability was not fully captured. However, this is a positive result given only 8 land cover classes are represented in the model. Overall, the daytime \glssymbol{Tsf} was well predicted with the range and magnitude of \glssymbol{Tsf} captured by the model. 
+In addition to the land cover simulations we conducted suburb scale modelling of the Mawson Lakes suburb. These simulations reveal how the TARGET model can be operationalised by practitioners who want to assess the cooling benefits of blue infrastructure or greening initiatives. Suburb scale simulations were conducted using the same parameters as above (Table \ref{tab:Parameter}). Figure \ref{fig:MawsonBase} shows the predicted $T_{surf}$ (30 m average) for the Mawson Lakes domain plotted against observed $T_{surf}$ (30m). The Mawson Lakes simulations revealed the initial conditions of the \ensuremath{T_{m}} parameter (which represents the average temperature in the ground layer) are  important for good model performance. A spin-up period (1 month) had to be used to obtain initial \ensuremath{T_{m}} values for each surface type. This can be quickly and easily achieved by running the force-restore module for a single point for each surface type. A future version of the model will automatically spin-up intial \ensuremath{T_{m}} values. The model output also shows that some of input land cover is poorly categorised, resulting in population of grid points where modelled $T_{surf}$ is  over-predicted. Additionally, errors in the observed $T_{surf}$ caused by heterogeneity of roof emissivity,  also contribute to apparent inaccuracies of modelled $T_{surf}$. In general, the daytime $T_{surf}$ was slightly over-predicted and the complexity of spatial variability was not fully captured. However, this is a positive result given only 8 land cover classes are represented in the model. Overall, the daytime $T_{surf}$ was well predicted with the range and magnitude of $T_{surf}$ captured by the model. 
 
-The results suggest that night-time \glssymbol{Tsf} was under-predicted by model. The range of modelled nocturnal \glssymbol{Tsf} variability (c. 8 \degreeC) was much smaller than observed variability (c. 18\degreeC). This under-prediction of variability could reflect the fact that some processes that dictate the rate of nocturnal cooling are not fully accounted for in this approach. Nevertheless, the general spatial patterns of \glssymbol{Tsf} are captured well. Further, given that the  range of \glssymbol{Tsf} is smaller at night, this under-prediction is of minimal consequence for modelled \glssymbol{Tac}. The nocturnal \glssymbol{Tsf} of impervious surfaces was also under-predicted in the land cover simulations (i.e. Section \ref{sec:landcoverresult}) under warm advection conditions. Although warm advection conditions were not observed during the Mawson Lakes campaign, it is worthwhile further investigating this phenomenon, in future work, to negate its effect and improve nocturnal \glssymbol{Tsf} accuracy. 
+The results suggest that night-time $T_{surf}$ was under-predicted by model. The range of modelled nocturnal $T_{surf}$ variability (c. 8 \degree C) was much smaller than observed variability (c. 18\degree C). This under-prediction of variability could reflect the fact that some processes that dictate the rate of nocturnal cooling are not fully accounted for in this approach. Nevertheless, the general spatial patterns of $T_{surf}$ are captured well. Further, given that the  range of $T_{surf}$ is smaller at night, this under-prediction is of minimal consequence for modelled $T_{ac}$. The nocturnal $T_{surf}$ of impervious surfaces was also under-predicted in the land cover simulations (i.e. Section \ref{sec:landcoverresult}) under warm advection conditions. Although warm advection conditions were not observed during the Mawson Lakes campaign, it is worthwhile further investigating this phenomenon, in future work, to negate its effect and improve nocturnal $T_{surf}$ accuracy. 
 
 
 \begin{sidewaysfigure}[]
 \includegraphics[width=1\textwidth]{figure5.png}
- \caption{Mawson Lakes  observed (a \& d) \glssymbol{Tsf} and modelled (b \& e) \glssymbol{Tsf} for day (TOP) and night (BOTTOM). Areas where land cover is categorized as `other' were not simulated. Note: \glssymbol{Tsf} here does not include $T_{surf,wall}$ for comparison with horizontally averaged aerial imagery observations.} \label{fig:MawsonBase}
+ \caption{Mawson Lakes  observed (a \& d) $T_{surf}$ and modelled (b \& e) $T_{surf}$ for day (TOP) and night (BOTTOM). Areas where land cover is categorized as `other' were not simulated. Note: $T_{surf}$ here does not include $T_{surf,wall}$ for comparison with horizontally averaged aerial imagery observations.} \label{fig:MawsonBase}
 \end{sidewaysfigure}
 
  
@@ -767,25 +463,22 @@ The results suggest that night-time \glssymbol{Tsf} was under-predicted by model
 \subsubsection*{Air temperature}\label{sec:airtempresult} 
 
 
-Spatial plots of modelled 3am and 3pm \glssymbol{Tac} are shown in Figure \ref{fig:MawsonModelledTas}. The lack of advection representation in the \glssymbol{Toolkit2}  means no horizontal mixing of heat, which exaggerates the spatial variability of simulated \glssymbol{Tac}. However, the general patterns of \glssymbol{Tac} are reasonable and as expected. We also extracted modelled \glssymbol{Tac} from the grid points where the 27 AWS were located (grid points were centred at the AWS) for a 2 day period (15-16th February 2011) (Figure \ref{fig:MawsonModObs}). The \glssymbol{Tac} was generally well predicted (Figure \ref{fig:MawsonModObs}), with a RMSE of 2.0 \degreeC. These results are about the same accuracy as simulations, from the same site, conducted using a more sophisticated and computationally expensive urban climate model called SURFEX \citep{Broadbent}.   Although a simple model, TARGET appears as accurate as more complex models. Additionally, TARGET does not require the user to provide  above canyon forcing data (e.g. \glssymbol{Tb}), which is needed for other  models and is  not easily obtained.  \glssymbol{Toolkit2}  tended  to over-predict average \glssymbol{Tac} at all urban sites (Figure \ref{fig:MawsonBox}).  Residential sites (\TAfourS cluster [red]) were  too warm during the day. This over-prediction is likely due to the uniform wall and roof thermal parameters used, which are not representative of residential areas. By contrast, the \TAfiveS cluster is too cool at night. The model predicts the formation of a stable layer with cool air trapped near the surface. Overall, the diurnal range and average \glssymbol{Tac} are well captured by the model. 
+Spatial plots of modelled 3am and 3pm $T_{ac}$ are shown in Figure \ref{fig:MawsonModelledTas}. The lack of advection representation in the TARGET  means no horizontal mixing of heat, which exaggerates the spatial variability of simulated $T_{ac}$. However, the general patterns of $T_{ac}$ are reasonable and as expected. We also extracted modelled $T_{ac}$ from the grid points where the 27 AWS were located (grid points were centred at the AWS) for a 2 day period (15-16th February 2011) (Figure \ref{fig:MawsonModObs}). The $T_{ac}$ was generally well predicted (Figure \ref{fig:MawsonModObs}), with a RMSE of 2.0 \degree C. These results are about the same accuracy as simulations, from the same site, conducted using a more sophisticated and computationally expensive urban climate model called SURFEX \citep{Broadbent}.   Although a simple model, TARGET appears as accurate as more complex models. Additionally, TARGET does not require the user to provide  above canyon forcing data (e.g. \ensuremath{T_{b}}), which is needed for other  models and is  not easily obtained.  TARGET  tended  to over-predict average $T_{ac}$ at all urban sites (Figure \ref{fig:MawsonBox}).  Residential sites ({TA-4\textsubscript{[Urb+Res]} } cluster [red]) were  too warm during the day. This over-prediction is likely due to the uniform wall and roof thermal parameters used, which are not representative of residential areas. By contrast, the {TA-5\textsubscript{[Nat+Grs]} } cluster is too cool at night. The model predicts the formation of a stable layer with cool air trapped near the surface. Overall, the diurnal range and average $T_{ac}$ are well captured by the model. 
 
-Finally, there is some hysteresis in Figure \ref{fig:MawsonModelledTas}, indicating that modelled \glssymbol{Tac} is slightly out-of-sync with observed \glssymbol{Tac}. This could be due to the approach used to  diagnose \glssymbol{Tb}, which assumes a constant \glssymbol{Ri} in the surface layer, and therefore heats up too quickly during the morning. Improvement in the \glssymbol{Tb}  term is  an area for future model development. However, we believe it is important to calculate \glssymbol{Tb}, as this makes the model much more accessible to non-expert users. Given the simplicity and computational efficiency of the model approaches used, \glssymbol{Toolkit2} shows good skill for predicting urban \glssymbol{Tac}.Overall, the air temperature evaluation shows we can have confidence in the accuracy of the model and its potential for application by practitioners. 
+Finally, there is some hysteresis in Figure \ref{fig:MawsonModelledTas}, indicating that modelled $T_{ac}$ is slightly out-of-sync with observed $T_{ac}$. This could be due to the approach used to  diagnose \ensuremath{T_{b}}, which assumes a constant \ensuremath{Ri} in the surface layer, and therefore heats up too quickly during the morning. Improvement in the \ensuremath{T_{b}}  term is  an area for future model development. However, we believe it is important to calculate \ensuremath{T_{b}}, as this makes the model much more accessible to non-expert users. Given the simplicity and computational efficiency of the model approaches used, TARGET shows good skill for predicting urban $T_{ac}$.Overall, the air temperature evaluation shows we can have confidence in the accuracy of the model and its potential for application by practitioners. 
 
 
-%Additionally, the model does not account for changes in atmospheric stability, which can significantly influence exchanges of heat between the atmosphere and the UCL, especially at night. Representation of the effects of atmospheric stability  and horizontal advection are key areas for exploration for future development in \glssymbol{Toolkit2}, while balancing model complexity and accuracy.
-%key areas for exploration for future development.
 
 
 \begin{figure}[!htbp]
 
 \begin{center}
-%\textbf{{\Large DAY (3 pm 16 Feb)}} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-%\textbf{{\Large NIGHT (3 am 15 Feb)}}
+
 \end{center}
-%\fbox{
+
 \includegraphics[width=1\textwidth,keepaspectratio]{figure6.png}
-%}
- \caption{Spatial map of modelled \glssymbol{Tac} (30 m) for (a) day (3 pm) and (b) night (3 am) in Mawson Lakes domain. Points with $F_{roof} > 0.75$ are excluded. } \label{fig:MawsonModelledTas}
+
+ \caption{Spatial map of modelled $T_{ac}$ (30 m) for (a) day (3 pm) and (b) night (3 am) in Mawson Lakes domain. Points with $F_{roof} > 0.75$ are excluded. } \label{fig:MawsonModelledTas}
 \end{figure}
 
 
@@ -795,18 +488,18 @@ Finally, there is some hysteresis in Figure \ref{fig:MawsonModelledTas}, indicat
 \begin{figure}[!htbp]
 \begin{center}
 
-%\fbox{
+
 \includegraphics[width=0.75\textwidth,keepaspectratio]{figure7.png}
-%}
- \caption{Modelled \glssymbol{Tac} vs observed \glssymbol{Tac} for Mawson Lakes weather stations (15--16th February 2011, 30 minute data). The  numbers and colors correspond to individual stations and clusters shown in Figure \ref{fig:mawson}. } \label{fig:MawsonModObs}
+
+ \caption{Modelled $T_{ac}$ vs observed $T_{ac}$ for Mawson Lakes weather stations (15--16th February 2011, 30 minute data). The  numbers and colors correspond to individual stations and clusters shown in Figure \ref{fig:mawson}. } \label{fig:MawsonModObs}
 \end{center}
 \end{figure}
 
 \begin{figure}[!htbp]
-%\fbox{
+
 \includegraphics[width=1.0\textwidth,keepaspectratio]{figure8.png}
-%}
- \caption{Boxplot of modelled \glssymbol{Tac} (grey) vs observed \glssymbol{Tac} (black) for Mawson Lakes with average, min, and max \glssymbol{Tac} shown. Boxplots were generated from 30 minute data from period 15--16th February 2011.  The  numbers and colors (x-axis) correspond to individual stations and clusters in Figure \ref{fig:mawson}.} \label{fig:MawsonBox}
+
+ \caption{Boxplot of modelled $T_{ac}$ (grey) vs observed $T_{ac}$ (black) for Mawson Lakes with average, min, and max $T_{ac}$ shown. Boxplots were generated from 30 minute data from period 15--16th February 2011.  The  numbers and colors (x-axis) correspond to individual stations and clusters in Figure \ref{fig:mawson}.} \label{fig:MawsonBox}
 
 
 \end{figure}
@@ -815,26 +508,26 @@ Finally, there is some hysteresis in Figure \ref{fig:MawsonModelledTas}, indicat
 
 To demonstrate how TARGET can be used by practitioners  to predict GBI cooling impacts, two simple heat mitigation scenarios are presented: (1) a doubling of existing tree cover (`2$\times$TREE') (Figure \ref{fig:tree_scen}) and (2) all dry grass is converted to irrigated grass (`IRRIGATION') (Figure \ref{fig:irr_scen}). The `2$\times$TREE' scenario assumes a maximum tree coverage of 75\%.   The results presented here represent the local spatial maximum cooling potential of GBI. In reality, the cooling local magnitude will be decreased by advection, which TARGET does not represent. 
 
-The 2$\times$TREE scenario  shows maximum cooling of  3.15 \degreeC during the day and smaller effect ($< 0.25$ \degreeC) at night (Figure \ref{fig:tree_scen}).  The IRRIGATION scenarios suggests that increasing irrigation can have a small warming effect ($< 0.75$ \degreeC) at night, and  cooling of up to  1.75 \degreeC at 3 pm (Figure \ref{fig:irr_scen}).  The amount of  land cover change differs in each scenario. As such, we calculate the cooling sensitivity $(\gamma)$ as:
+The 2$\times$TREE scenario  shows maximum cooling of  3.15 \degree C during the day and smaller effect ($< 0.25$ \degree C) at night (Figure \ref{fig:tree_scen}).  The IRRIGATION scenarios suggests that increasing irrigation can have a small warming effect ($< 0.75$ \degree C) at night, and  cooling of up to  1.75 \degree C at 3 pm (Figure \ref{fig:irr_scen}).  The amount of  land cover change differs in each scenario. As such, we calculate the cooling sensitivity $(\gamma)$ as:
 \begin{equation}
-\gamma = \big(\frac{\Delta \glssymbol{Tac}}{\Delta LC}\big)
+\gamma = \big(\frac{\Delta T_{ac}}{\Delta LC}\big)
 \end{equation}where $\Delta LC$ is the average land cover change (\%) (Table \ref{tab:cooling_scen}). Model results suggests that trees  are about 1.5 times more effective at providing cooling at 3 pm (Table \ref{tab:cooling_scen}). Over the course of a day, trees are predicted to be 4 times more effective at cooling than irrigation. The results for both heat mitigation simulations are  within the expected magnitudes based on previous heat mitigation modelling studies \citep{grossman2010,middel2015urban,daniel2016,Broadbent}. These simulations demonstrate that TARGET not only reproduces observations accurately, but can be used with confidence to efficiently assess the efficacy of heat mitigation measures.   
 
 \begin{table}
 \begin{center}
-\caption{Summary of domain average cooling impacts (\degreeC) for BGI heat mitigation scenarios.}
-\begin{adjustbox}{width=0.75\textwidth}
+\caption{Summary of domain average cooling impacts (\degree C) for BGI heat mitigation scenarios.}
+%\begin{adjustbox}{width=0.75\textwidth}
 \label{tab:cooling_scen}
 \begin{tabular}{l | c c | c c | c c}
 \hline
-Scenario & $\Delta \glssymbol{Tac}$ 3 am & $\gamma$ 3 am & $\Delta \glssymbol{Tac}$ 3 pm &  $\gamma$ 3 pm & $\Delta \glssymbol{Tac}$ daily  & $\gamma$ daily \\
+Scenario & $\Delta T_{ac}$ 3 am & $\gamma$ 3 am & $\Delta T_{ac}$ 3 pm &  $\gamma$ 3 pm & $\Delta T_{ac}$ daily  & $\gamma$ daily \\
 \hline
 2$\times$TREE & 0.00 & 0.000 & -0.58 & -0.036 & -0.24 & -0.018   \\
 IRRIGATION    & 0.41  & 0.015 & -0.71 & -0.025 & -0.07 & -0.003  \\
 \hline
 \end{tabular}
 
-\end{adjustbox}
+%\end{adjustbox}
 \end{center}
 \end{table}
 
@@ -843,16 +536,16 @@ IRRIGATION    & 0.41  & 0.015 & -0.71 & -0.025 & -0.07 & -0.003  \\
 %\fbox{
 \includegraphics[width=1.0\textwidth,keepaspectratio]{figure9.png}
 %}
- \caption{The $\Delta \glssymbol{Tac}$ (\degreeC) for 2$\times$TREE -- BASE at (a) 3 am and (b) 3 pm for Mawson Lakes domain.} \label{fig:tree_scen}
+ \caption{The $\Delta T_{ac}$ (\degree C) for 2$\times$TREE -- BASE at (a) 3 am and (b) 3 pm for Mawson Lakes domain.} \label{fig:tree_scen}
 
 
 \end{figure}
 
 \begin{figure}[!htbp]
-%\fbox{
+
 \includegraphics[width=1.0\textwidth,keepaspectratio]{figure10.png}
-%}
- \caption{The $\Delta \glssymbol{Tac}$ (\degreeC) for IRRIGATION -- BASE  at (a) 3 am and (b) 3 pm for Mawson Lakes domain.} \label{fig:irr_scen}
+
+ \caption{The $\Delta T_{ac}$ (\degree C) for IRRIGATION -- BASE  at (a) 3 am and (b) 3 pm for Mawson Lakes domain.} \label{fig:irr_scen}
 
 
 \end{figure}
@@ -861,69 +554,253 @@ IRRIGATION    & 0.41  & 0.015 & -0.71 & -0.025 & -0.07 & -0.003  \\
 
 \section{Limitations of the model}
 
-% we think that this model works well for it's purposes - balancing model performance and simplicity. 
-
-%If you are going to include a whole section about limitations (which is not a bad thing) is it not only fair that a similar amount of content be delivered on the model advantages...? Otherwise, what's the point. The advantages outweigh the limitations, and end users are crying out for a tool like this.
-
-%Could this section be "Advantages and limitation of the model"
-
-As discussed above, \glssymbol{Toolkit2} aims to be a simple and accessible urban climate model that provides scientifically defensible and accurate urban temperature predictions. To achieve simplicity the model necessarily makes some  assumptions and omissions that users should be aware of.   \glssymbol{Toolkit2} is primarily intended to model urban microclimate characteristics during clear sky conditions. The model does not simulate rainfall and therefore should not be used for periods containing significant precipitation. Further, the model can be used to simulate urban microclimate for days to weeks (i.e. a heatwave), but has not been tested or validated for longer scale simulations (i.e. months to years). 
-
-For computational efficiency, the model assumes no horizontal advection (inside or above) the UCL. In general, advection reduces the microscale impacts (i.e. cooling directly adjacent the cooling intervention) of GBI due to atmospheric mixing, and therefore we expect \glssymbol{Toolkit2} to provide estimates of near maximum microscale cooling benefits. In reality, microscale cooling effects will be diminished by advection, especially during the day and during high wind conditions.
-
-As mentioned, the force-restore method is used for roof and wall surfaces with an artificially reduced \glssymbol{kappa} value. Although this approach generally performed well, it is our intention to develop and integrate a more realistic formula for modelling roof and wall \glssymbol{DeltaS}. A conduction model, although more computationally expensive, would allow more flexibility as different types of roofs (which do vary significantly) could be represented. Furthermore, wall surfaces are treated the same as roofs in \glssymbol{Toolkit2}, which is unrealistic. Improved representation of walls and roofs are key areas for future model development.  
-%Additionally, not validation of \glssymbol{Tsf}$_{wall}$ was  conducted. A
 
 
-%Also absent from the model are realistic shading effects from trees, which are represented at ground-level. Surfaces beneath trees are effectively removed from the model as media that can store and exchange energy. Therefore, the surfaces beneath trees have no thermal mass. An improved method for representing tree shading is key feature to be added to \glssymbol{Toolkit2}. This is obviously of critical importance, particularly for human thermal comfort calculations.  
+As discussed above, TARGET aims to be a simple and accessible urban climate model that provides scientifically defensible and accurate urban temperature predictions. To achieve simplicity the model necessarily makes some  assumptions and omissions that users should be aware of.   TARGET is primarily intended to model urban microclimate characteristics during clear sky conditions. The model does not simulate rainfall and therefore should not be used for periods containing significant precipitation. Further, the model can be used to simulate urban microclimate for days to weeks (i.e. a heatwave), but has not been tested or validated for longer scale simulations (i.e. months to years). 
+
+For computational efficiency, the model assumes no horizontal advection (inside or above) the UCL. In general, advection reduces the microscale impacts (i.e. cooling directly adjacent the cooling intervention) of GBI due to atmospheric mixing, and therefore we expect TARGET to provide estimates of near maximum microscale cooling benefits. In reality, microscale cooling effects will be diminished by advection, especially during the day and during high wind conditions.
+
+As mentioned, the force-restore method is used for roof and wall surfaces with an artificially reduced \ensuremath{\kappa} value. Although this approach generally performed well, it is our intention to develop and integrate a more realistic formula for modelling roof and wall \ensuremath{Q_{G,i}}. A conduction model, although more computationally expensive, would allow more flexibility as different types of roofs (which do vary significantly) could be represented. Furthermore, wall surfaces are treated the same as roofs in TARGET, which is unrealistic. Improved representation of walls and roofs are key areas for future model development.  
+ 
 
 In addition, 
-%the model has no  representation of atmospheric stability on \glssymbol{Tac}. Although wind speed is used a proxy for atmospheric stability, the model is likely to preform poorly during highly stable atmospheric conditions. Although such stable conditions are rare in urban environments, this is a limitation of our modelling approach. Further to this, 
-the \glssymbol{DeltaS} (hence the heat transfer between the urban canopy  atmosphere, as the residual) is parametrized according to \glssymbol{Rn} and the building parameters. This means that the dependency on the other atmospheric conditions, such as air temperature, wind speed, and humidity, is neglected in \glssymbol{Toolkit2}. However, given that the OHM  (used to calculate \glssymbol{DeltaS}) was developed based on observational data collected during summertime clear sky conditions, we are confident that \glssymbol{Toolkit2} will provide reasonable results during summer. Ongoing testing is needed to ascertain the limitations of the use of the OHM in \glssymbol{Toolkit2}. 
+the \ensuremath{Q_{G,i}} (hence the heat transfer between the urban canopy  atmosphere, as the residual) is parametrized according to \ensuremath{R_{n}} and the building parameters. This means that the dependency on the other atmospheric conditions, such as air temperature, wind speed, and humidity, is neglected in TARGET. However, given that the OHM  (used to calculate \ensuremath{Q_{G,i}}) was developed based on observational data collected during summertime clear sky conditions, we are confident that TARGET will provide reasonable results during summer. Ongoing testing is needed to ascertain the limitations of the use of the OHM in TARGET. 
 
-A resistance formulation  is used to calculate the \glssymbol{H} over water bodies (eq. \ref{eq:hwtr}), whereas \glssymbol{H} for the non-water surfaces is calculated as a residual (and not temperature and wind-speed dependent). Although testing has not revealed any  unexpected behavior, these different model formulations may  lead to artificial non-physical discrepancies. Ongoing testing and improvement of the water body model is needed. Ideally, its formulation would more closely resemble the non-water surfaces. 
+A resistance formulation  is used to calculate the \ensuremath{Q_{H,i}} over water bodies (eq. \ref{eq:hwtr}), whereas \ensuremath{Q_{H,i}} for the non-water surfaces is calculated as a residual (and not temperature and wind-speed dependent). Although testing has not revealed any  unexpected behavior, these different model formulations may  lead to artificial non-physical discrepancies. Ongoing testing and improvement of the water body model is needed. Ideally, its formulation would more closely resemble the non-water surfaces. 
 
 \section{Conclusions and future work}\label{sec:conclusion}
 
-This paper has presented \glssymbol{Toolkit2}; a simple and user-friendly urban microclimate model that is designed to be accessible to urban planners and policy makers. The model contains a number of key limitations that are outlined above. However, despite these caveats, rigorous testing suggests \glssymbol{Toolkit2} shows excellent potential for modelling the cooling effects of GBI projects. We believe this novel model is well balanced between  complexity and accuracy. The computational efficiency of the model and the reduced amount of input data required ensures that non-skilled users could use the model to ascertain reliable urban cooling estimates. Ongoing work will be done to improve \glssymbol{Toolkit2}, including the creation of GUI, the addition of human thermal comfort indices, and the improvements to model physics outlined above. 
+This paper has presented TARGET; a simple and user-friendly urban microclimate model that is designed to be accessible to urban planners and policy makers. The model contains a number of key limitations that are outlined above. However, despite these caveats, rigorous testing suggests TARGET shows excellent potential for modelling the cooling effects of GBI projects. We believe this novel model is well balanced between  complexity and accuracy. The computational efficiency of the model and the reduced amount of input data required ensures that non-skilled users could use the model to ascertain reliable urban cooling estimates. Ongoing work will be done to improve TARGET, including the creation of GUI, the addition of human thermal comfort indices, and the improvements to model physics outlined above. 
 
 
-\printglossary[title={List of Symbols}]
+
+
+\section{List of Symbols}\label{sec:symbollist}   
+
+\input{TARGETdesignValidation_SymbolList}
 
 \section*{Acknowledgements}
 At Monash University, Ashley Broadbent was funded by the Cooperative Research Centre for Water Sensitive Cities, an Australian Government initiative. While at Arizona State University, Ashley Broadbent was supported by NSF Sustainability Research Network (SRN) Cooperative Agreement 1444758,  NSF grant EAR-1204774, and NSF SES-1520803. Matthias Demuzere and Hendrik Wouters funded by the Cooperative Research Centre for Water Sensitive Cities. The contribution of XXXXXXX XXXXXXXX was funded by the Flemish regional government through a contract as a FWO (Fund for Scientific Research) post-doctoral research fellow. E Scott Krayenhoff  was supported by NSF Sustainability Research Network (SRN) Cooperative Agreement 1444758 and NSF SES-1520803. 
-%\end{acknowledgements}
+
 
 \section*{References}\label{sec:ref}
-%% If you have bibdatabase file and want bibtex to generate the
-%% bibitems, please use
-%%
-  \bibliographystyle{elsarticle-harv} 
-  \bibliography{library.bib}
 
-%% else use the following coding to input the bibitems directly in the
-%% TeX file.
 
-%\begin{thebibliography}{00}
+  
 
-%% \bibitem[Author(year)]{label}
-%% Text of bibliographic item
+%% REFERENCES
 
-%\bibitem[ ()]{}
+%% The reference list is compiled as follows:
 
+%\begin{thebibliography}{}
+%
+%\bibitem[AUTHOR(YEAR)]{LABEL}
+%REFERENCE 1
+%
+%\bibitem[AUTHOR(YEAR)]{LABEL}
+%REFERENCE 2
+%
 %\end{thebibliography}
 
+%% Since the Copernicus LaTeX package includes the BibTeX style file copernicus.bst,
+%% authors experienced with BibTeX only have to include the following two lines:
+%%
+\bibliographystyle{copernicus}
+\bibliography{library}
+%%
+%% URLs and DOIs can be entered in your BibTeX file as:
+%%
+%% URL = {http://www.xyz.org/~jones/idx_g.htm}
+%% DOI = {10.5194/xyz}
 
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
+
+%% LITERATURE CITATIONS
+%%
+%% command                        & example result
+%% \citet{jones90}|               & Jones et al. (1990)
+%% \citep{jones90}|               & (Jones et al., 1990)
+%% \citep{jones90,jones93}|       & (Jones et al., 1990, 1993)
+%% \citep[p.~32]{jones90}|        & (Jones et al., 1990, p.~32)
+%% \citep[e.g.,][]{jones90}|      & (e.g., Jones et al., 1990)
+%% \citep[e.g.,][p.~32]{jones90}| & (e.g., Jones et al., 1990, p.~32)
+%% \citeauthor{jones90}|          & Jones et al.
+%% \citeyear{jones90}|            & 1990
+
+
+
+%% FIGURES
+
+%% ONE-COLUMN FIGURES
+
+%%f
+%\begin{figure}[t]
+%\includegraphics[width=8.3cm]{FILE NAME}
+%\caption{TEXT}
+%\end{figure}
+%
+%%% TWO-COLUMN FIGURES
+%
+%%f
+%\begin{figure*}[t]
+%\includegraphics[width=12cm]{FILE NAME}
+%\caption{TEXT}
+%\end{figure*}
+%
+%
+%%% TABLES
+%%%
+%%% The different columns must be seperated with a & command and should
+%%% end with \\ to identify the column brake.
+%
+%%% ONE-COLUMN TABLE
+%
+%%t
+%\begin{table}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{table}
+%
+%%% TWO-COLUMN TABLE
+%
+%%t
+%\begin{table*}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{table*}
+%
+%
+%%% NUMBERING OF FIGURES AND TABLES
+%%%
+%%% If figures and tables must be numbered 1a, 1b, etc. the following command
+%%% should be inserted before the begin{} command.
+%
+%\addtocounter{figure}{-1}\renewcommand{\thefigure}{\arabic{figure}a}
+%
+%
+%%% MATHEMATICAL EXPRESSIONS
+%
+%%% All papers typeset by Copernicus Publications follow the math typesetting regulations
+%%% given by the IUPAC Green Book (IUPAC: Quantities, Units and Symbols in Physical Chemistry,
+%%% 2nd Edn., Blackwell Science, available at: http://old.iupac.org/publications/books/gbook/green_book_2ed.pdf, 1993).
+%%%
+%%% Physical quantities/variables are typeset in italic font (t for time, T for Temperature)
+%%% Indices which are not defined are typeset in italic font (x, y, z, a, b, c)
+%%% Items/objects which are defined are typeset in roman font (Car A, Car B)
+%%% Descriptions/specifications which are defined by itself are typeset in roman font (abs, rel, ref, tot, net, ice)
+%%% Abbreviations from 2 letters are typeset in roman font (RH, LAI)
+%%% Vectors are identified in bold italic font using \vec{x}
+%%% Matrices are identified in bold roman font
+%%% Multiplication signs are typeset using the LaTeX commands \times (for vector products, grids, and exponential notations) or \cdot
+%%% The character * should not be applied as mutliplication sign
+%
+%
+%%% EQUATIONS
+%
+%%% Single-row equation
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%%% Multiline equation
+%
+%\begin{align}
+%& 3 + 5 = 8\\
+%& 3 + 5 = 8\\
+%& 3 + 5 = 8
+%\end{align}
+%
+%
+%%% MATRICES
+%
+%\begin{matrix}
+%x & y & z\\
+%x & y & z\\
+%x & y & z\\
+%\end{matrix}
+%
+%
+%%% ALGORITHM
+%
+%\begin{algorithm}
+%\caption{?}
+%\label{a1}
+%\begin{algorithmic}
+%?
+%\end{algorithmic}
+%\end{algorithm}
+%
+%
+%%% CHEMICAL FORMULAS AND REACTIONS
+%
+%%% For formulas embedded in the text, please use \chem{}
+%
+%%% The reaction environment creates labels including the letter R, i.e. (R1), (R2), etc.
+%
+%\begin{reaction}
+%%% \rightarrow should be used for normal (one-way) chemical reactions
+%%% \rightleftharpoons should be used for equilibria
+%%% \leftrightarrow should be used for resonance structures
+%\end{reaction}
+%
+%
+%%% PHYSICAL UNITS
+%%%
+%%% Please use \unit{} and apply the exponential notation
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
 \appendix
 \setcounter{table}{0}
 \renewcommand{\thetable}{A\arabic{table}}
 
-%\subsection{}                               %% Appendix A1, A2, etc.
-
-
-%%%%%%%%%% taking out parameterizations
 \section{}\label{sec:app}  
 
 \subsection{Meteorological conditions during validation periods}
@@ -931,165 +808,33 @@ At Monash University, Ashley Broadbent was funded by the Cooperative Research Ce
 As outlined in Section \ref{sec:validation} we conducted model validation experiments during two different periods. A summary of the meteorological conditions for  land cover [Melbourne] (Figure \ref{fig:met}) and suburb scale [Mawson Lakes] (Figure \ref{fig:met3}) simulations are provided below.
 
 \begin{figure}[!htbp]
-%\fbox{
+
 \includegraphics[width=1\textwidth,keepaspectratio]{figure11.png}
-%}
+
  \caption{Meteorological conditions during land cover validation period. Data source: Melbourne Airport Bureau of Meteorology (ID 086282) weather station.} \label{fig:met}
 \end{figure}
 
 \begin{figure}[!htbp]
-%\fbox{
+
 \includegraphics[width=1\textwidth,keepaspectratio]{figure12.png}
-%}
+
  \caption{Meteorological condition during the Mawson Lakes field campaign. Data source: Bureau of Meteorology Parafield Airport (ID: 023013) and Kent Town (ID: 94675) weather stations, Adelaide.} \label{fig:met3}
 \end{figure}
 
 
 \subsection{Tree surface temperature}\label{app:tree_surf}  
 
-To assess $T_{tree}$ we obtained observational data from a tree experiment conducted in Melbourne, which including \glssymbol{Tsf} observations of the tree canopy (collected during February 2014). We also obtained a BoM meteorological forcing data for the 2014 case study period.  This period (not shown) was very similar to the February 2012 period (Figure \ref{fig:met}) used above. The tree data confirms that \glssymbol{Ta} is excellent predictor or $T_{tree}$. 
+To assess $T_{tree}$ we obtained observational data from a tree experiment conducted in Melbourne, which including $T_{surf}$ observations of the tree canopy (collected during February 2014). We also obtained a BoM meteorological forcing data for the 2014 case study period.  This period (not shown) was very similar to the February 2012 period (Figure \ref{fig:met}) used above. The tree data confirms that \ensuremath{T_{a}} is excellent predictor or $T_{tree}$. 
 
 \begin{figure}
 \begin{center}
 \end{center}
 \includegraphics[width=1\textwidth,keepaspectratio]{figure13.png}
- \caption{Observed air temperature vs. observed tree \glssymbol{Tsf}.} \label{fig:TreeTsurfvsTair}
+ \caption{Observed air temperature vs. observed tree $T_{surf}$.} \label{fig:TreeTsurfvsTair}
 \end{figure}
-
-
-
-%\subsection{Additional data tables}\label{app:tables}  
-
-
-%\begin{table}[!htbp]
-%\caption{Previously quoted values for \glssymbol{pm}: range listed by \cite{Hanna1992} based on information presented by %\cite{Beljaars1991}.}  
-%\label{tab:surftype}
- % \begin{tabular}{   c  c } 
-%	\hline  \textbf{Surface type} & \textbf{pm}  \\ \hline
-%	Dry desert with no rain for months & 0.0 - 0.2   \\ 
-%	Arid rural area & 0.2 - 0.4    \\ 
-%	Crops and field, midsummer (minimal rain) & 0.4 - 0.6   \\ 
-%	Urban environment, some parks & 0.5 - 1.0   \\ 
-%	Crops, fields, or forest with sufficient soil moisture & 0.8 - 1.2  \\ 
-%	Large lake or ocean & 1.2 - 1.4  \\ \hline	
-%  \end{tabular} 
-%\end{table}
-
-
-%\begin{table}[!htbp]
-%\caption{Selected values of eddy diffusivity for shallow lakes (Salas de Leon et al., 2016).}  
-%\label{tab:eddydiff}
-%  \begin{tabular}{   c  c  c c} 
-%	\hline  \textbf{Location} & \textbf{z(m)} & \textbf{Kw(m$^{2}$ s$^{-1}$)} & \textbf{Source} \\ \hline
-%El Porcal, Spain & 6 & 13.0 $\times$ 10$^{-7}$ & \'{A}lvarez-Cobelas et al. (1986)  \\ 
-%Mendota, USA &12&1.4 $\times$ 10$^{-7}$&Dutton and Bryson (1962)\\ 
-%Linsley Pond, USA&6.5&3.3 $\times$ 10$^{-7}$&Hutchinson (1957)\\ 
-%Sodom, USA&7.6&7.0 $\times$ 10$^{-7}$&Hutchinson (1957)\\ \hline
-%\textbf{Average}&\textbf{8.0}&\textbf{6.18} $\times$ 10$^{-7}$&\\ \hline
-	
-%  \end{tabular} 
-%\end{table}
-
-
-
-
-%\subsection{Ancillary calculations}\label{app:calc}  
-
-%Wall area calcuation:
-%\begin{equation}
-%\label{eq:Awall}
-%A_{wall} = 2 \bigg(\frac{H}{W}\bigg) (1-A_{roof}) 
-%\end{equation}
- 
-
-
-%Calculation of saturation vapour pressure ($e_{s}$) (kPa) at the water surface:
-
-%\begin{equation} 
-%e_{s} = 0.611 \times e^{ \frac{17.27 \times T_{watr}}{237.3 + T_{watr}} }
-%\label{eq:satva} \end{equation}
-
-
-%Calculation of vapour pressure (kPa) of the air ($e_{a}$):
-
-%\begin{equation} 
-%e_{a} =0.611 \times e^{ \frac{17.27 \times T_{watr}}{237.3 + T_{watr}} } \times \frac{RH}{100}
-%\label{eq:xx} \end{equation}
-
-%Calculation of saturated specific humidity ($q_{s}$) (kg kg$^{-1}$) at the water surface, where $P$ is the pressure (101.3 kPa): 
-		
-%\begin{equation} 
-%q_{s} = 0.622 \times \frac{e_{s}}{P}
-%\label{eq:qs} \end{equation}		
-
-%Calculation of the specific humidity of air ($q_{a}$): 
-
-%\begin{equation} 
-%q_{a} = 0.622 \times \frac{e_{a}}{P}
-%\label{eq:qa} \end{equation}
-
-%Calculation of density of moist air (\glssymbol{rhov}) (kg m$^{-3}$):
-
-%\begin{equation} 
-%\glssymbol{rhov} = \frac{P \times 1000}{287.04 \times (T_{watr} + 273.15) \times (1 + 0.61 e_{s})}
-%\label{eq:rhov} \end{equation}
-
-%If \glssymbol{ldown} data are not available, \glssymbol{Toolkit2} contains a built-in function to model \glssymbol{ldown} using %\citep{Loridan2010}: 
-
-%\begin{equation} 
-%\glssymbol{ldown} = \epsilon_{clear} + \big[ 1 -\epsilon_{clear}  \big] \times F_{CLD} \times \sigma T^{4}_{a}
-%\label{eq:ldown} \end{equation} where $\epsilon_{clear}$ is the clear sky emissivity and $F_{CLD}$ is the cloud cover fraction at measurement time:
-
-%\begin{equation} 
-%F_{CLD} = A \times e^{B \times RH} ; A=0.185; B=0.015 + 1.9 \times 10^{-4}T_{a}
-%\label{eq:fcld} \end{equation}
-
-%\begin{equation} 
-%\epsilon_{clear} = 1-(1+w)e^{-\sqrt{1.2+3w}}
-%\label{eq:eclear} \end{equation} where $w = 4.65(\frac{e_{a} }{\glssymbol{Ta}})$
-%% % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-%
-%\begin{acknowledgements}
-%The work described in this paper was developed during a PhD. project at Monash University. Funding for this was obtailed through the City of Melbourne, Monash University, and the CRC for Water Sensitive Cities.  
-%\end{acknowledgements}
-
-%\begin{acknowledgements}
-%The support of the Commonwealth of Australia through the Cooperative Research Centre program is acknowledged.
-%\end{acknowledgements}
-
-%%%% \section{}
-%%%% \label{}
-%%\section{References}\label{sec:ref}
-%%%% If you have bibdatabase file and want bibtex to generate the
-%%%% bibitems, please use
-%%%%
-%%\bibliographystyle{elsarticle-harv} 
-%%  \bibliography{library}
-%%
-%%%% else use the following coding to input the bibitems directly in the
-%%%% TeX file.
-%%
-%%\begin{thebibliography}{00}
-%%
-%%%% \bibitem[Author(year)]{label}
-%%%% Text of bibliographic item
-%%
-%%\bibitem[ ()]{}
-%%
-%%\end{thebibliography}
-%%
-%%
-%%
-%%
-%%
 
 
 
 \end{document}
 
 \endinput
-%%
-%% End of file `elsarticle-template-harv.tex'.
